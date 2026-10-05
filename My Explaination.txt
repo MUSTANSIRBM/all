@@ -1,0 +1,367 @@
+iostream
+basic input and output library
+
+string
+imports the string in the code 	
+
+
+vectors
+these are basically the Dynamic arrays
+
+unordered-set
+it has 2 rules 
+1.values should be unique
+2.the order of entry does not matter
+
+
+queue
+this is for getting the priority queue
+
+algorithm
+used for fill and reverse
+
+chrono
+used for real time and it is used in the delta time
+
+climits
+used for the infinite INT_MAX
+for the neighbor vector in the A*! 
+
+
+
+Linked lists
+so LL is a collection of nodes which uses structure and it is of many types but top 4 are sll dll dcll scll
+Stacks 
+uses FILO(First in Last out) it have two major types (static and dynamic!)
+
+Queue
+uses FIFO(First in First out) its like real life queues where first person is served and last is last(static,dynamic circular[with rear = (rear+1)%capacity;] hehe)
+
+trees
+has many types (binary ,complete , skewed and more but three things are learned from this the three traversals (inorder preoder outorder))
+
+trie
+basic example is the google auto complete function in this we have a vector and that vector is of 26 elements(all alphabets) and now we insert a entry like CAT so the first element will be in the vector and init the tree will form and if two letters are repeated  of a spelling itll continue from that branch!
+
+Heaps
+has two main rules 
+1.should be a complete tree
+2.parent should always be greater than the child!
+now we insert a the root after that we enter second entry but now we will check with the while loop if its greater than the current root or not if yes we swap the elements 
+now later we check if the new elements are greater or less then the child's of root if yes we swap according to left or right branch.
+
+Graphs
+now in this ive learned BFS and DFS
+BFS is like its goes level by level like it'll check both left and right sides of the tree whereas the DFS goes deep in a side like left side itll go deep until it hits dead-end
+
+for DFS we'll need to use recursion and for BFS we dont need to use it
+
+Dijktra
+now this is the first greedy algorithm which is a bigger version of DFS 
+this algorithm basically checks all the paths to the desired target (it checks all the routes!) it is brain melting for a 2nd year BCA student because itll be like graphs but now we are in finding the paths!
+now this is bad compared to the A* because itll calculate all the routes and than return the cheapest one!  
+
+A* 
+now this is basically Dijkstra but with math formula f = g + h  f is the future cost and the g is the current cost and the h is out heuristic(Manhattan or Euclidean) now this contains 4D 8D Waypoint and NavMesh 
+now in the 4D we can move up down left right (4 Directional!) 
+in the 8D we move 4 ways plus the diagonal sides..
+now the waypoint is simply 8D with weights
+but the navmesh is completely different from all the 3
+
+note that the navmesh will only work in the graphs not the grids!
+the navmesh has Polygons
+now what is the Polygon? polygon in a 2D surface  with out any curved corner 
+now to make the navmesh we need structs with 5 elements 1.id 2.x 3.y 4.costs 5.neighbor 
+now we only change the generic A*  
+and add the polygon(structure) line with the neighbor...
+before that we the huristics and also i forgot to mention this in the A* but we use priority_queue
+now this has 3 rules 1.what type of data to save? 2.in what to save(array,vector etc) and 3.comparision here we do greater so that ill put the smallest on the top that's how the priority_queue works
+now start we push the starting most index in the pq and than 
+we start the loop and this loop will run till the pq is empty 
+and inside we visit all the neighbors of the starting and than we update there values because before the loop we had made neighbor and parent vector and set them to INT-MAX and -1 so now we update the values and than we calculate the heuristic and the F from the formula and then we push it in the pq....
+
+and now after all we do the reconstruction path with a vector and a for loop!
+thats all for the navMesh and A*
+
+
+Dynamic Obstacles
+now here we avoid,block =,unblock the polygons that acts as the obstacles (stones ,building ,trees and any other  structures)
+we try to block them here
+
+
+Path Smoothing
+this is here for the that smoothing the path of the ai and makes it move like realistic  and if we dont apply this the ai will move like robot!
+
+
+Funnel Algorithm
+
+this is the real deal why? because here we apply the 3D geometry vector math normalization and the cross product  and also normalize it and making  helping functions like cross2D isleftsight and for right that that checks if the next will be left or right with greater and less than 1 comparison and then the and the actual funnel algorithm that combines all the things here
+
+the game engines have this algo implemented and seniors dev dont touch this because of its complexity 
+now the funnel algo is responsible for the 3D movement of an entity in the game.
+
+
+FSM
+this is basically few states of which AI will do like patrol,idle,flee,attack,dead...
+this is the thinking process of the ai the brain of it!
+
+DeltaTime
+
+its basically for the frame time and for FPS!
+
+Steering Behaviors
+now this is where all the FSM A* AND ALL how because here we are making the actual movement pf the AI so we need speed length size and more and than we convert then in seek , arrive ,flee functions
+here the Flocking  (separation alignment and cohesion)  so basically we are in flock the separation gives some space to enemies to move and NOT on top of each-other 
+the alignment simply says that we should move together 
+the cohesion is there to move all
+
+flocking
+so basically the code of sep says that we(the group) should not collide with one another first we visit the neighbors and then we subtact the position and neighbor..
+now after that we find the length and then check if we are in the radius of that if yes we add  the scale's normalize multiplied with dist and 1.0f
+now after we just return it
+
+in the ali says that the group  should be aligned! not be individuals and move together!
+so we start visit and add instead of subtract! (avgvelocity,neighbor)
+and than we add and scale's normalized same as the sep function!
+
+now in the coh says that we should be together and but not as one!
+now in code its same like ali function!
+
+
+now the flocking in this we combine all the three functions 
+and we steer them adding ((sep*1.5f) + ((ali*1.0f)+(coh*1.0f)))
+so now we get the steer and we return it!
+
+Behavior trees
+now the code is using A* with navmesh with path smoothing ,obstacle avoidance ,AI state(finite state machine [FSM]) and optimization, funnel algorithm, 3D vectors and geometry and steering behaviors and now the Behaviour trees
+so we first we give forward declaration which says that there is a Enemy class ahead, now why we use this? because BTNode ,Selector and Sequence classes used Enemy pointers so if we dont mention this the complier will through error!
+
+BTNode: we used virtual keyword which makes the code runtime polymorphic and now we make function execute and pass Enemy pointer and set to 0 and than make destructor! because virtual is like New so we need to delete it! 
+
+
+now the selector class is like OR how?
+so first we inherit the BTNode class and than we make a pointer vector and name it children 
+now we make constructor and pass that BTNode pointer vector and address of node which will come from Enemy class and inside we simply add elements in the children
+now we make a destructor and user override because every function will have the execute function and we will need to clear the heap so that is the reason we use the override!
+now we make the BTNodeStatus returning function called execute and pass Enemy pointer as paremeter!
+and now we have to use override because the execute is a BTNode function! and itll be used many functions so just to make the current function code to GET INTO HERE we use it!
+now inside we visit all the elements of children and we check if they return SUCCESS OR RUNNING
+now HERE THE OR COMES!
+if any returns SUCCESS the code block will return SUCCESS! and if its running itll wait and check again in next frame
+sequence class works like AND !
+now the sequence class is same with the destructor and and private elements and also constructor and also we use override in the constructor 
+and in the execute function
+but here COMES THE AND PART!
+here we while checking every element of children vector we check if they return FAILURE OR RUNNING,
+if one returns FAILURE!
+the whole code block will return FAILURE and if its running itll wait and check again in next frame
+
+now we make the conditionNode class !
+in nutshell this class is for asking questions!
+we make member function which is Enemy::* condition that line simply says that bool (returns true or false) now Enemy::*condition is the Enemy pointer and says that itll access the functions of the Enemy class and condition is the name of pointer!
+now why use this? because if we dont we had to make a function for every function and that can get real ugly real quick!
+so to avoid we use this we make this line! and now we make constructor similar to others
+and we run the execute function with override but nothing inside yet!
+
+now the entire same is for the actionNode class
+but instead of asing questions we make the actual actions here!
+
+now in the Enemy class we pass BTNode pointer as root
+and in its contructor we make that root nullptr and pass buildtree function(Actual BTs function!)
+now that function is like this:
+we make new conditions like is dead lowhp etc...and using the new keyword we make new conditions and pass Enemy class function init!!!
+now after that  we also make new actions !
+now we use the sequence for checking
+and then we use selector and after all
+we pass seqDead, seqFlee, seqCombat, doPatrol in root and apply selector ! so the ai will do one thing from this!
+
+now the runBT function is simply saying that itll check if (root) first checks if its not null or null now inside it simply starts the engine of BT!
+
+now the funtions like doattck doflee ishealthlow isdead...
+they are simply checking and running the Enemy functions or checking few conditions!
+
+
+now after the entire Enemy class we make BTNodestatus condition::execute function
+that will check if condition is from the enemy is true or false using the ternary operators
+? : if true itll return SUCCESS if false itll return FAILURE
+
+now after this we make
+BTNodeStatus ActionNode::execute(Enemy* enemy) 
+in this we check that if it true or not
+and return SUCCESS
+
+Blackboard architecture
+
+the first thing after the value Enum class and the Enum class inside the struct we make a Discriminator
+Type type; and make union
+so that the struct/class does not allocate different memory to the its elements and simply allocate all the memory at ONCE!
+
+than we make many constructors that are for different types (INT ,FLOAT ,BOOL ETC )
+and then we also make a destructor
+now we do the famous RULE OF 5 of C++
+1.copy the constructor:
+why its needed ? Ans: because if we don't make it it'll shallow copy it works fine but for strings it'll copy its pointer instead of the value the danger if we don't make it is this it'll allocate original and copy to same memo address in the heap and if we destroy the copy the original can also be destroyed!
+
+2.
+copy the assignment operator 
+now here we use clear because if we don't we will have an orphan now what i mean ill explain 
+lets say there is a string ...and its stored in the variable A and there is a INT in the variable B now we say a = b; so here the copy will implement now if we didn't use the clear(); function what would happen is that the string value would become orphan and INT will overwritten by B's value...so prevent it we use clear();
+and the if state protect itself from self-assignment...
+if the check is not there it would destroy itself!
+
+3.
+moving the constructor it helps us stealing a memory pointer of a element
+why its used its because copying the string is slow so copying the pointer is smart and fast
+
+4.
+moving the assignment operator it does :
+1. it prevents self assignment
+2. frees existing dynamic memory on this via clear() function
+3. steals the pointer from other without allocating new memory
+
+
+now the rule of 5 finished!
+
+now in the private we make few simple yet powerful functions
+
+1.clear() this function deletes the strings from the heaps 
+2.copyfrom <- this function is powerful because its used in the rule of 5 above and inside this function we simply check what type of value on currently there (INT FLOAT etc) and we switch accordingly 
+3.movefrom <- also used in the rule of 5 this checks the type and moves it and also empties the temp container(assuming that the value was stored in temp memo location)
+
+now we make the blackboard class
+inside we first make the unordered_map that will store the key and value from above!
+now the rule of unordered map is simple
+1.inserting order does not matter
+2.should have unique keys
+its like hash tables
+
+and now we make a template
+what is template? so basically at runtime the template will be that value(INT , FLOAT etc!) 
+then we make a function with returning type T which is template.
+set function
+this function just sets the key value from the unordered_map and the blackboardkeys/values
+
+get function
+at first we create a templete and than we go through all the keys
+and now different checking functions are written that checks what type of data is currently stored like INT FLOAT BOOL ETC...
+here in the if stats we have used the is_same_v that is used to check if both T and the corresponding value is of same type of not...
+also we have used it->second.type is used init is stored the current's second value of unordered_map  
+
+has function: checks and returns if the value is present or not
+
+remove: removes the key from the table(unordered_map)
+
+clear: used in many functions multiple times so this will just clear the heap memory
+
+now in the enemy class
+we update the update function 
+we set the enemy pos health and all with the blackboardkey.....
+when used the if statement to check if we have sharedblackboard...and if yes we get the player position
+
+HPA*:
+so the hpastar is a optimized path finding algorithm where it helps in searching target in a large maps now how it works?
+it works with help of clusters and entrances now what are clusters and entrances
+
+clusters:
+its a group of polygons in a structure its like a state of a country... like California new Mexico etc..
+
+entrance:
+now the entrance is the portals or the doorwa
+ys between the clusters that connected the clusters and the polygons inside  now we can call this a highway that connects two clusters
+
+the hpastar works with the abstract graph now how does this work?
+now the portals we call them abstract nodes  because they are the boundries and waypoints that connects the clusters
+the hpa is based on 2 levels 
+1.high level
+2.low level
+now the high level is performed as per the request but its done 1-2 times and the low level search is done many times because instead of searching through all the 1000 nodes we search 10-15 clusters and inside them...
+its called refined searching
+now here we precompute the process before the search starts what happens there?
+our system will calculate the portals (entrances and will make the abstract graph)
+now as we search we will see if the target is in the cluster or not if not we move to next cluster
+before HPA* we were going through all the nodes example:1000+
+after  HPA* we are going through clusters example :100..
+now the first thing which happens is the preprocessing :in this we go like 1-3-7-19 etc
+why? because all the clusters are connected to multiple clusters and we are going through them (NOT GOING THROUGH ALL THE NODES JUST ENRTY AND EXIT NODES  OR ALSO CALLED PORTALS OR ABSTRACT NODES) 
+after this preprocessing is done
+we know the our target is in cluster 221 so now we just go through the the clusters just only via entry and exit nodes and the routes in between so now we are going to the clusters and lets assume that we are at the target cluster and now we again run Astar and now we finally reach to the target node
+
+okay one thing the high level search is done ONCE when we define the requirements(can run when we need to search something else) times BUT the low level search is done multiple times!!
+
+now we use many functions like 
+structs:
+Clusters
+Entrances
+then functions:
+AddClusters
+FindEntrances
+computeIntraPaths
+initializeHPA
+and hpaStar 
+getClusterCenter
+
+now explaination all in detail is very lengthy but ill give a summary
+so basically the cluster struct makes the Cluster skeleton
+and the entrance makes skeleton for entrance
+now the AddClusters: is simply adding the clusters and grouping the polygons inside them
+now the FindEntrances: is a lil tricky because we first look for the clusters and check if we are already inside that cluster or not and than find the neighbor and check if there entrance is already there or not if yes we skip no we create one.
+now computeIntraPaths: this function is our precomputer path if this is not here we will have a very difficult time to find the paths we calculate the paths and costs that are used before we even find a path how? because this gives the code the portals...so if target is not present in the cluster it can use the portals and get out and into new cluster!
+
+initializeHPA: this just initializes the HPA*
+
+now for the biggest and core function hpaStar: first we check if its initialized or not and check if we are target or not and check if the search is in the clusters or not after the early exit checks we make the code
+
+we set start and goals 
+with vectors
+now we make the abstract graph init we have struct of abstarctNODE(the actual portal) :with id gcost fcost and bool operator
+now we make PQ and two unordered_maps abstract and abstractParent
+now we calculate the heuristics of the entrances its centers and location
+now the HPA* starts with PQ we check if the clusters are to id if yes we set it to one no we set it to two
+and then we calculate the centers and location
+now until the PQ is not empty we run
+and inside we obvi check if we are on goal or not if yes we exit
+now here we are updating check and update the cost same as A*
+and we optimize  If current path cost already exceeds best found, stop searching
+now we also expand the neighbors because it no always that the shortest or we find the target on first neighbor
+and after expanding we check if the goal is found or not if no we switch to A*
+now after the path finding we reconstruct the abstract path
+now we stitch the paths and in this we have few conditions like if there was single entrance or multiple  and then last entrance to goal
+
+smart pointers:
+a smart pointer is a wrapper around that goes a raw pointer .its is smart then the raw pointer the rule of RAII(resourse acquisition is initialized) when the smart pointer goes out of the scope or object it automatically deletes itself from the heap memory.
+
+
+JSON:
+
+
+
+
+Multi-Agent Coordination
+
+so rn the system is like this 
+i (player) get into a detection range of an enemy  and only one chases me....
+but what happens in AAA games is if a enemy detects me it makes a noise ...now this noise can be a flag in code and when the noise is there the flag gets true and all the enemies see that En is making a noise "must seen enemy so lets go to him and kill the enemy!" 
+the actual thing which made the other enemies come was the flag but in game to make a good bluff we give is a sound! so its like an illuation that if the enemy makes a noise all will get alert!
+now the flocking and all the path findings comes in picture and they come and make decsigns and alll
+so that noise bluff is actually our Multi-Agent Coordination.
+and cherry on top before the noise is made the small bars in games that actually is the path finding and FSM with BTs
+
+and now its devided into three layers
+1.perception sharing(the "noise flag"):-
+instead of calling loop setplayerposition on every individual now we writes the players position and polygon id in a shared blackboard once per frame now during each update() all the other enemies can read the values from the shared blackboard like i tweeted on X and now all the ppl can see what i tweeted all at once. 
+
+2.intant signaling (squad combat awareness):-
+now every enemy writes whether they are in combat/attacking or chasing by the IS_IN_COMBAT to shared blackboard during its update() and a new condition function isSquadInCombat() reads this flag.
+now in the behavior tree is a tactical selector now  it has two branch: A-> Squad  is in combat :if any ally is fighting the enemy will ship the direct attack and will only chase now this presents flanking  or holding position instead of piling onto the same spot.
+B->Squad NOT in combat: normal priority - attack if in range or chase.
+   
+3.Squad State Awareness(Group Survival):-
+every enemy also writes its current health and dead status to the shared blackboard isAllyDead and isAllyLowHealth checks now  isAllyDead:it and returns  true if any has died.
+isAllyLowHealth:return if any ally health has dropped below a critical threshold
+
+now these are wired to Squad Survival Selector that sits between personal flee and Combat  in the root priority chain. if any ally is dead or below the threshold health the entire squad triggers and retreats even enemies that are personally healthy.
+
+
+now Behavior Tree Selector now this 1.personal Death 2.personal low hp 3.squad survival 4.comabt 5.patrol
+
+also now all the three layers use single global keys (IS_IN_COMBAT, ALLY_HEALTH, IS_DEAD) now if any enemy writes everyone can see it whichever enemy writes LAST each tick determines the value 

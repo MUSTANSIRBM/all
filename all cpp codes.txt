@@ -1,0 +1,6844 @@
+#include <iostream>
+#include <string>
+#include <utility>
+//struct Node {
+//	int data;
+//	Node* next;
+//	Node(int val) :data(val),next(nullptr) {}
+//};
+//class Linkedlists {
+//private:
+//	Node* head;
+//public:
+//	Linkedlists() {
+//		head = nullptr;
+//	}
+//	~Linkedlists() {
+//		Node* temp = head;
+//		while (head != nullptr) {
+//			head = head->next;
+//			delete temp;
+//			temp = head;
+//		}
+//	}
+//
+//	void push_front(int val) {
+//		Node* newNode = new Node(val);
+//		newNode->next = head;
+//		head = newNode;
+//	}
+//	void display() {
+//		Node* temp = head;
+//		while (temp != nullptr) {
+//			std::cout << temp->data<< std::endl;
+//			temp = temp->next;
+//		}
+//	}
+//
+//	void deleteNode(int val) {
+//		// Case 1: List is empty, nothing to do
+//		if (head == nullptr) return;
+//
+//		// Case 2: The value is at the HEAD (The first node)
+//		if (head->data == val) {
+//			Node* temp = head;
+//			head = head->next; // Move head to the next one
+//			delete temp;       // Delete the old head
+//			return;
+//		}
+//
+//		// Case 3: The value is somewhere in the middle
+//		Node* curr = head;
+//		Node* prev = nullptr;
+//
+//		// Search for the node
+//		while (curr != nullptr && curr->data != val) {
+//			prev = curr;       // prev moves to where curr was
+//			curr = curr->next; // curr moves forward
+//		}
+//
+//		// If we reached the end and didn't find it
+//		if (curr == nullptr) return;
+//
+//		// We found it! 'curr' is the node to delete. 'prev' is the one before it.
+//		prev->next = curr->next; // The detailed "Patching" step
+//		delete curr;             // Goodbye node
+//	}
+//};
+//int main() {
+//	Linkedlists list;
+//	list.push_front(100);
+//	list.push_front(200);
+//	list.push_front(300);
+//	list.deleteNode(300);
+//	list.display();
+//
+//}
+
+
+
+
+//struct Node {
+	//int data;
+	//Node* next;
+	//Node(int val) : data(val), next(nullptr){}
+//};
+//class Linkedlist {
+//private:
+//	Node* head;
+//public:
+	//Linkedlist() {
+	//	head = nullptr;
+	//}
+	//~Linkedlist() {
+	//	Node* temp = head;
+	//	while (head != nullptr) {
+	//		head = head->next;
+	//		delete temp;
+	//		temp = head;
+	//	}
+	//}
+
+
+	//void Push_front(int val){
+	//	Node* newNode = new Node(val);
+	//	newNode->next = head;
+	//	head = newNode;
+	//}
+
+	//void Display() {
+	//	Node* temp = head;
+	//	while (temp != nullptr) {
+	//		std::cout << temp->data << std::endl;
+	//		temp= temp->next;
+	//	}
+	//}
+
+	//void insertAfter(int searchVal, int newVal) {
+		//Node* curr = head;
+		//while (curr != nullptr && curr->data != searchVal) {
+			//curr =curr->next;
+		//}
+
+		//if (curr == nullptr) {
+			//return;
+		//}
+		//Node* newNode = new Node(newVal);
+		//newNode->next = curr->next;
+		//curr->next = newNode;
+	//}
+
+	//void insertBefore(int searchVal, int newVal) {
+		//if (head->data == searchVal) {
+			//Push_front(newVal);
+			//return;
+		//}
+
+		//Node* curr = head;
+		//Node* prev = nullptr;
+
+		//while (curr != nullptr && curr->data != searchVal) {
+			//prev = curr;       
+			//curr = curr->next; 
+		//}
+		//if (curr == nullptr) return;
+		//Node* newNode = new Node(newVal);
+		//newNode->next = curr; 
+		//prev->next = newNode;
+	 //}
+//};
+//int main() {
+//	Linkedlist list;
+//	list.Push_front(10);
+//	list.Push_front(20);
+//	list.Push_front(30);
+//	list.insertAfter(20, 25);
+//	list.insertBefore(10, 5);
+//	list.Display();
+//}
+
+
+
+//struct Node {
+//	int data;
+//	Node* next;
+//	Node(int val) : data(val), next(nullptr) {}
+//};
+//class LinkedList {
+//private:
+//	Node* head;
+//public:
+//	LinkedList() {
+//		head= nullptr;
+//	}
+//	~LinkedList() {
+//		Node* temp = head;
+//		while (head != nullptr) {
+//			head = head->next;
+//			delete temp;
+//			temp = head;
+//		}
+//	}
+//	void Push_front(int val) {
+//		Node* newNode = new Node(val);
+//		newNode->next = head;
+//		head = newNode;
+//	}
+//	void Display() {
+//		Node* temp = head;
+//		while (temp != nullptr) {
+//			std::cout << temp->data << std::endl;
+//			temp = temp->next;
+//		}
+//	}
+//	void InsertAfter(int searchVal, int Newval) {
+//		Node* curr = head;
+//		while (curr != nullptr && curr->data != searchVal) {
+//			curr = curr->next;
+//		}
+//		if (curr == nullptr) return;
+//		Node* newNode = new Node(Newval);
+//		newNode->next = curr->next;
+//		curr->next = newNode;
+//	}
+//
+//	void deleteTail() {
+//		if (head == nullptr) return;
+//
+//		if (head->next == nullptr) {
+//			delete head;
+//			head = nullptr;
+//			return;
+//		}
+//		Node* temp = head;
+//
+//		while (temp->next->next != nullptr) {
+//			temp = temp->next;
+//		}
+//		delete temp->next;
+//		temp->next= nullptr;
+//	}
+//	void InserBefore(int searchVal, int newVal) {
+//		
+//		if (head == nullptr) return;
+//		if (head->data == searchVal) {
+//			Push_front(newVal);
+//			return;
+//		}
+//		Node* curr = head;
+//		Node* prev = nullptr;
+//		while (curr != nullptr && curr->data != searchVal) {
+//			prev = curr;
+//			curr = curr->next;
+//		}
+//		if (curr == nullptr) return;
+//		Node* newNode = new Node(newVal);
+//		newNode->next = curr;
+//		prev->next = newNode;
+//
+//
+//	}
+//	bool search(int target) {
+//		Node* temp = head;
+//		while (temp != nullptr) {
+//			if (temp->data == target) {
+//				return true;
+//			}
+//		temp = temp->next;
+//			
+//		}
+//		return false;
+//	}
+//};
+//int main() {
+//	LinkedList list;
+//	list.Push_front(100);
+//	list.Push_front(200);
+//	list.Push_front(300);
+//	list.InsertAfter(200, 250);
+//	list.InserBefore(200, 150);
+//	if (list.search(100)) {
+//		std::cout << "Found 100!" << std::endl;
+//	}
+//	else {
+//		std::cout << "100 not in list." << std::endl;
+//	}
+//	list.Display();
+//	
+//}
+
+
+
+//struct Node {
+//	int data;
+//	Node* next;
+//	Node(int val) : data(val),next(nullptr){}
+//};
+//class Linked {
+//private:
+//	Node* head;
+//public:
+//	Linked() {
+//		head = nullptr;
+//	}
+//
+//	~Linked() {
+//		Node* temp = head;
+//		while (head != nullptr) {
+//			head = head->next;
+//			delete temp;
+//			temp = head;
+//		}
+//	}
+//	void Push_front(int val) {
+//		Node* Newnode = new Node(val);
+//		Newnode->next = head;
+//		head = Newnode;
+//	}
+//	void Display() {
+//		Node* temp = head;
+//		while (temp != nullptr) {
+//			std::cout << temp->data << std::endl;
+//			temp = temp->next;
+//		}
+//	}
+//	void InsertAfter(int SearchVal, int NewVal) {
+//		Node* curr = head;
+//		while (curr != nullptr && curr->data != SearchVal) {
+//			curr = curr->next;
+//		}
+//		if (curr == nullptr)return;
+//		Node* NewNode = new Node(NewVal);
+//		NewNode->next = curr->next;
+//		curr->next = NewNode;
+//	}
+//	void InsertBefore(int SearchVal, int NewVal) {
+//		Node* curr = head;
+//		Node* prev = curr;
+//		if (head == nullptr)return;
+//		if (curr->data == SearchVal) {
+//			Push_front(NewVal);
+//			return;
+//		}
+//		while (curr != nullptr && curr->data != SearchVal) {
+//			prev = curr;
+//			curr = curr->next;
+//		}
+//		if (curr == nullptr)return;
+//		Node* NewNode = new Node(NewVal);
+//		NewNode->next = curr;
+//		prev->next = NewNode;
+//	}
+//	void DeleteTail() {
+//		if (head == nullptr)return;
+//		if (head->next == nullptr) {
+//			delete head;
+//			head = nullptr;
+//			return;
+//		}
+//		Node* temp = head;
+//		while (temp->next->next != nullptr) {
+//			temp = temp->next;
+//		}
+//		delete temp->next;
+//		temp->next = nullptr;
+//	}
+//	bool search(int target) {
+//		Node* temp = head;
+//		while (temp != nullptr) {
+//			if (temp->data == target) {
+//				return true;
+//			}
+//			temp = temp->next;
+//		}
+//		return false;
+//	}
+//};
+//int main(){
+//	Linked list;
+//	list.Push_front(100);
+//	list.Push_front(200);
+//	list.Push_front(300);
+//	list.InsertBefore(200, 250);
+//	list.InsertAfter(200, 150);
+//	if (list.search(150)) {
+//		std::cout << "found 150!" << std::endl;
+//	}
+//	else {
+//		std::cout << "100 not in list." << std::endl;
+//	}
+//	list.Display();
+//	return 0;
+//}
+
+
+
+
+
+
+
+//struct Node{
+//	int data;
+//	Node* next;
+//	Node(int val):data(val), next(nullptr){}
+//};
+//class Linkedlists{
+//private:
+//	Node* head;
+//public:
+//	Linkedlists() {
+//		head = nullptr;
+//	}
+//	~Linkedlists() {
+//		Node* temp = head;
+//		while (head != nullptr) {
+//			head = head->next;
+//			delete temp;
+//			temp = head;
+//		}
+//	}
+//	void Push_front(int val) {
+//		Node* Newnode = new Node(val);
+//		Newnode->next = head;
+//		head = Newnode;
+//	}
+//	void Display() {
+//		Node* temp = head;
+//		while (temp != nullptr) {
+//			std::cout << temp->data << std::endl;
+//			temp = temp->next;
+//		}
+//	}
+//	void InsertAfter(int S_val, int N_val) {
+//		Node* curr = head;
+//		if (head == nullptr)return;
+//		while (curr != nullptr && curr->data != S_val) {
+//			curr = curr->next;
+//		}
+//		if (curr == nullptr) return;
+//		Node* NewNode = new Node(N_val);
+//		NewNode->next = curr->next;
+//		curr->next = NewNode;
+//	}
+//	void Insertbefore(int S_val, int N_val) {
+//		Node* curr = head;
+//		Node* prev = curr;
+//		if (head == nullptr) return;
+//		if (curr->data == S_val) {
+//			Push_front(N_val);
+//			return;
+//		}
+//		while (curr != nullptr && curr->data != S_val) {
+//			prev = curr;
+//			curr = curr->next;
+//		}
+//		if (curr == nullptr)return;
+//		Node* NewNode = new Node(N_val);
+//		NewNode->next = curr;
+//		prev->next = NewNode;
+//	}
+//	void DeleteTail() {
+//		if (head == nullptr)return;
+//		if (head->next == nullptr) {
+//			delete head;
+//			head = nullptr;
+//			return;
+//		}
+//		Node* temp = head;
+//		while (temp->next->next != nullptr) {
+//			temp = temp->next;
+//		}
+//		delete temp->next;
+//		temp->next = nullptr;
+//	}
+//	bool Search(int target) {
+//		Node* temp = head;
+//		while (temp != nullptr) {
+//			if (temp->data == target) {
+//				return true;
+//			}
+//			temp = temp->next;
+//		}
+//		return false;
+//	}
+//};
+//
+//int main() {
+//	Linkedlists list;
+//	list.Push_front(100);
+//	list.Push_front(200);
+//	list.Push_front(300);
+//	list.InsertAfter(100, 250);
+//	list.Insertbefore(200, 150);
+//	if (list.Search(150)) {
+//		std::cout << "found 150!" << std::endl;
+//	}
+//	else {
+//		std::cout << "100 not in list." << std::endl;
+//	}
+//	list.Display();
+//	return 0;
+//}
+
+
+//struct Node {
+//	int data;
+//	Node* next;
+//	Node* prev;
+//	Node(int val):data(val),next(nullptr),prev(nullptr){}
+//};
+//
+//class DoublyLinkedList {
+//private:
+//	Node* head;
+//public:
+//	DoublyLinkedList() {
+//		head = nullptr;
+//	}
+//	~DoublyLinkedList() {
+//		Node* temp = head;
+//		while (head != nullptr) {
+//			head = head->next;
+//			delete temp;
+//			temp = head;
+//		}
+//	}
+//	void Push_front(int val) {
+//		Node* newNode = new Node(val);
+//		newNode->next = head; 
+//		if (head != nullptr) {
+//			head->prev = newNode;
+//			newNode->next = head; 
+//		}
+//		head = newNode;
+//	}
+//	void Push_back(int val) {
+//		Node* newNode = new Node(val);
+//		if (head == nullptr) {
+//			head = newNode;
+//			return;
+//		}
+//		Node* temp = head;
+//		while (temp->next != nullptr) {
+//			temp = temp->next;
+//		}
+//		temp->next =  newNode;
+//		newNode->prev = temp;
+//	}
+//	void Display() {
+//		Node* temp = head;
+//		while (temp != nullptr) {
+//			std::cout << temp->data << std::endl;
+//			temp = temp->next;
+//		}
+//	}
+//
+//	void deletehead() {
+//		if (head == nullptr)return;
+//		Node* temp = head;
+//		head = head->next;
+//		if (head != nullptr) {
+//			head->prev = nullptr;
+//		}
+//		delete temp;
+//	}
+//
+//	void InsertAfter(int S_val, int N_val) {
+//		if (head == nullptr)return;
+//		Node* curr = head;
+//		while (curr != nullptr && curr->data != S_val) {
+//			curr = curr->next;
+//		}
+//		if (curr == nullptr)return;
+//		Node* newnode = new Node(N_val);
+//		newnode->next = curr->next;
+//		newnode->prev = curr;
+//		curr->next = newnode;
+//		if (newnode->next != nullptr) {
+//			newnode->next->prev = newnode;
+//		}
+//	}
+//	void DisplayReverse() {
+//		Node* temp = head;
+//		if (temp == nullptr)return;
+//		while (temp->next != nullptr) {
+//			temp = temp->next;
+//		}
+//		while (temp != nullptr) {
+//			std::cout << temp->data<< " " << std::endl;
+//			temp = temp->prev;
+//		}
+//	}
+//};
+//
+//int main() {
+//	DoublyLinkedList List;
+//	List.Push_back(100);
+//	List.Push_back(200);
+//	List.Push_back(300);
+//	List.Push_front(100);
+//	List.Push_front(200);
+//	List.Push_front(300);
+//	List.Display();
+//	//List.DisplayReverse();
+//	return 0;
+//}
+
+
+//struct Node {
+//	int data;
+//	Node* next;
+//	Node(int val): data(val),next(nullptr){}
+//};
+//class Linkedlist {
+//private:
+//	Node* head;
+//public:
+//	Linkedlist() {
+//		head = nullptr;
+//	}
+//	~Linkedlist() {
+//		Node* temp = head;
+//		while (head != nullptr) {
+//			head = head->next;
+//			delete temp;
+//			temp = head;
+//		}
+//	}
+//	void Push_front(int val) {
+//		Node* newNode = new Node(val);
+//		newNode->next = head;
+//		head = newNode;
+//	}
+//	void Display() {
+//		Node* temp = head;
+//		while (temp != nullptr) {
+//			std::cout << temp->data << std::endl;
+//			temp = temp->next;
+//		}
+//	}
+//	void InsertAfter(int S_val, int N_val) {
+//		if (head == nullptr)return;
+//		Node* curr = head;
+//		while (curr != nullptr && curr->data != S_val) {
+//			curr = curr->next;
+//		}
+//		if (curr == nullptr)return;
+//		Node* newNode = new Node(N_val);
+//		newNode->next = curr->next;
+//		curr->next = newNode;
+//	}
+//	void InsertBefore(int S_val, int N_val) {
+//		if (head == nullptr)return;
+//		Node* curr = head;
+//		Node* prev = curr;
+//		if (curr->data == S_val) {
+//			Push_front(N_val);
+//			return;
+//		}
+//		while(curr==nullptr && curr->data !=S_val){
+//			prev = curr;
+//			curr = curr->next;
+//		}
+//		if (curr == nullptr)return;
+//		Node* newNode = new Node(N_val);
+//		newNode->next = curr;
+//		prev->next = newNode;
+//	}
+//};
+//
+//
+//
+//int main() {
+//	Linkedlist list;
+//	list.Push_front(100);
+//	list.Push_front(200);
+//	list.Push_front(300);
+//	list.InsertAfter(200, 150);
+//	list.Display();
+//}
+
+//struct Node {
+//	int data;
+//	Node* next;
+//	Node* prev;
+//	Node(int val) :data(val), prev(nullptr), next(nullptr){}
+//};
+//
+//class DoublyLinkedList {
+//private:
+//	Node* head;
+//public:
+//	DoublyLinkedList() {
+//		head = nullptr;
+//	}
+//	~DoublyLinkedList() {
+//		Node* temp = head;
+//		while (head != nullptr) {
+//			head = head->next;
+//			delete temp;
+//			temp = head;
+//		}
+//	}
+//	void Push_front(int val) {
+//		Node* newNode = new Node(val);
+//		newNode->next = head;
+//		if (head != nullptr) {
+//			head->prev = newNode;
+//		}
+//		head = newNode;
+//	}
+//	void Push_back(int val) {
+//		Node* newNode = new Node(val);
+//		if (head == nullptr) {
+//			head = newNode;
+//			return;
+//		}
+//		Node* temp = head;
+//		while (temp->next != nullptr) {
+//			temp = temp->next;
+//		}
+//		temp->next = newNode;
+//		newNode->prev = temp;
+//	}
+//	void DisplayForward() {
+//		Node* temp = head;
+//		while (temp != nullptr) {
+//			std::cout << temp->data << std::endl;
+//			temp = temp->next;
+//		}
+//	}
+//	void DisplayReverse() {
+//		Node* temp = head;
+//		if (head == nullptr)return;
+//		while (temp->next != nullptr) {
+//			temp = temp->next;
+//		}
+//		while (temp != nullptr) {
+//			std::cout << temp->data << std::endl;
+//			temp = temp->prev;
+//		}
+//	}
+//	void DeleteHead() {
+//		if (head == nullptr)return;
+//		Node* temp = head;
+//		head = head->next;
+//		if (head!= nullptr) {
+//			head->prev = nullptr;
+//		}
+//		delete temp;
+//	}
+//	void Deletetail() {
+//		if (head == nullptr)return;
+//		if (head->next == nullptr) {
+//			delete head;
+//			head = nullptr;
+//			return;
+//		}
+//		Node* temp = head;
+//		while (temp->next != nullptr) {
+//			temp=temp->next;
+//		}
+//		temp->prev->next = nullptr;
+//		delete temp;
+//	}
+//	void DeleteNode(int val) {
+//		if (head == nullptr) return;
+//		Node* temp = head;
+//		while (temp != nullptr && temp->data != val) {
+//			temp = temp->next;
+//		}
+//		if (temp == nullptr)return;
+//		if (temp == head) {
+//			DeleteHead();
+//			return;
+//		}
+//		if (temp->prev != nullptr) {
+//			temp->prev->next = temp->next;
+//		}
+//
+//		if (temp->next != nullptr) {
+//			temp->next->prev = temp->prev;
+//		}
+//		delete temp;
+//	}
+//};
+//int main() {
+//	DoublyLinkedList list;
+//	list.Push_front(100);
+//	list.Push_front(200);
+//	list.Push_front(300);
+//	list.Push_back(400);
+//	//list.Deletetail();
+//	//list.DeleteHead();
+//	list.DisplayForward();
+//	list.DisplayReverse();
+//	list.DeleteNode(400);
+//	list.DisplayForward();
+//
+//}
+
+//struct Node {
+//	int data;
+//	Node* next;
+//	Node* prev;
+//	Node(int val):data(val),prev(nullptr),next(nullptr){}
+//};
+//class DoublyLinkedList {
+//private:
+//	Node* head;
+//public:
+//	DoublyLinkedList() {
+//		head = nullptr;
+//	}
+//	~DoublyLinkedList() {
+//		Node* temp = head;
+//		while (head != nullptr) {
+//			head = head->next;
+//			delete temp;
+//			temp = head;
+//		}
+//	}
+//	void Push_front(int val) {
+//		Node* Newnode = new Node(val);
+//		Newnode->next = head;
+//		head = Newnode;
+//		if (head != nullptr) {
+//			head->prev = Newnode;
+//		}
+//	}
+//	void display() {
+//		Node* temp = head;
+//		while (temp != nullptr) {
+//			std::cout << temp->data << std::endl;
+//			temp = temp->next;
+//		}
+//	}
+//	void FindAndSquare(int target) {
+//		Node* temp = head;
+//		while (temp != nullptr) {
+//			if (temp->data == target) {
+//				temp->data = temp->data* temp->data;
+//				return;
+//			}
+//			temp = temp->next;
+//		}
+//		std::cout << "Value not in list." << std::endl;
+//	}
+//	void SwapHeadAndTail() {
+//		if (head == nullptr || head->next == nullptr) return;
+//		Node* temp = head;
+//		while (temp->next != nullptr) {
+//			temp = temp->next;
+//		}
+//		int tempValue = head->data;     // Store head's value in a temporary box
+//		head->data = temp->data;        // Put tail's value into head
+//		temp->data = tempValue;
+//	}
+//};
+//int main() {
+//	DoublyLinkedList list;
+//	list.Push_front(100);
+//	list.Push_front(200);
+//	list.Push_front(300);
+//	list.FindAndSquare(200);
+//	list.SwapHeadAndTail();
+//	list.display();
+//}
+
+
+
+//struct Node {
+//	int data;
+//	Node* next;
+//	Node* prev;
+//	Node(int val) : data(val), next(nullptr), prev(nullptr){}
+//};
+//
+//class LinkedList {
+//private:
+//	Node* head;
+//public:
+//	LinkedList() {
+//		head = nullptr;
+//	}
+//	~LinkedList() {
+//		Node* temp = head;
+//		while (head != nullptr) {
+//			head = head->next;
+//			delete temp;
+//			temp = head;
+//		}
+//	}
+//	void Push_front(int val) {
+//		Node* newNode = new Node(val);
+//		newNode->next = head;
+//		head = newNode;
+//		if (head != nullptr) {
+//			head->prev = newNode;
+//		}
+//	}
+//	void Display() {
+//		Node* temp = head;
+//		while (temp != nullptr) {
+//			std::cout << temp->data << std::endl;
+//			temp = temp->next;
+//		}
+//	}
+//	void Insert_After(int S_val, int N_val) {
+//		if (head == nullptr) return;
+//		Node* curr = head;
+//		while (curr == nullptr && curr->data != S_val) {
+//			curr = curr->next;
+//		}
+//		if (curr == nullptr)return;
+//		Node* newNode = new Node(N_val);
+//		newNode->next = curr->next;
+//		curr->next = newNode;
+//	}
+//	void InsertBefore(int S_val, int N_val) {
+//		Node* curr = head;
+//		Node* prev = curr;
+//		if (curr->data == S_val) {
+//			Push_front(N_val);
+//			return;
+//		}
+//		while (curr != nullptr && curr->data != S_val) {
+//			prev = curr;
+//			curr = curr->next;
+//		}
+//		if (curr == nullptr)return;
+//		Node* newNode = new Node(N_val);
+//		newNode->next = curr;
+//		prev->next = newNode;
+//
+//
+//	}
+//};
+//
+//int main() {
+//	LinkedList list;
+//	list.Push_front(100);
+//	list.Push_front(200);
+//	list.Push_front(300);
+//	list.InsertBefore(200, 250);
+//	list.Insert_After(100, 150);
+//	list.Display();
+//}
+
+//struct Node {
+//	int data;
+//	Node* next;
+//	Node(int val): data(val) , next(nullptr) {}
+//};
+//class linkedlist {
+//private:
+//	Node* head;
+//public:
+//	linkedlist() {
+//		head = nullptr;
+//	}
+//	~linkedlist() {
+//		Node* temp = head;
+//		while (head != nullptr) {
+//			head = head->next;
+//			delete temp;
+//			temp = head;
+//		}
+//	}
+//	void Push_front(int val) {
+//		Node* Newnode = new Node(val);
+//		Newnode->next = head;
+//		head = Newnode;
+//	}
+//	void display() {
+//		Node* temp = head;
+//		while (temp != nullptr) {
+//			std::cout << temp->data << std::endl;
+//			temp = temp->next;
+//		}
+//	}
+//};
+//int main() {
+//	linkedlist list;
+//	list.Push_front(100);
+//	list.Push_front(200);
+//	list.Push_front(300);
+//	list.display();
+//}
+//struct Node {
+//	int data;
+//	Node* next;
+//	Node* prev;
+//	Node(int val):data(val),next(nullptr),prev(nullptr){}
+//};
+//
+//class NodeManager {
+//private:
+//	Node*head;
+//public:
+//	void AddToEnd(int val) {
+//		Node* newnode = new Node(val);
+//		if (head == nullptr) {
+//			head = newnode;
+//			return;
+//		}
+//		Node* temp = head;
+//		while (temp->next != nullptr) {
+//			temp = temp->next;
+//		}
+//		temp->next = newnode;
+//		newnode->prev = temp;
+//
+//	}
+//	void PrintAll() {
+//		Node* temp = head;
+//		while (temp != nullptr) {
+//			std::cout << temp->data << std::endl;
+//			temp = temp->next;
+//		}
+//	}
+//};
+
+
+//struct Node {
+//	int data;
+//	Node* next;
+//	Node* prev;
+//	Node(int val): data(val),next(nullptr),prev(nullptr){}
+//};
+//class DoublyLinkedList {
+//private:
+//	Node* head;
+//public:
+//	DoublyLinkedList() {
+//		head = nullptr;
+//	}
+//	~DoublyLinkedList()
+//	{
+//		Node* temp = head;
+//		while (head != nullptr) {
+//			head = head->next;
+//			delete temp;
+//			temp = head;
+//		}
+//	}
+//	void pushFront(int val) {
+//		Node* newnode = new Node(val);
+//		newnode->next = head;
+//		if (head != nullptr) {
+//			newnode->prev = newnode;
+//		}
+//		head = newnode;
+//	}
+//	void display() {
+//		Node* temp = head;
+//		while (temp != nullptr) {
+//			std::cout << temp->data << std::endl;
+//			temp = temp->next;
+//		}
+//	}
+//	void Push_back(int val) {
+//		Node* newnode = new Node(val);
+//		newnode->next = head; // 1. New node reaches forward to old head
+//
+//		if (head != nullptr) {
+//			head->prev = newnode; // <--- THIS WAS THE FIX: Old head reaches BACK
+//		}
+//
+//		head = newnode;
+//	}
+//	void DisplayReverse() {
+//		Node* temp = head;
+//		if (head == nullptr) return;
+//		while (temp->next != nullptr) {
+//			temp = temp->next;
+//		}
+//		while (temp != nullptr) {
+//			std::cout << temp->data << std::endl;
+//			temp = temp->prev;
+//		}
+//
+//	}
+//};
+//int main() {
+//	DoublyLinkedList list;
+//	list.pushFront(100);
+//	list.pushFront(200);
+//	list.pushFront(300);
+//	list.Push_back(90);
+//	list.display();
+//	list.DisplayReverse();
+//	return 0;
+//}
+//struct Node {
+//	int data;
+//	Node* next;
+//	Node* prev;
+//	Node(int val ): data(val) , next(nullptr),prev(nullptr){}
+//};
+//class LinkedList {
+//private:
+//	Node* head;
+//public:
+//	LinkedList() {
+//		head = nullptr;
+//	}
+//	~LinkedList() {
+//		Node* temp = head;
+//		while (head != nullptr) {
+//			head = head->next;
+//			delete temp;
+//			temp = head;
+//		}
+//	}
+//	void Puch_front(int val) {
+//		Node* Newnode = new Node(val);
+//		Newnode->next = head;
+//		if (head != nullptr) {
+//			head->prev = Newnode;
+//		}
+//		head = Newnode;
+//	}
+//	void display() {
+//		Node* temp = head;
+//		while (temp != nullptr) {
+//			std::cout << temp->data << std::endl;
+//			temp = temp->next;
+//		}
+//	}
+//	void displayreverse() {
+//		Node* temp = head;
+//		if (head == nullptr)return;
+//		while (temp->next != nullptr) {
+//			temp = temp->next;
+//		}
+//		while (temp != nullptr) {
+//			std::cout << temp->data << std::endl;
+//			temp = temp->prev;
+//		}
+//
+//	}
+//};
+//int main() {
+//	LinkedList list;
+//	list.Puch_front(100);
+//	list.Puch_front(200);
+//	list.Puch_front(300);
+//	list.Puch_front(400);
+//	list.display();
+//	//list.displayreverse();
+//	return 0;
+//}
+//struct Node {
+//	int data;
+//	Node* next;
+//	Node* prev;
+//	Node(int val):data(val),next(nullptr),prev(nullptr){}
+//};
+//class LinkedList {
+//private:
+//	Node* head;
+//public:
+//	LinkedList() {
+//		head = nullptr;
+//	}
+//	~LinkedList() {
+//		Node* temp = head;
+//		while (head != nullptr) {
+//			head = head->next;
+//			delete temp;
+//			temp = head;
+//		}
+//	}
+//	void Push_front(int val) {
+//		Node* newnode = new Node(val);
+//		newnode->next = head;
+//		if (head != nullptr) {
+//			head->prev = newnode;
+//		}
+//		head = newnode;
+//	}
+//	void display() {
+//		Node* temp = head;
+//		while (temp != nullptr) {
+//			std::cout << temp->data << std::endl;
+//			temp = temp->next;
+//		}
+//	}
+//	void displayReverse() {
+//		Node* temp = head;
+//		if (head == nullptr)return;
+//		while (temp->next != nullptr) {
+//			temp = temp->next;
+//		}
+//		while (temp != nullptr) {
+//			std::cout << temp->data << std::endl;
+//			temp = temp->prev;
+//		}
+//	}
+//
+//	void insertafter(int s_val, int n_val) {
+//		
+//		Node* curr = head;
+//		if (head == nullptr)return;
+//
+//		while (curr != nullptr && curr->data != s_val) {
+//			curr = curr->next;
+//		}
+//		if (curr == nullptr)return;
+//		Node* newnode = new Node(n_val);
+//		newnode->next = curr->next;
+//		newnode->prev = curr;
+//		if (curr->next != nullptr) {
+//			curr->next->prev = newnode; 
+//		}
+//		curr->next = newnode;
+//	}
+//
+//	void inserbefore(int s_val, int n_val) {
+//		if (head->data == s_val) {
+//			Push_front(n_val);
+//			return;
+//		}
+//		Node* curr = head;
+//		Node* prev = nullptr;
+//		if (head == nullptr)return;
+//		while (curr != nullptr && curr->data != s_val) {
+//			prev = curr;
+//			curr = curr->next;
+//		}
+//		if (curr == nullptr)return;
+//		Node* newnode = new Node(n_val);
+//		newnode->next = curr;
+//		newnode->prev = prev;
+//		prev->next = newnode;
+//		curr->next = newnode;
+//		
+//	}
+//};
+//int main() {
+//	LinkedList list;
+//	list.Push_front(100);
+//	list.Push_front(200);
+//	list.Push_front(300);
+//	list.insertafter(300,250);
+//	list.inserbefore(300,350);
+//	list.display();
+//	std::cout << std::endl;
+//	list.displayReverse();
+//	return 0;
+//}
+//struct Post {
+//	int postID;
+//	int likes = 0;
+//	Post* next;
+//	Post* prev;
+//	Post(int val): postID(val) , next(nullptr),prev(nullptr){}
+//};
+//class SocialFeed {
+//private:
+//	Post* head;
+//public:
+//	SocialFeed() {
+//		head = nullptr;
+//	}
+//	~SocialFeed() {
+//		Post* temp = head;
+//		while (head != nullptr) {
+//			head = head->next;
+//			delete temp;
+//			temp = head;
+//		}
+//	}
+//	void AddPost(int id) {
+//		Post* newpost = new Post(id);
+//		newpost->next = head;
+//		if (head != nullptr) {
+//			head->prev = newpost;
+//		}
+//		head = newpost;
+//		
+//	}
+//	void LikePost(int targetID) {
+//		Post* temp = head;
+//		if (head == nullptr)return;
+//		while (temp != nullptr && temp->postID != targetID) {
+//			temp = temp->next;
+//		}
+//		if (temp == nullptr)return;
+//		if (temp->postID == targetID) {
+//			temp->likes += 1;
+//		}
+//		else {
+//			std::cout << "Post not found." << std::endl;
+//		}
+//		temp = head;
+//	}
+//	void DeletePost(int id) {
+//		Post* temp = head;
+//		if (head == nullptr)return;
+//		while (temp!= nullptr && temp->postID != id) {
+//			temp = temp->next;
+//		}
+//		if (temp == nullptr) return;
+//		if (temp == head) {
+//			head = temp->next;
+//		}
+//		if (temp->prev != nullptr) {
+//			temp->prev->next = temp->next;
+//		}
+//		if (temp->next != nullptr){
+//			temp->next->prev = temp->prev;
+//
+//		}
+//			delete temp;
+//	}
+//	void ShowFeed() {
+//		Post* temp = head;
+//		while (temp != nullptr) {
+//			std::cout << "Post " << temp->postID << " has " << temp->likes << " likes." << std::endl;
+//			temp = temp->next;
+//		}
+//	}
+//};
+//int main() {
+//	SocialFeed feed;
+//	feed.AddPost(1);
+//	feed.AddPost(2);
+//	feed.AddPost(3);
+//	feed.LikePost(2);
+//	feed.DeletePost(2);
+//	feed.ShowFeed();
+//	return 0;
+//}
+
+
+//struct Song {
+//	int id;
+//	Song* next;
+//	Song* prev;
+//	Song(int val) : id(val), next(nullptr), prev(nullptr) {}
+//};
+//class MusicQueue {
+//private:
+//	Song* head;
+//public:
+//	MusicQueue() {
+//		head = nullptr;
+//	}
+//	~MusicQueue() {
+//		Song* temp = head;
+//		while (head != nullptr) {
+//			head = head->next;
+//			delete temp;
+//			temp = head;
+//		}
+//	}
+//	void BoostToFront(int val) {
+//		Song* newsong = new Song(val);
+//		newsong->next = head;
+//		if (head != nullptr) {
+//			head->prev = newsong;
+//		}
+//		head = newsong;
+//	}
+//	void AddToEnd(int val) {
+//		Song* newsong = new Song(val);
+//		if (head == nullptr) {
+//			head = newsong;
+//			return;
+//		}
+//		Song* temp = head;
+//		while (temp->next != nullptr) {
+//			temp = temp->next;
+//		}
+//		temp->next = newsong;
+//		newsong->prev = temp;
+//	}
+//	void SkipSong(int targetID) {
+//		Song* temp = head;
+//		while (temp != nullptr && temp->id != targetID) {
+//			temp = temp->next;
+//		}
+//		if (temp == nullptr)return;
+//		if (temp == head) {
+//			head = temp->next;
+//		}
+//		if (temp->next != nullptr) {
+//			temp->next->prev = temp->prev;
+//		}
+//		if (temp->prev!= nullptr) {
+//			temp->prev->next = temp->next;
+//		}
+//		delete temp;
+//	}
+//
+//	void shipv2(int tar) {
+//		Song* temp = head;
+//		while (temp != nullptr && temp->id != tar) {
+//			temp = temp->next;
+//		}
+//		if (temp == nullptr) return;
+//		if (temp == head) {
+//			head = temp->next;
+//		}
+//		if (temp->next != nullptr) {
+//			temp->next->prev = temp->prev;
+//		}
+//		if (temp->prev != nullptr) {
+//			temp->prev->next = temp->next;
+//		}
+//		delete temp;
+//	}
+//
+//	void ShowQueue() {
+//		Song* temp = head;
+//		while (temp != nullptr) {
+//			std::cout << temp->id << std::endl;
+//			temp = temp->next;
+//		}
+//	}
+//	void ShowQueueReverse() {
+//		Song* temp = head;
+//		while (temp->next != nullptr) {
+//			temp = temp->next;
+//		}
+//		while (temp != nullptr) {
+//			std::cout << temp->id << std::endl;
+//			temp = temp->prev;
+//		}
+//	}
+//};
+//int main() {
+//	MusicQueue mu;
+//	mu.BoostToFront(1);
+//	mu.BoostToFront(2);
+//	mu.BoostToFront(3);
+//	mu.AddToEnd(4);
+//	mu.ShowQueue();
+//	mu.shipv2(3);
+//	std::cout << "" << std::endl;
+//	mu.ShowQueueReverse();
+//	return 0;
+//
+//}
+
+//struct Node {
+//	int data;
+//	Node* next;
+//	Node* prev;
+//	Node(int val) : data(val),next(nullptr),prev(nullptr){}
+//};
+//class final_lists {
+//private:
+//	Node* head;
+//public:
+//	final_lists() {
+//		head = nullptr;
+//	}
+//	~final_lists() {
+//		Node* temp = head;
+//		while (head != nullptr) {
+//			head = head->next;
+//			delete temp;
+//			temp = head;
+//		}
+//	}
+//	void push_front(int val) {
+//		Node* newnode = new Node(val);
+//		newnode->next = head;
+//		if (head != nullptr) {
+//			head->prev = newnode;
+//		}
+//		head = newnode;
+//	}
+//	void  pushBack(int val) {
+//		if (head == nullptr) {
+//			push_front(val);
+//			return;
+//		}
+//		Node* newnode = new Node(val);
+//		Node* temp = head;
+//		newnode->prev = head;
+//		while (temp ->next!= nullptr) {
+//			temp = temp->next;
+//		}
+//		temp->next = newnode;
+//		newnode->prev = temp;
+//	}
+//	void insertafter(int s_val, int n_val) {
+//		Node* curr = head;
+//		while (curr != nullptr && curr->data != s_val) {
+//			curr = curr->next;
+//		}
+//		if (curr != nullptr) {
+//			Node* newnode = new Node(n_val);
+//			newnode->next = curr->next;
+//			newnode->prev = curr;
+//			if (curr->next != nullptr) {
+//				curr->next->prev = newnode;
+//			}
+//			curr->next = newnode;
+//		}
+//	}
+//	void swapData(int val1, int val2) {
+//		Node* node1 = head;
+//		Node* node2 = head;
+//		while (node1 != nullptr && node1->data != val1) {
+//			node1 = node1->next;
+//		}
+//		while (node2 != nullptr && node2->data != val2) {
+//			node2 = node2->next;
+//		}
+//		if (node1 != nullptr && node2 != nullptr) {
+//			int temp = node1->data;
+//			node1->data = node2->data;
+//			node2->data = temp;
+//		}
+//		else {
+//			std::cout << "NOT FOUND!!" << std::endl;
+//		}
+//	}
+//	void display() {
+//		Node* temp = head;
+//		while (temp != nullptr) {
+//			std::cout << temp->data << std::endl;
+//			temp = temp->next;
+//		}
+//	}
+//};
+//int main() {
+//	final_lists list;
+//	list.push_front(100);
+//	list.push_front(200);
+//	list.push_front(300);
+//	list.pushBack(90);
+//	list.insertafter(90, 85);
+//	list.swapData(100, 85);
+//	list.display();
+//}
+
+//struct task {
+//	int id;
+//	int priority;
+//	task* next;
+//	task* prev;
+//	task(int val,int v) : id(val) ,priority(v), next(nullptr), prev(nullptr) {}
+//};
+//class taskmanager {
+//private:
+//	task* head;
+//public:
+//	taskmanager() {
+//		head = nullptr;
+//	}
+//	~taskmanager() {
+//		task* temp = head;
+//		while (head != nullptr) {
+//			head = head->next;
+//			delete temp;
+//			temp = head;
+//		}
+//	}
+//	void addfirst(int id, int priority) {
+//		task* newtask = new task(id, priority);
+//		newtask->next = head;
+//		if (head != nullptr) {
+//			head->prev = newtask;
+//		}
+//		head = newtask;
+//	}
+//	void addlast(int id, int priority) {
+//		task* newtask = new task(id, priority);
+//		if (head == nullptr) {
+//			head = newtask;
+//			return;
+//		}
+//		task* temp = head;
+//		while (temp->next != nullptr) {
+//			temp = temp->next;
+//		}
+//		temp->next = newtask;
+//		newtask->prev = temp;
+//	}
+//};
+
+
+
+
+//struct Node {
+//	int data;
+//	Node* next;
+//	Node* prev;
+//	Node(int val):data(val),next (nullptr),prev(nullptr){}
+//};
+//class DoublyLinkedList {
+//private:
+//	Node* head;
+//public:
+//	DoublyLinkedList() {
+//		head = nullptr;
+//	}
+//	~DoublyLinkedList() {
+//		Node* temp = head;
+//		while (head != nullptr) {
+//			head = head->next;
+//			delete temp;
+//			temp = head;
+//		}
+//	}
+//	void Push_front(int val) {
+//		Node* newnode = new Node(val);
+//		newnode->next = head;
+//		if (head != nullptr) {
+//			head->prev = newnode;
+//		}
+//		head = newnode;
+//	}
+//	void swapNodes(int v1, int v2) {
+//		if (v1 == v2)return;
+//		Node* A = head;
+//		Node* B = head;
+//		while (A != nullptr && A->data != v1) A = A->next;
+//		while (B != nullptr && B->data != v2) B = B->next;
+//		if (A == nullptr || B == nullptr)return;
+//
+//		if (B->next == A) {
+//			Node* temp = A;
+//			A = B;
+//			B = temp;
+//		}
+//		 
+//		Node* p1 = A->prev;
+//		Node* p2 = A->next;
+//		Node* n1 = B->prev;
+//		Node* n2 = B->next;
+//
+//		if (p2 != B) {
+//			if (p1) p1->next = B; else head = B;
+//			if (n2) n2->prev = A;
+//			if (p2) p2->prev = B;
+//			if (n1) n1->next = A;
+//			B->prev = p1;
+//			B->next = p2;
+//			A->prev = n1;
+//			A->next = n2;
+//		}
+//		else {
+//			if (p1) p1->next = B; else head = B;
+//			if (n2) n2->prev = A;
+//			B->prev = p1;
+//			B->next = A;
+//			A->prev = B;
+//			A->next = n2;
+//		}
+//	}
+//	void display() {
+//		Node* temp = head;
+//		while (temp != nullptr) {
+//			std::cout << temp->data << std::endl;
+//			temp = temp->next;
+//		}
+//	}
+//	void reversedisplay() {
+//		Node* temp = head;
+//		while (temp->next != nullptr) {
+//			temp = temp->next;
+//		}
+//		while (temp != nullptr) {
+//			std::cout << temp->data << std::endl;
+//			temp = temp->prev;
+//		}
+//	}
+//	void insertafter(int s_val, int n_val) {
+//		Node* curr = head;
+//		if (head == nullptr) return;
+//		while (curr != nullptr && curr->data != s_val) {
+//			curr = curr->next;
+//		}
+//		if (curr == nullptr) return;
+//		Node* newnode = new Node(n_val);
+//		newnode->next = curr->next;
+//		if (curr->next != nullptr) {
+//			curr->next->prev = newnode;
+//		}
+//		curr->next = newnode;
+//		newnode->prev = curr;
+//	}
+//	void insertbefore(int s_val, int n_val) {
+//		Node* curr = head;
+//		Node* prev = nullptr;
+//		if (curr->data == s_val)Push_front(n_val); return;
+//		while (curr != nullptr && curr->data != s_val) {
+//			prev = curr;
+//			curr = curr->next;
+//		}
+//		if (curr == nullptr)return;
+//		Node* newnode = new Node(n_val);
+//		prev->next = newnode;
+//		newnode->next = curr;
+//	}
+//};
+//int main() {
+//	DoublyLinkedList list;
+//	list.Push_front(100);
+//	list.Push_front(200);
+//	list.Push_front(200);
+//	list.Push_front(300);
+//	list.Push_front(400);
+//	list.Push_front(500);
+//	list.reversedisplay();
+//	std::cout << std::endl;
+//	//list.swapNodes(500, 100);
+//	//list.swapNodes(200, 300);
+//	list.insertafter(200, 250);
+//	//list.insertbefore(500, 450);
+//	list.display();
+
+
+//struct Node {
+//	int data;
+//	Node* next;
+//	Node* prev;
+//	Node(int val):data(val) , next(nullptr), prev(nullptr){}
+//};
+//class Lists {
+//private:
+//	Node* head;
+//public:
+//	Lists() {
+//		head = nullptr;
+//	}
+//	~Lists() {
+//		Node* temp = head;
+//		while (head != nullptr) {
+//			head = head->next;
+//			delete temp;
+//			temp = head;
+//		}
+//	}
+//	void Push_front(int val) {
+//		Node* newnode = new Node(val);
+//		newnode->next = head;
+//		if (head != nullptr) {
+//			head->prev = newnode;
+//		}
+//		head = newnode;
+//	}
+//		void swapNodes(int v1, int v2) {
+//			if (v1 == v2) return;
+//			Node* A = head;
+//			Node* B = head;
+//			while (A != nullptr && A->data != v1) A = A->next;
+//			while (B != nullptr && B->data != v2) B = B->next;
+//			if (A == nullptr || B == nullptr) return;
+//			if (B->next != A) {
+//				Node* temp = A;
+//				A = B;
+//				B = temp;
+//			}
+//			Node* A_prev = A->prev;
+//			Node* A_next = A->next;
+//			Node* B_prev = B->prev;
+//			Node* B_next = B->next;
+//			if (A_next != B) {
+//				if (A_prev) A_prev->next = B; else head = B;
+//				if (A_next) A_next->prev = B;
+//				if (B_prev) B_prev->next = A;
+//				if (B_next) B_next->prev = A;
+//				B->prev = A_prev;
+//				B->next = A_next;
+//				A->prev = B_prev;
+//				A->next = B_next;
+//			}
+//			else {
+//				if (A_prev) A_prev->next = B; else head = B;
+//				if (B_next) B_next->prev = A;
+//				B->prev = A_prev;
+//				B->next = A;
+//				A->prev = B;
+//				A->next = B_next;
+//			}
+//		}
+//		void insertafter(int s_val, int n_val) {
+//			if (head == nullptr)return;
+//			Node* curr = head;
+//			while (curr != nullptr && curr->data != s_val) {
+//				curr = curr->next;
+//			}
+//			if (curr == nullptr) return;
+//			Node* newnode = new Node(n_val);
+//			newnode->next = curr->next;
+//			if (curr->next != nullptr) {
+//				curr->next->prev = newnode;
+//			}
+//			curr->next = newnode;
+//			newnode->prev = curr;
+//		}
+//};
+
+
+
+
+
+
+
+//struct Node {
+//	int data;
+//	Node* next;
+//	Node* prev;
+//	Node(int val):data(val),next(nullptr),prev(nullptr){}
+// };
+//class Doublylinkelist {
+//private:
+//	Node* head;
+//public:
+//	Doublylinkelist() {
+//		head = nullptr;
+//	}
+//	~Doublylinkelist() {
+//		Node* temp = head;
+//		while (head != nullptr) {
+//			head = head->next;
+//			delete temp;
+//			temp = head;
+//		}
+//	}
+//	void Push_front(int val) {
+//		Node* newnode = new Node(val);
+//		newnode->next = head;
+//		if (head != nullptr) {
+//			head->prev = newnode;
+//		}
+//		head = newnode;
+//	}
+//
+//	void swapNodes(int v1, int v2) {
+//		if (v1 == v2)return;
+//		Node* A = head;
+//		Node* B = head;
+//		while (A != nullptr && A->data != v1) A = A->next;
+//		while (B != nullptr && B->data != v2) B = B->next;
+//		if (A == nullptr || B == nullptr) return;
+//		if (B->next != A) {
+//			Node* temp = A;
+//			A = B;
+//			B = temp;
+//		}
+//		Node* A_prev = A->prev;
+//		Node* A_next = A->next;
+//		Node* B_prev = B->prev;
+//		Node* B_next = B->next;
+//		if (A_next != B) {
+//			if (A_prev) A_prev->next = B; else head = B;
+//			if (A_next) A_next->prev = B;
+//			if (B_prev) B_prev->next = A;
+//			if (B_next) B_next->prev = A;
+//			B->prev = A_prev;
+//			B->next = A_next;
+//			A->prev = B_prev;
+//			A->next = B_next;
+//		}
+//		else {
+//			if (A_prev) A_prev->next = B; else head = B;
+//			if (B_next) B_next->prev = A;
+//			B->prev = A_prev;
+//			B->next = A;
+//			A->prev = B;
+//			A->next = B_next;
+//		}
+//	}
+//	void InsertAfter(int S_val /*200*/, int N_val/*150*/) {
+//		if (head == nullptr)return;
+//		Node* curr = head;
+//		while (curr != nullptr && curr->data != S_val) curr = curr->next;
+//		if (curr == nullptr)return;
+//		Node* newnode = new Node(N_val);
+//		newnode->next = curr->next;
+//		newnode->prev = curr;
+//		if (curr->next != nullptr) {
+//			curr->next->prev = newnode;
+//		}
+//		curr->next = newnode;
+//	}
+//	void Inserbefore(int S_val/*200*/, int N_val/*250*/) {
+//		if (head == nullptr)return;
+//		Node* curr = head;
+//		while (curr != nullptr && curr->data != S_val) curr = curr->next;
+//		if (curr == nullptr)return;
+//		Node* newnode = new Node(N_val);
+//		newnode->prev = curr->prev;
+//		newnode->next = curr;
+//		if (curr->next != nullptr) {
+//			curr->prev->next = newnode;
+//		}
+//		curr->prev = newnode;
+//		
+//	}
+//	void Display() {
+//		Node* temp = head;
+//		while (temp != nullptr) {
+//			std::cout << temp->data << std::endl;
+//			temp = temp->next;
+//		}
+//	}
+//
+//	void Displayreverse() {
+//		Node* temp = head;
+//		while (temp->next != nullptr) {
+//			temp = temp->next;
+//		}
+//		while (temp != nullptr) {
+//			std::cout << temp->data << std::endl;
+//			temp = temp->prev;
+//		}
+//	}
+//};
+//
+//
+//
+//int main() {
+//	Doublylinkelist list;
+//	list.Push_front(100);
+//	list.Push_front(200);
+//	list.Push_front(300);
+//	list.Push_front(400);
+//	list.Push_front(500);								
+//	//list.InsertAfter(200, 150);
+//	list.Inserbefore(200,250);
+//	list.swapNodes(100, 500);
+//	list.Display();
+//	std::cout << std::endl;
+//	list.Displayreverse();
+//}
+//struct Node {
+//	int data;
+//	Node* next;
+//	Node* prev;
+//	Node(int val):data(val),next (nullptr),prev(nullptr){}
+//};
+//class DDLL {
+//private:
+//	Node* head;
+//public:
+//	DDLL() {
+//		head = nullptr;
+//	}
+//	~DDLL() {
+//		Node* temp = head;
+//		while (head != nullptr) {
+//			head = head->next;
+//			delete temp;
+//			temp = head;
+//		}
+//	}
+//	void Push_front(int val) {
+//		Node* newnode = new Node(val);
+//		newnode->next = head;
+//		if (head != nullptr) {
+//			head->prev = newnode;
+//		}
+//		head = newnode;
+//	}
+//	void swapNodes(int v1, int v2) {
+//		if (v1 == v2)return;
+//		Node* A = head;
+//		Node* B = head;
+//		while (A != nullptr && A->data != v1) A = A->next;
+//		while (B != nullptr && B->data != v2) B = B->next;
+//		if (A == nullptr || B == nullptr) return;
+//		if (A->next != B) {
+//			Node* temp = A;
+//			A = B;
+//			B = temp;
+//		}
+//		Node* A_prev = A->prev;
+//		Node* A_next = A->next;
+//		Node* B_prev = B->prev;
+//		Node* B_next = B->next;
+//		if (A_next != B) {
+//			if (A_prev) A_prev->next = B; else head = B;
+//			if (A_next) A_next->prev = B; 
+//			if (B_prev) B_prev->next = A; 
+//			if (B_next) B_next->next = A;
+//			B->prev = A_prev;
+//			B->next = A_next;
+//			A->prev = B_prev;
+//			A->next = B_next;
+//		}
+//		else {
+//			if (A_prev) A_prev->next = B; else head = B;
+//			if (B_next) B_next->next = A;
+//			B->prev = A_prev;
+//			B->next = A;
+//			A->prev = B;
+//			A->next = B_next;
+//		}
+//	}
+//	void InsertAfter(int S_val, int N_val) {
+//		if (head == nullptr)return;
+//		Node* curr = head;
+//		while (curr != nullptr && curr->data != S_val) curr = curr->next;
+//		if (curr == nullptr)return;
+//		Node* newnode = new Node(N_val);
+//		newnode->next = curr->next;
+//		newnode->prev = curr;
+//		if (curr->next != nullptr) {
+//			curr->next->prev = newnode;
+//		}
+//		curr->next = newnode;
+//	}
+//	void Inserbefore(int S_val,int N_val){
+//		if (head == nullptr)return;
+//		Node* curr = head;
+//		while (curr != nullptr && curr->data != S_val) curr = curr->next;
+//		if (curr == nullptr)return;
+//		Node* newnode = new Node(N_val);
+//		newnode->prev = curr->prev;
+//		newnode->next = curr;
+//		if (curr->prev != nullptr) {
+//			curr->prev->next = newnode;
+//		}
+//		curr->prev = newnode;
+//	}
+//	void Display() {
+//		Node* temp = head;
+//		while (temp != nullptr) {
+//			std::cout << temp->data << std::endl;
+//			temp = temp->next;
+//		}
+//	}
+//	void Displayreverse() {
+//		Node* temp = head;
+//		while (temp->next != nullptr) {
+//			temp = temp->next;
+//		}
+//		while (temp != nullptr) {
+//			std::cout << temp->data << std::endl;
+//			temp = temp->prev;
+//		}
+//	}
+//};
+//
+//int main() {
+//	DDLL list;
+//	list.Push_front(100);
+//	list.Push_front(200);
+//	list.Push_front(300);
+//	list.Push_front(400);
+//	list.Push_front(500);								
+//	list.InsertAfter(200, 150);
+//	list.Inserbefore(200,250);
+//	list.swapNodes(100, 500);
+//	list.Displayreverse();
+//	std::cout << std::endl;
+//	list.Display();
+//}
+//struct Item {
+// 
+//	int value;
+//	Item* next;
+//	Item(int val) :value(val), next(nullptr){}
+//};
+//
+//class ListManager {
+//private:
+//	Item* head;
+//public:
+//	ListManager() {
+//		head = nullptr;
+//	}
+//
+//	~ListManager() {
+//		Item* temp = head;
+//		while (head != nullptr) {
+//			head = head->next;
+//			delete temp;
+//			temp = head;
+//		}
+//	}
+//
+//
+//	void insert(int n) {
+//		Item* newItem = new Item(n);
+//			newItem->next = head;
+//			head = newItem;
+//	}
+//
+//	void show() {
+//		Item* temp = head;
+//		while (temp != nullptr) {
+//			std::cout << temp->value << std::endl;
+//			temp = temp->next;
+//		}
+//	}
+//};
+//int main() {
+//	ListManager list;
+//	list.insert(100);
+//	list.insert(200);
+//	list.insert(300);
+//
+//	list.show();
+//
+//	return 0;
+//}
+//struct Car {
+//	int data;
+//	Car* next;
+//};
+//struct Node{
+//	int data;
+//	Node* next;
+//	Node(int val) :data(val), next(nullptr) {}
+//};
+//
+//class linkedlists {
+//private:
+//	Node* head;
+//public:
+//	linkedlists() {
+//		Node* temp = head;
+//		while (head != nullptr) {
+//			head = head->next;
+//			delete temp;
+//			temp = head;
+//		}
+//	}
+//	
+//	void printloop() {
+//		Node* temp = head;
+//		while (temp != nullptr) {
+//			std::cout << temp->data << std::endl;
+//			temp = temp->next;
+//
+//		}
+//	}
+//
+//	void push_front(int value) {
+//		Node* newNode = new Node(value);
+//		newNode->next = head;
+//		head = newNode;
+//	}
+//};
+
+//int main() {
+	//Node* a = new Node(10);
+	//Node* b = new Node(20);
+	//Node* c = new Node(30);
+	//Node* temp = a;
+	//a->next = b;
+	//b->next = c;
+	//c->next = nullptr;
+	//while (temp != nullptr) {
+	//	std::cout << temp->data << std::endl;
+	//	temp = temp->next;
+	//}
+	//delete a;
+	//delete b;
+	//delete c;
+	//return 0;
+
+	//Node* a = new Node(10);
+	//Node* b = new Node(20);
+	//Node* c = new Node(30);
+	//Node* NewNode = new Node(5);
+	//Node* EndNode = new Node(40);
+	//Node* temp = NewNode;
+	//NewNode->next = a;
+	//a->next = b;
+	//b->next = c;
+	//c->next = EndNode;
+	//delete NewNode;
+	//delete a;
+	//delete b;
+	//delete c;
+	//delete EndNode;
+	//linkedlists list;
+	//list.push_front(30);
+	//list.push_front(20);
+	//list.push_front(10);
+	//list.printloop();
+	//
+	//return 0;
+
+
+	//Node* head = new Node(50);
+	//Node* tail = new Node(100);
+	//head->next = tail;
+	//std::cout << "the value of n2 via n1 is:" <<head->next->data<< std::endl;
+	//delete head;
+	//delete tail;
+	//return 0;
+
+	//Node* NodeA = new Node;
+	//NodeA->data = 10;
+	//NodeA->next = nullptr;
+	//Node* NodeB = new Node;
+	//NodeB->data = 20;
+	//NodeB->next = nullptr;
+	//
+	//NodeA->next = NodeB;
+	//std::cout << "Node B value via A: " << NodeA->next->data << std::endl;
+	//
+	//return 0;
+	//Node* n1 = new Node;
+	//Node* n2 = new Node;
+	//Node* n3 = new Node;
+	//n1->data = 10;
+	//n2->data = 20;
+	//n3->data = 30;
+	//n1->next = n2;
+	//n2->next = n3;
+	//n3->next = n1;
+	//std::cout << "the first value: " << n1->next->next->next->data << std::endl;
+	//delete n1;
+	//delete n2;
+	//delete n3;
+	//return 0;
+	 
+	
+	//Car* head = new Car;
+	//Car* middle = new Car;
+	//Car* last = new Car;
+	//head->data = 100;
+	//middle->data = 200;
+	//last->data = 300;
+	//head->next = middle;
+	//middle->next = last;
+	//last->next = nullptr;
+	//std::cout << "the last value is :" << head->next->next->data << std::endl;
+	//delete head;
+	//delete middle;
+	//delete head;
+	//return 0;
+	//// question 1
+	//int target = 10;
+	//int* ptr = &target;
+	//*ptr = 7000;
+	//std::cout << "the value is now:" << *ptr << std::endl;
+	//question 2
+	//int ptr;
+	//int* ptr2 = new int;
+	//*ptr2 = 500;
+	//std::cout << "the value is now:" << *ptr2 << std::endl;
+	//delete ptr2;
+	//question 3
+	//int arr[] = { 10,20,30 };
+	//int* ptr = arr;
+	//for (int i = 0; i < 3; i++) {
+	//	std::cout << *ptr << std::endl;
+	//	ptr++;
+	//}
+	//question 4
+	//int score;
+	//std::cout << "enter the no. of players"<<std::endl;
+	//std::cin >> score;
+	//int* scoreboard = new int[score];
+	//for (int i = 0; i < score; i++) {
+	//	std::cout << "enter the player "<<i+1<<" score:" << std::endl;
+	//	std::cin >> scoreboard[i];	
+	//}
+	//std::cout << "Scoreboard!"<< std::endl;
+	//for (int i = 0; i < score; i++) {
+	//	std::cout << "player " << i + 1 << ":" <<scoreboard[i]<< std::endl;
+	//}
+	//delete[] scoreboard;
+
+
+//}
+
+//struct Node {
+//	int data;
+//	Node* next;
+//	Node* prev;
+//	Node(int val):data(val),next(nullptr),prev(nullptr){}
+//};
+//class DDLL {
+//private:
+//	Node* head;
+//public:
+//	DDLL() {
+//		head = nullptr;
+//	}
+//	~DDLL() {
+//		Node* temp = head;
+//		while (head != nullptr) {
+//			head = head->next;
+//			delete temp;
+//			temp = head;
+//		}
+//	}
+//	void Push_front(int val) {
+//		Node* newnode = new Node(val);
+//		newnode->next = head;
+//		if (head != nullptr) {
+//			head->prev = newnode;
+//		}
+//		head = newnode;
+//	}
+//	void swap(int v1, int v2) {
+//		if (v1 == v2)return;
+//		Node* A = head;
+//		Node* B = head;
+//		while (A != nullptr && A->data != v1) A = A->next;
+//		while (B != nullptr && B->data != v2) B = B->next;
+//		if (A == nullptr || B == nullptr)return;
+//		if (A->next != B) {
+//			Node* temp = A;
+//			A = B;
+//			B = temp;
+//		}
+//		Node* A_prev = A->prev;
+//		Node* A_next = A->next;
+//		Node* B_prev = B->prev;
+//		Node* B_next = B->next;
+//		if (A_next != B) {
+//			if (A_prev) A_prev->next = B; else head = B;
+//			if (A_next) A_next->prev = B;
+//			if (B_prev) B_prev->next = A;
+//			if (B_next) B_next->prev = A;
+//			B->prev = A_prev;
+//			B->next = A_next;
+//			A->prev = B_prev;
+//			A->next = B_next;
+//		}
+//		else {
+//			if (A_prev) A_prev->next = B; else head = B;
+//			if (B_next) B_next->prev = A;
+//			B->prev = A_prev;
+//			B->next = A;
+//			A->prev = B;
+//			A->next = B_next;
+//		}
+//	}
+//	void InsertAfter(int S_val, int N_val) {
+//		if (head == nullptr)return;
+//		Node* curr = head;
+//		while (curr != nullptr && curr->data != S_val) curr = curr->next;
+//		if (curr == nullptr)return;
+//		Node* newnode = new Node(N_val);
+//		newnode->next = curr->next;
+//		newnode->prev = curr;
+//		if (curr->next != nullptr) {
+//			curr->next->prev = newnode;
+//		}
+//		curr->next = newnode;
+//	}
+//	void Inserbefore(int S_val,int N_val){
+//		if (head == nullptr)return;
+//		Node* curr = head;
+//		while (curr != nullptr && curr->data != S_val) curr = curr->next;
+//		if (curr == nullptr)return;
+//		Node* newnode = new Node(N_val);
+//		newnode->prev = curr->prev;
+//		newnode->next = curr;
+//		if (curr->prev != nullptr) {
+//			curr->prev->next = newnode;
+//		}
+//		curr->prev = newnode;
+//	}
+//	void Display() {
+//		Node* temp = head;
+//		while (temp != nullptr) {
+//			std::cout << temp->data << std::endl;
+//			temp = temp->next;
+//		}
+//	}
+//	void Displayreverse() {
+//		if (head == nullptr)return;
+//		Node* temp = head;
+//		while (temp->next != nullptr) {
+//			temp = temp->next;
+//		}
+//		while (temp != nullptr) {
+//			std::cout << temp->data << std::endl;
+//			temp = temp->prev;
+//		}
+//	}
+//	bool checkIntegrity() {
+//		if (head == nullptr)return true;
+//		Node* curr = head;
+//		while (curr->next != nullptr) {
+//			Node* newnode = curr->next;
+//			if (newnode->prev != curr) {
+//				std::cout << "its broken!!" << std::endl;
+//				return false;
+//			}
+//			curr = curr->next;
+//		}
+//		return true;
+//	}
+//	void deleteNode(int S_val) {
+//		if (head == nullptr)return;
+//		Node* curr = head;
+//		while (curr!= nullptr && curr->data != S_val) {
+//			curr = curr->next;
+//		}
+//		if (curr == nullptr) return;
+//		if (curr->prev != nullptr) {
+//			curr->prev->next = curr->next; 
+//		}
+//		else {
+//			head = curr->next;
+//		}
+//
+//		if (curr->next != nullptr) {
+//			curr->next->prev = curr->prev; 
+//		}
+//		delete curr;
+//	}
+//};
+//int main() {
+//	DDLL list;
+//	int myData[] = { 100, 200, 300, 400, 500 };
+//
+//	for (int i = 0; i < 5; i++) {
+//		list.Push_front(myData[i]); 
+//	}
+//
+//	list.InsertAfter(200, 150);
+//	list.Inserbefore(200,250);
+//	list.swap(100, 500);
+//	list.Displayreverse();
+//	std::cout << std::endl;
+//	list.Display();
+//	list.checkIntegrity();
+//	list.deleteNode(300);
+//	std::cout << std::endl;
+//	list.Display();
+//
+//}
+
+
+//struct Node {
+//	int data;
+//	Node* next;
+//	Node* prev;
+//	Node(int val) : data(val), next(nullptr), prev(nullptr) {}
+//};
+//
+//class DLL {
+//private:
+//	Node* head;
+//public:
+//
+//	DLL() {
+//		head = nullptr;
+//	}
+//
+//	~DLL() {
+//		if (head == nullptr)return;
+//		Node* temp = head;
+//		while (head != nullptr) {
+//			temp = temp->next;
+//			delete temp;
+//			temp = head;
+//		}
+//	}
+//	void Push(int val) {
+//		Node* newnode = new Node(val);
+//		head = newnode->next;
+//		if (head != nullptr) {
+//			head->prev = newnode;
+//		}
+//		newnode = head;
+//	}
+//
+//	void display() {
+//		if (head == nullptr)return;
+//		Node* temp = head;
+//		while (temp != nullptr) {
+//			std::cout << temp->data << std::endl;
+//			temp = temp->next;
+//		}
+//	}
+//};
+//int main() {
+//	DLL l;
+//	l.Push(100);
+//	l.Push(200);
+//	l.Push(300);
+//	l.Push(400);
+//	l.display();
+//	return 0;
+//}
+
+
+//struct Node {
+//	int data;
+//	Node* next;
+//	Node* prev;
+//	Node(int val) :data(val), next(nullptr), prev(nullptr) {}
+//};
+//class CDLL {
+//private:
+//	Node* head;
+//public:
+//	CDLL() {
+//		head = nullptr;
+//	}
+//	~CDLL() {
+//		std::cout << "The Execution is over now clearing memory" << std::endl;
+//		Node* temp = head;
+//		if (head != nullptr) {
+//			Node* tail = head->prev;
+//			tail->next = nullptr;
+//			while (head != nullptr) {
+//				Node* temp = head;
+//				head = head->next;
+//				delete temp;
+//			}
+//		}
+//		std::cout << "Memory cleared from heap!" << std::endl;
+//
+//	}
+//	void Push(int val) {
+//		Node* newnode = new Node(val);
+//		if (head == nullptr) {
+//			head = newnode;
+//			head->next = head;
+//			head->prev = head;
+//			return;
+//		}
+//		Node* tail = head->prev;
+//		newnode->next = head;
+//		newnode->prev = tail;
+//		tail->next = newnode;
+//		head->prev = newnode;
+//	}
+//
+//	void display() {
+//		if (head == nullptr)return;
+//		Node* temp = head;
+//		do {
+//			std::cout << temp->data << std::endl;
+//			temp = temp->next;
+//		} while (temp != nullptr);
+//		std::cout << std::endl;
+//	}
+//
+//	void displayRES() {
+//		Node* temp = head;
+//		while (temp->next != nullptr) {
+//			temp = temp->next;
+//		}
+//		while (temp != nullptr) {
+//			std::cout << temp->data << std::endl;
+//			temp = temp->prev;
+//
+//		}
+//	}
+//};
+//int main() {
+//	CDLL list;
+//	list.Push(150);
+//	list.Push(151);
+//	list.Push(152);
+//	list.display();
+//	std::cout << std::endl;
+//	list.displayRES();
+//}
+
+
+
+
+//struct Node {
+//	int data;
+//	Node* next;
+//	Node* prev;
+//	Node(int val) : data(val), next(nullptr), prev(nullptr) {}
+//};
+//
+//class CDLL {
+//private:
+//	Node* head;
+//public:
+//	CDLL() {
+//		head = nullptr;
+//	}
+//	~CDLL() {
+//		if (head == nullptr) return;
+//		Node* curr = head;
+//		head->prev->next = nullptr;
+//		while (curr != nullptr) {
+//			Node* nextNode = curr->next;
+//			delete curr;
+//			curr = nextNode;
+//		}
+//		head = nullptr;
+//	}
+//	void Push_front(int val) {
+//		Node* newnode = new Node(val);
+//		if (head == nullptr) {
+//			head = newnode;
+//			newnode->next = head;
+//			newnode->prev = head;
+//		}
+//		else {
+//			Node* tail = head->prev;
+//			newnode->next = head;
+//			newnode->prev = tail;
+//			tail->next = newnode;
+//			head->prev = newnode;
+//			head = newnode;
+//		}
+//	}
+//	void swap(int v1, int v2) {
+//		if (v1 == v2 || head == nullptr) return;
+//		Node* A = head;
+//		Node* B = head;
+//		bool foundA = false, foundB = false;
+//		Node* temp = head;
+//		do {
+//			if (temp->data == v1) { A = temp; foundA = true; }
+//			if (temp->data == v2) { B = temp; foundB = true; }
+//			temp = temp->next;
+//		} while (temp != head);
+//
+//		if (!foundA || !foundB) return;
+//
+//		if (A->next == B) {
+//			Node* A_prev = A->prev;
+//			Node* B_next = B->next;
+//			A_prev->next = B;
+//			B->prev = A_prev;
+//			B->next = A;
+//			A->prev = B;
+//			A->next = B_next;
+//			B_next->prev = A;
+//		}
+//		else if (B->next == A) {
+//			Node* B_prev = B->prev;
+//			Node* A_next = A->next;
+//			B_prev->next = A;
+//			A->prev = B_prev;
+//			A->next = B;
+//			B->prev = A;
+//			B->next = A_next;
+//			A_next->prev = B;
+//		}
+//		else {
+//			Node* A_prev = A->prev;
+//			Node* A_next = A->next;
+//			Node* B_prev = B->prev;
+//			Node* B_next = B->next;
+//			A_prev->next = B;
+//			A_next->prev = B;
+//			B->prev = A_prev;
+//			B->next = A_next;
+//			B_prev->next = A;
+//			B_next->prev = A;
+//			A->prev = B_prev;
+//			A->next = B_next;
+//		}
+//		if (head == A) head = B;
+//		else if (head == B) head = A;
+//	}
+//	void InsertAfter(int S_val, int N_val) {
+//		if (head == nullptr) return;
+//		Node* curr = head;
+//		bool found = false;
+//		do {
+//			if (curr->data == S_val) { found = true; break; }
+//			curr = curr->next;
+//		} while (curr != head);
+//		if (!found) return;
+//		Node* newnode = new Node(N_val);
+//		newnode->next = curr->next;
+//		newnode->prev = curr;
+//		curr->next->prev = newnode;
+//		curr->next = newnode;
+//	}
+//	void Inserbefore(int S_val, int N_val) {
+//		if (head == nullptr) return;
+//		Node* curr = head;
+//		bool found = false;
+//		do {
+//			if (curr->data == S_val) { found = true; break; }
+//			curr = curr->next;
+//		} while (curr != head);
+//		if (!found) return;
+//		Node* newnode = new Node(N_val);
+//		newnode->next = curr;
+//		newnode->prev = curr->prev;
+//		curr->prev->next = newnode;
+//		curr->prev = newnode;
+//		if (curr == head) head = newnode;
+//	}
+//	void Display() {
+//		if (head == nullptr) return;
+//		Node* temp = head;
+//		do {
+//			std::cout << temp->data << std::endl;
+//			temp = temp->next;
+//		} while (temp != head);
+//	}
+//	void Displayreverse() {
+//		if (head == nullptr) return;
+//		Node* temp = head->prev;
+//		Node* tail = head->prev;
+//		do {
+//			std::cout << temp->data << std::endl;
+//			temp = temp->prev;
+//		} while (temp != tail);
+//	}
+//	bool checkIntegrity() {
+//		if (head == nullptr) return true;
+//		Node* curr = head;
+//		do {
+//			if (curr->next->prev != curr) {
+//				std::cout << "its broken!!" << std::endl;
+//				return false;
+//			}
+//			curr = curr->next;
+//		} while (curr != head);
+//		return true;
+//	}
+//	void deleteNode(int S_val) {
+//		if (head == nullptr) return;
+//		Node* curr = head;
+//		bool found = false;
+//		do {
+//			if (curr->data == S_val) { found = true; break; }
+//			curr = curr->next;
+//		} while (curr != head);
+//		if (!found) return;
+//		if (curr->next == curr) {
+//			head = nullptr;
+//		}
+//		else {
+//			curr->prev->next = curr->next;
+//			curr->next->prev = curr->prev;
+//			if (curr == head) head = curr->next;
+//		}
+//		delete curr;
+//	}
+//};
+//
+//int main() {
+//	CDLL list;
+//	int myData[] = { 100, 200, 300, 400, 500 };
+//	for (int i = 0; i < 5; i++) {
+//		list.Push_front(myData[i]);
+//	}
+//	list.InsertAfter(200, 150);
+//	list.Inserbefore(200, 250);
+//	list.swap(100, 500);
+//	list.Displayreverse();
+//	std::cout << std::endl;
+//	list.Display();
+//	list.checkIntegrity();
+//	list.deleteNode(300);
+//	std::cout << std::endl;
+//	list.Display();
+//	return 0;
+//}
+
+
+// ============================================================================================================================================================
+// ============================================================================================================================================================
+// ============================================================================================================================================================
+// ============================================================================================================================================================
+
+//struct Node {
+//	int data;
+//	Node* next;
+//	Node(int val) :data(val), next(nullptr) {};
+//};
+//class stack {
+//private:
+//	Node* top;
+//public:
+//	stack() {
+//		top = nullptr;
+//	}
+//	~stack() {
+//		if (top == nullptr) return;
+//		while (top != nullptr) {
+//			pop();
+//		}
+//	}
+//	void Push(int val){
+//		Node* newnode = new Node(val);
+//		newnode->next = top;
+//		top = newnode;
+//	}
+//	void pop() {
+//		if (top == nullptr) {
+//			std::cout << "stack underflow!! Nothing to display!" << std::endl;
+//			return; 
+//		}
+//		Node* temp = top;
+//		top = top->next;
+//		delete temp;
+//	}
+//	int peek() {
+//			if (top == nullptr) {
+//			std::cout << "stack underflow! Nothing to display." << std::endl;
+//			return -1;
+//		}
+//		return top->data;
+//	}
+//	void display() {
+//		if (top == nullptr) { 
+//			std::cout << "stack underflow!! Nothing to display!" << std::endl;
+//			return; 
+//		}
+//		Node* temp = top;
+//		while (temp != nullptr) {
+//			std::cout << temp->data << std::endl;
+//			temp = temp->next;
+//		}
+//	}
+//};
+//int main() {
+//	stack s;
+//	s.Push(1);
+//	s.Push(2);
+//	s.Push(3);
+//	s.Push(4);
+//	s.Push(5);
+//	s.display();
+//	s.peek();
+//	return 0;
+//}
+
+
+//class ArrayStack {
+//private:
+//	int top;
+//	int arr[5];
+//public:
+//	ArrayStack() { top = -1; }
+//	void push(int val) {
+//		if (top == 4) {
+//			std::cout << "stack overflow! Nothing to display."<< val << std::endl;
+//						return;
+//		}
+//		arr[++top] = val;
+//	}
+//	void pop() {
+//		if (top == -1) {
+//			std::cout << "stack underflow!! Nothing to display!" << std::endl;
+//			return;
+//		}
+//		std::cout <<"deleted : "<< arr[top--] << std::endl;
+//	}
+//};
+//int main() {
+//	ArrayStack at;
+//	at.push(1);
+//	at.push(2);
+//	at.push(3);
+//	at.push(4);
+//	at.push(5);
+//	at.pop();
+//}
+//struct Node {
+//	std::string data;
+//	Node* next;
+//	Node(std::string val) :data(val), next(nullptr){}
+//};
+//
+//class Stack {
+//private:
+//	Node* top;
+//public:
+//	Stack() {
+//		top = nullptr;
+//	}
+//	~Stack() {
+//		if (top == nullptr)return;
+//		Node* temp = top;
+//		while (top != nullptr) {
+//			top = top->next;
+//			delete temp;
+//			temp = top;
+//		}
+//
+//	}
+//	void Push(std::string value) {
+//		Node* newnode = new Node(value);
+//		newnode->next = top;
+//		top = newnode;
+//	}
+//	void display() {
+//		if (top == nullptr) { 
+//			std::cout << "stack underflow!! Nothing to display!" << std::endl;
+//			return; 
+//		}
+//		Node* temp = top;
+//		while (temp != nullptr) {
+//			std::cout << temp->data << std::endl;
+//			temp = temp->next;
+//		}
+//	}
+//	std::string peek() {
+//		if (top == nullptr) {
+//			std::cout << "stack underflow! Nothing to display." << std::endl;
+//			return "";
+//		}
+//		return top->data;
+//	}
+//	void pop() {
+//		if (top == nullptr) {
+//			std::cout << "stack is empty! Nothing to display" << std::endl;
+//			return;
+//		}
+//		Node* temp = top;
+//		top = top->next;
+//		delete temp;
+//
+//	}
+//
+//};
+//int main() {
+//	Stack st;
+//	st.Push("hello world");
+//	st.Push("hello linkedlists");
+//	st.Push("hello Stack");
+//	st.pop();
+//	st.display();
+// st.peek()
+//};
+
+// ============================================================================================================================================================
+// ============================================================================================================================================================
+// ============================================================================================================================================================
+// ============================================================================================================================================================
+
+
+//class LinkedQueues {
+//private:
+//	struct Node {
+//		int data;
+//		Node* next;
+//		Node(int val) :data(val), next(nullptr) {}
+//	};
+//	Node* front;
+//	Node* rear;
+//public:
+//	LinkedQueues() {
+//		front = nullptr;
+//		rear = nullptr;
+//	}
+//	~LinkedQueues() {
+//		while (front != nullptr) {
+//			Dequeue();
+//		}
+//	}
+//	void enqueue(int val){
+//		Node* newnode = new Node(val);
+//		if (rear == nullptr) {
+//			front = rear = newnode;
+//			return;
+//		}
+//		rear->next = newnode;
+//		rear = newnode;
+//	}
+//	void Dequeue() {
+//		if (front == nullptr) {
+//			std::cout << "Queue is empty!" << std::endl;
+//			return;
+//		}
+//		Node* temp = front;
+//		front = front->next;
+//		if (front == nullptr) {
+//			rear = nullptr;
+//
+//		}
+//		delete temp;
+//	}
+//	int peek() {
+//		if (front == nullptr) {
+//			std::cout << "Queue is empty!" << std::endl;
+//			return 1;
+//		}return front->data;
+//	}
+//	void display() {
+//		Node* temp = front;
+//		while (temp != nullptr) {
+//			std::cout << temp->data << std::endl;
+//			temp = temp->next;
+//		}
+//	}
+//};
+//int main() {
+//	LinkedQueues Q;
+//	Q.enqueue(100);
+//	Q.enqueue(200);
+//	Q.enqueue(300);
+//	Q.enqueue(400);
+//	Q.enqueue(500);
+//	Q.display();
+//	Q.peek();
+//	std::cout << std::endl;
+//	Q.Dequeue();
+//	Q.Dequeue();
+//	Q.Dequeue();
+//	Q.Dequeue();
+//	Q.Dequeue();
+//	Q.Dequeue();
+//	Q.display();
+//	Q.peek();
+//}
+
+//class Circular_ArrayQueue {
+//private:
+//	int* arr;
+//	int capacity, front, rear;
+//public:
+//	Circular_ArrayQueue(int value) {
+//		capacity = value;
+//		arr = new int[capacity];
+//		front = -1;
+//		rear = -1;
+//	}
+//	~Circular_ArrayQueue() {
+//		delete[] arr;
+//	}
+//	bool is_empty() {
+//		return front == -1;
+//	}
+//	bool is_full() {
+//		return (rear + 1) % capacity == front;
+//	}
+//	void EnQueue(int value) {
+//		if (is_full()) {
+//			std::cout << "Queue OverFlow!!" << std::endl;
+//			return;
+//		}
+//		if (is_empty()) {
+//			front = 0;
+//		}
+//		rear = (rear + 1) % capacity;
+//		arr[rear] = value;
+//	}
+//	int DeQueue() {
+//		if (is_empty()) {
+//			std::cout << "Queue is empty!" << std::endl;
+//			return -1;
+//		}
+//		int deletedElement = arr[front];
+//
+//		std::cout << "Successfully DeQueued: " << deletedElement << std::endl;
+//		if (front == rear) {
+//			front= -1;
+//			rear= -1;
+//		}
+//		else {
+//			
+//			front = (front + 1) % capacity;
+//		}
+//	}
+//	void display() {
+//		if (front == -1) {
+//			std::cout << "NOTHING TO DISPLAY!" << std::endl;
+//			return;
+//		}
+//		int i = front;
+//		do{
+//			std::cout << arr[i] << std::endl;
+//			i = (i + 1) % capacity;
+//		} while (i!=(rear+1)%capacity);
+//	}
+//	void empty_Q() {
+//		front = -1;
+//		rear = -1;
+//		std::cout << "Queue is emptied" << std::endl;
+//	}
+//};
+//int main() {
+//	Circular_ArrayQueue Q(5);
+//	Q.EnQueue(100);
+//	Q.EnQueue(200);
+//	Q.EnQueue(300);
+//	Q.EnQueue(400);
+//	Q.EnQueue(500);
+//	//Q.EnQueue(600);
+//	//Q.display();
+//	//Q.empty_Q();
+//	Q.display();
+//	std::cout << std::endl;
+//	Q.display();
+//	Q.DeQueue();
+//	Q.DeQueue();
+//	Q.DeQueue();
+//	std::cout << std::endl;
+//	Q.display();
+//
+//
+//}
+
+class Heap {
+private:
+	int* arr;
+	int capacity;
+	int size;
+public:
+	Heap(int cap) {
+		capacity = cap;
+		size = 0;
+		arr = new int[capacity];
+	}
+	~Heap() {
+		delete[] arr;
+	}
+	void insert(int value) {
+		if (size == capacity) {
+			std::cout << "Heap overflow" << std::endl;
+			return;
+		}
+		arr[size] = value;
+		int i = size;
+		size++;
+		while (i > 0 && arr[i] > arr[(i - 1) / 2]) {
+			std::swap(arr[i], arr[(i - 1) / 2]);
+			i = (i - 1) / 2;
+		}
+	}
+	void extractMax() {
+		if (size == 0) {
+			std::cout << "heap empty" << std::endl;
+			return;
+		}
+		arr[0] = arr[size - 1];
+		size--;
+
+		int i = 0;
+		while (true) {
+			int left = 2 * i + 1;
+			int right = 2 * i + 2;
+			int largest = i;			
+			if (left < size && arr[left] > arr[largest]) { // most of the time the size will be greater then left/right! because size increaments as i insert! 
+				largest = left;
+			}
+			if (right < size && arr[right] > arr[largest]) {
+				largest = right;
+			}
+			if (largest == i) {
+				break;
+			}
+			std::swap(arr[i], arr[largest]);
+			i = largest;
+		}
+	}
+	void display() {
+		for (int i = 0;i < size;i++) {
+			std::cout << arr[i]<<" ";
+		}
+		std::cout << std::endl;
+	}
+	int getMax() {
+		if (size == 0) {
+			std::cout << "heap empty" << std::endl;
+			return -1;
+		}
+		std::cout <<arr[0]<<std::endl;
+		return 0;
+	}
+	int getSize() {
+		std::cout << size << std::endl;
+		return 0;
+	}
+};
+int main() {
+	Heap heap(5);
+	heap.insert(5);
+	heap.insert(10);
+	heap.insert(15);
+	heap.insert(20);
+	heap.insert(25);
+	heap.display();
+	heap.extractMax();
+	heap.display();
+	heap.getMax();
+	heap.getSize();
+}
+
+
+#include <iostream>
+#include <string>
+#include <vector>
+#include <queue>
+#include <algorithm>
+#include <climits>
+#include <cmath>
+#include <unordered_set>
+// Linked lists code!
+// struct Node {
+//     int data;
+//     Node* next;
+//     Node(int value) {
+//         data = value;
+//         next = nullptr;
+//     }
+// };
+//
+// class Linkedlist {
+// private:
+//     Node* head;
+// public:
+//     Linkedlist() {
+//         head = nullptr;
+//     }
+//
+//     ~Linkedlist() {
+//         while (head != nullptr) {
+//             Node* temp = head;
+//             head = head->next;
+//             delete temp;
+//         }
+//     }
+//
+//     void Insert_front(int value) {
+//         Node* newnode = new Node(value);
+//         newnode->next = head;
+//         head = newnode;
+//     }
+//
+//     void Insert_back(int value) {
+//         Node* newnode = new Node(value);
+//         if (head == nullptr) {
+//             head = newnode;
+//             return;
+//         }
+//         Node* temp = head;
+//         while (temp->next != nullptr) {
+//             temp = temp->next;
+//         }
+//         temp->next = newnode;
+//     }
+//     void display() {
+//         Node*temp = head;
+//         while (temp!=nullptr) {
+//             std::cout<<temp->data<<std::endl;
+//             temp = temp ->next;
+//         }
+//     }
+//     void Insert_at_Position(int value, int pos) {
+//         if (pos == 1) {
+//             Insert_front(value);
+//             return;
+//         }
+//         Node* newnode = new Node(value);
+//         Node*temp = head;
+//         for (int i = 0;i<pos-1;i++) {
+//             if (temp==nullptr){\
+//                 delete newnode;
+//                 return;
+//         }
+//             temp = temp->next;
+//         }
+//         newnode->next = temp->next;
+//         temp->next = newnode;
+//     }
+// };
+//
+// int main() {
+//     Linkedlist l;
+//     l.Insert_front(10);
+//     l.Insert_front(20);
+//     l.Insert_front(30);
+//     l.Insert_back(40);
+//     l.display();
+//     return 0;
+// }
+// Doubly Linkedlist
+//struct Node {
+//    int data;
+//    Node* next;
+//    Node* prev;
+//    Node(int value) {
+//        data = value;
+//        next = nullptr;
+//        prev = nullptr;
+//    }
+//};
+//class DLinkedlist {
+//private:
+//    Node* head;
+//public:
+//    DLinkedlist() {
+//        head = nullptr;
+//    }
+//
+//    ~DLinkedlist() {
+//        while (head != nullptr) {
+//            Node* temp = head;
+//            head = head->next;
+//            delete temp;
+//        }
+//    }
+//    void insert_front(int value) {
+//        Node* newnode = new Node(value);
+//        if (head == nullptr) {
+//            head = newnode;
+//            return;
+//        }
+//        newnode->next = head;
+//        if (head != nullptr) {
+//            head->prev = newnode;
+//        }
+//        head = newnode;
+//    }
+//
+//
+//    void display() {
+//        Node* temp = head;
+//        if (head == nullptr)return;
+//        while (temp != nullptr) {
+//            std::cout << temp->data << std::endl;
+//            temp = temp->next;
+//        }
+//    }
+//    void revdisplay() {
+//        Node* temp = head;
+//        if (head == nullptr)return;
+//        while (temp->next != nullptr) {
+//            temp = temp->next;
+//        }
+//        while (temp != nullptr) {
+//            std::cout << temp->data << std::endl;
+//            temp = temp->prev;
+//        }
+//    }
+//    void insert_back(int value) {
+//        Node* newnode = new Node(value);
+//        if (head == nullptr) {
+//            head = newnode;
+//            return;
+//        }
+//        Node* temp = head;
+//        while (temp->next != nullptr) {
+//            temp = temp->next;
+//        }
+//        temp->next = newnode;
+//        newnode->prev = temp;
+//    }
+//
+//    void insert_at_position(int value, int pos) {
+//        
+//        if (pos == 1) {
+//            insert_front(value);
+//            return;
+//        }
+//        Node* newnode = new Node(value);
+//        Node* temp = head;
+//        for (int i = 0;i < pos - 1;i++) {
+//                if (temp==nullptr){\
+//                    delete newnode;
+//                    return;
+//            }
+//                temp = temp->next;
+//            }
+//            newnode->next = temp->next;
+//            newnode->prev = temp;
+//            if (temp->next != nullptr) {
+//                temp->next->prev = newnode;
+//            }
+//            temp->next = newnode;
+//    }
+//
+//    void delete_at_value(int target_value) { // Pass the integer data instead!
+//        if (head == nullptr) return;
+//
+//        Node* temp = head;
+//        while (temp != nullptr && temp->data != target_value) {
+//            temp = temp->next;
+//        }
+//        if (temp == nullptr)return;
+//        if (head == temp) {
+//            head = head->next;
+//            if (head != nullptr)head->prev = nullptr;
+//            delete temp;
+//            return;
+//        }
+//        if (temp->prev != nullptr) temp->prev->next = temp->next;
+//        if (temp->next != nullptr) temp->next->prev = temp->prev;
+//        delete temp;
+//    }
+//   
+//
+//};
+//int main() {
+//    DLinkedlist dl;
+//    dl.insert_front(10);
+//    dl.insert_front(20);
+//    dl.insert_front(30);
+//    dl.insert_front(40);
+//    dl.insert_at_position(25,2);
+//    dl.delete_at_value(25);
+//    dl.display();
+//    std::cout << "     ----- " << std::endl;
+//    //dl.revdisplay();
+//    return 0;
+//}
+//
+//
+//struct Node {
+//	int data;
+//	Node* next;
+//	Node(int value) {
+//		data = value;
+//		next = nullptr;
+//	}
+//};class stack {
+//private:
+//Node* top;public:
+//	stack() {
+//		top = nullptr;
+//	}
+//	~stack() {
+//		while (top != nullptr) {
+//			pop();
+//		}
+//	}
+//	void push(int value) {
+//		Node* newnode = new Node(value);
+//		newnode->next = top;
+//		top = newnode;
+//	}
+//
+//	void pop() {
+//		if (top == nullptr) {
+//			std::cout << "Stack Underflow" << std::endl;
+//			return;
+//		}
+//		Node* temp = top;
+//		top = top->next;
+//		delete temp;
+//	}
+//
+//	int peek() {
+//		if (top == nullptr) {
+//			return -1;
+//		}
+//		Node* temp = top;
+//		return temp->data;
+//	}
+//	bool isEmpty() {
+//		if (top == nullptr) {
+//			std::cout << "stack empty!" << std::endl;
+//			return true;
+//		}
+//		else {
+//			std::cout << "stack not empty!" << std::endl;
+//			return false;
+//		}
+//	}
+//};int main() {
+//	stack s;
+//	s.push(10);
+//	s.push(20);
+//	s.push(30);
+//	s.push(40);
+//	s.pop();
+//	s.peek();
+//	s.isEmpty();
+// return 0;
+// 
+//}
+//
+//struct Node {
+//	int data;
+//	Node* next;
+//	Node(int value) {
+//		data = value;
+//		next = nullptr;
+//	}
+//};
+//
+//class stack {
+//private:
+//	static const int max = 5;
+//	int array[max];
+//	int top;
+//public:
+//	stack() {
+//		top = -1;
+//	}
+//	~stack() {
+//		while (top != -1) {
+//			pop();
+//		}
+//	}
+//	void push(int value) {
+//		if (top == max - 1) {
+//			std::cout << "Stack Overflow" << std::endl;
+//			return;
+//		}
+//		top++;
+//		array[top] = value;
+//		std::cout << "pushed value:" << value << " into stack!" << std::endl;
+//	}
+//	
+//	void pop() {
+//		if (top == -1) {
+//			std::cout << "Stack Underflow" << std::endl;
+//			return;
+//		}
+//		std::cout << "removing top value:" << array[top] << " from stack!" << std::endl;
+//		top--;
+//
+//	}
+//
+//	int peek() {
+//		if (top == -1) { 
+//			return -1; 
+//		}
+//		return array[top];
+//	}
+//	bool isEmpty() {
+//		if (top == -1) {
+//			std::cout << "stack empty!" << std::endl;
+//			return true;
+//		}
+//		else {
+//			std::cout << "stack not empty!" << std::endl;
+//			return false;
+//		}
+//	}
+//	bool isFull() {
+//		return top == max - 1;
+//	}
+//};
+//
+//int main() {
+//	stack s;
+//	s.push(10);
+//	s.push(20);
+//	s.push(30);
+//	s.push(40);
+//	s.pop();
+//	s.peek();
+//	s.isEmpty();
+//	s.isFull();
+// return 0;
+// 
+//}
+//
+//struct Node {
+//	int data;
+//	Node* next;
+//	Node(int value) {
+//		data = value;
+//		next = nullptr;
+//	}
+//};
+//class Queue {
+//private:
+//	Node* front;
+//	Node* rear;
+//public:
+//	Queue() {
+//		front = nullptr;
+//		rear = nullptr;
+//	}
+//	~Queue() {
+//		Node* temp = front;
+//		while (front != nullptr) {
+//			Dequeue();
+//		}
+//	}
+//
+//	void enQueue(int value) {
+//		Node* newnode = new Node(value);
+//		if (front == nullptr) {
+//			front = rear = newnode;
+//			return;
+//		}
+//		rear->next = newnode;
+//		rear = newnode;
+//	}
+//	void Dequeue(){
+//		if (front == nullptr) {
+//			std::cout << "Queue overflow!" << std::endl;
+//			return;
+//		}
+//		Node* temp = front;
+//		front = front->next;
+//		if (front == nullptr) {
+//			std::cout << "Queue empty!"<<std::endl;
+//			rear = nullptr;
+//		}
+//		delete temp;
+//	}
+//	void display(){
+//		if (front == nullptr) {
+//			std::cout << "Queue is empty." << std::endl;
+//			return;
+//		}
+//		Node* temp = front;
+//		while (temp != nullptr) {
+//			std::cout << temp->data << std::endl;
+//			temp = temp->next;
+//		}
+//	}
+//	int peek() {
+//		if (front == nullptr)return -1;
+//		return front->data;
+//	}
+//	bool isEmpty() {
+//		if (front == nullptr) { 
+//			std::cout << "Queue is empty!" << std::endl;
+//			return true;
+//		}
+//		else {
+//			std::cout << "Queue is not empty!" << std::endl;
+//			return false;
+//		}
+//	}
+//};
+//
+//int main() {
+//	Queue Q;
+//	Q.enQueue(10);
+//	Q.enQueue(20);
+//	Q.enQueue(30);
+//	Q.enQueue(40);
+//	Q.display();
+//	Q.peek();
+//	Q.isEmpty();
+// return 0;
+//}
+//
+//struct Node {
+//	int data;
+//	Node* next;
+//	Node(int value) {
+//		data = value;
+//		next = nullptr;
+//	}
+//};
+//
+//class SQ {
+//private:
+//	static const int max = 5;
+//	int array[max];
+//	int front;
+//	int rear;
+//	int current_size;
+//public:
+//	SQ() {
+//		front = 0;
+//		rear = -1;
+//		current_size = 0;
+//	}
+//
+//	void enqueue(int value) {
+//		if (current_size == max) {
+//			std::cout << "Queue overflow" << std::endl;
+//			return;
+//		}
+//		rear = (rear + 1) % max;
+//		array[rear] = value;
+//		current_size++;
+//	}
+//	void dequeue() {
+//		if (current_size == 0) {
+//			std::cout << "Queue Overflow" << std::endl;
+//			return;
+//		}
+//		front = (front + 1) % max;
+//		current_size--;
+//	}
+//	int peek() {
+//		return array[front];
+//	}
+//};
+//
+//int main() {
+//	SQ sq;
+//	sq.enqueue(10);
+//	sq.enqueue(20);
+//	sq.enqueue(30);
+//	sq.enqueue(40);
+//	sq.dequeue();
+//	sq.peek();
+//	return 0;
+//}
+
+//struct TreeNode {
+//	int data;
+//	TreeNode* left;
+//	TreeNode* right;
+//	TreeNode(int value) {
+//		data = value;
+//		left = nullptr;
+//		right = nullptr;
+//	}
+//};
+//
+//class BST {
+//private:
+//	TreeNode* root;
+//
+//	void destroy(TreeNode* node) {
+//		if (node == nullptr)return;
+//		destroy(node->left);
+//		destroy(node->right);
+//		delete node;
+//	}
+//
+//	void PRE(TreeNode* node) {
+//		if (node == nullptr)return;
+//		std::cout << node->data << " " << std::endl;
+//		PRE(node->left);
+//		PRE(node->right);
+//	}
+//
+//	void IOD(TreeNode* node) {
+//		if (node == nullptr)return;
+//		IOD(node->left);
+//		std::cout << node->data << " " << std::endl;
+//		IOD(node->right);
+//	}
+//
+//	void POD(TreeNode* node) {
+//		if (node == nullptr)return;
+//		POD(node->left);
+//		POD(node->right);
+//		std::cout << node->data << " " << std::endl;
+//	}
+//public:
+//
+//	BST() {
+//		root = nullptr;
+//	}
+//
+//	~BST() {
+//		destroy(root);
+//		root = nullptr;
+//	}
+//
+//	void insert(int value) {
+//		TreeNode* newnode = new TreeNode(value);
+//		if (root == nullptr) {
+//			root = newnode;
+//			return;
+//		}
+//		TreeNode* current = root;
+//		TreeNode* parent = nullptr;
+//		while (current != nullptr) {
+//			parent = current;
+//			if (value < current->data) {
+//				current = current->left;
+//			}
+//			else if (value > current->data) {
+//				current = current->right;
+//			}
+//			else {
+//				std::cout << "value already exists" << std::endl;
+//				delete newnode;
+//				return;
+//			}
+//		}
+//		if (value < parent->data) {
+//			parent->left = newnode;
+//		}
+//		else {
+//			parent->right = newnode;
+//		}
+//	}
+//
+//	bool search(int target) {
+//		TreeNode* current = root;
+//		while (current != nullptr) {
+//			if (target == current->data) {
+//				std::cout << "found it!" << std::endl;
+//				return true;
+//			}
+//			else if (target < current->data) {
+//				current = current->left;
+//			}
+//			else if (target > current->data){
+//				current = current->right;
+//			}
+//		}
+//		std::cout << "value not found!" << std::endl;
+//		return false;
+//	}
+//
+//	void display() {
+//		int chc;
+//		std::cout << "Press 1:to see Pre-Order Output\nPress 2:to see In-Order Output\nPress 3:to see Post-Order Output\n" << std::endl;
+//		std::cin >> chc;
+//		std::cout << " " << std::endl;
+//		switch (chc) {
+//		case 1:
+//			std::cout << "Pre-Order Output:\n" << std::endl;
+//			PRE(root);
+//			break;
+//		case 2:
+//			std::cout << "In-Order Output:\n" << std::endl;
+//			IOD(root);
+//			break;
+//		case 3:
+//			std::cout << "Post-Order Output:\n" << std::endl;
+//			POD(root);
+//			break;
+//		}
+//	}
+//};
+//int main() {
+//	BST T;
+//	T.insert(50);
+//	T.insert(30);
+//	T.insert(60);
+//	T.insert(25);
+//	T.insert(55);
+//	T.search(55);
+//	T.display();
+
+
+//class MaxHeap {
+//private:
+//	int* arr;
+//	int capacity;
+//	int size;
+//public:
+//	MaxHeap(int cap) {
+//		capacity = cap;
+//		size = 0;
+//		arr = new int[capacity];
+//	}
+//	~MaxHeap(){
+//		delete[] arr;
+//	}
+//	void insert(int value) {
+//		if (size== capacity){
+//			std::cout << "Heap overflow" << std::endl;
+//			return;
+//		}
+//		arr[size] = value;
+//		int i = size;
+//		size++;
+//		while (i > 0 && arr[i] > arr[(i - 1) / 2]) {
+//			std::swap(arr[i], arr[(i - 1) / 2]);
+//			i = (i - 1) / 2;
+//		}
+//	}
+//	void display() {
+//		for (int i = 0;i < size;i++) {
+//			std::cout << arr[i] << " ";
+//		}
+//		std::cout << std::endl;
+//	}
+//	void extractMax() {
+//		if (size == 0) {
+//			std::cout << "Heap is empty!" << std::endl;
+//			return;
+//		}
+//		arr[0] = arr[size - 1];
+//		size--;
+//
+//		int i = 0;
+//		while (true) {
+//			int left = 2 * i + 1;
+//			int right = 2 * i + 2;
+//			int largest = i;			
+//			if (left < size && arr[left] > arr[largest]) {
+//				largest = left;
+//			}
+//			if (right < size && arr[right] > arr[largest]) {
+//				largest = right;
+//			}
+//			if (largest == i) {
+//				break;
+//			}
+//			std::swap(arr[i], arr[largest]);
+//			i = largest;
+//		}
+//	}
+//	int getMax() {
+//		if (size == 0) {
+//			std::cout << "Heap is empty!" << std::endl;
+//			return -1;
+//		}
+//		std::cout<<arr[0];
+//	}
+//	int getsize() {
+//		return size;
+//	}
+//};
+//
+//int main() {
+//	MaxHeap heap(10);
+//	heap.insert(5);
+//	heap.insert(10);
+//	heap.insert(15);
+//	heap.insert(20);
+//	heap.insert(25);
+//	heap.extractMax();
+//	heap.display();
+//	heap.getMax();
+//}
+
+//struct TrieNode {
+//	TrieNode* children[26];
+//	bool isEndOfWord;
+//	TrieNode() {
+//		isEndOfWord = false;
+//		for (int i = 0;i < 26;i++) {
+//			children[i] = nullptr;
+//		}
+//	}
+//};
+//
+//class Trie{
+//private:
+//	TrieNode* root;
+//public:
+//	Trie() {
+//		root = new TrieNode();
+//	}
+//	void insert(std::string word) {
+//		TrieNode* current = root;
+//		for (int i = 0;i < word.length();i++) {
+//			char ch = word[i];
+//			int index = ch - 'a';
+//			if (current->children[index] == nullptr) {
+//				current->children[index] = new TrieNode();
+//			}
+//			current = current->children[index];
+//		}
+//		current->isEndOfWord = true;
+//	}
+//	bool search(std::string word) {
+//		TrieNode* current = root;
+//		for (int i = 0;i < word.length();i++) {
+//			char ch = word[i];
+//			int index = ch - 'a';
+//			if (current->children[index] == nullptr) {
+//				return false; 
+//			}
+//			current = current->children[index];
+//		}
+//		return current->isEndOfWord;
+//	}
+//	bool startswith(std::string prefix) {
+//		TrieNode* current = root;
+//		for (int i = 0;i < prefix.length();i++) {
+//			char ch = prefix[i];
+//			int index = ch - 'a';
+//			if (current->children[index] == nullptr) {
+//				return false;
+//			}
+//			current = current->children[index];
+//		}
+//		return true;
+//	}
+//};
+//
+//int main() {
+//	Trie trie;
+//	trie.insert("cat");
+//	trie.insert("car");
+//
+//	std::cout << trie.search("cat") << std::endl;
+//	std::cout << trie.search("can") << std::endl;
+//	std::cout << trie.search("ca") << std::endl; 
+//	std::cout << trie.startswith("ca") << std::endl;
+//	std::cout << trie.startswith("do") << std::endl;
+//}
+
+
+//class MaxHeap {
+//private:
+//	std::vector<int> arr;
+//public:
+//	MaxHeap() {
+//	arr.reserve(10);
+//	}
+//	void insert(int value) {
+//		arr.push_back(value);
+//		int i = arr.size() - 1;
+//		while (i > 0 && arr[i] > arr[(i - 1) / 2]) {
+//			std::swap(arr[i], arr[(i - 1) / 2]);
+//			i = (i - 1) / 2;
+//		}
+//	}
+//	void display() {
+//		for (int i = 0;i < arr.size();i++) {
+//			std::cout << arr[i] << " ";
+//		}
+//		std::cout << std::endl;
+//	}
+//	void extractMax() {
+//		if (arr.empty()) {
+//			std::cout << "Heap is empty!" << std::endl;
+//			return;
+//		}
+//		arr[0] = arr[arr.size() - 1];
+//		arr.pop_back();
+//		int i = 0;
+//		while (true) {
+//			int left = 2 * i + 1;
+//			int right = 2 * i + 2;
+//			int largest = i;
+//			if (left < arr.size() && arr[left] > arr[largest]) {
+//				largest = left;
+//			}
+//			if (right < arr.size() && arr[right] > arr[largest]) {
+//				largest = right;
+//			}
+//			if (largest == i) {
+//				break;
+//			}
+//			std::swap(arr[i], arr[largest]);
+//			i = largest;
+//		}
+//	}
+//	int getMax() {
+//		if (arr.empty()) {
+//			std::cout << "Heap is empty!" << std::endl;
+//			return -1;
+//		}
+//		std::cout << arr[0];
+//	}
+//	int getsize() {
+//		return arr.size();
+//	}
+//};
+//
+//int main() {
+//	MaxHeap heap;
+//	heap.insert(5);
+//	heap.insert(10);
+//	heap.insert(15);
+//	heap.insert(20);
+//	heap.insert(25);
+//	heap.extractMax();
+//	heap.display();
+//	heap.getMax();
+//}
+//class Graph {
+//private:
+//	std::vector<std::vector<int>> adj;
+//public:
+//	Graph(int vertices) {
+//		adj.resize(vertices);
+//	}
+//	void AddEdge(int u, int v) {
+//		if (u >= adj.size()) {
+//			adj.resize(u + 1);
+//		}
+//		if (v >= adj.size()) {
+//			adj.resize(v + 1);
+//		}
+//		adj[u].push_back(v);
+//		adj[v].push_back(u);
+//	}
+//	void display() {
+//		for (int i = 0;i < adj.size();i++) {
+//			std::cout << "vertex " << i << ":";
+//			for (int neighor : adj[i]) {
+//				std::cout << neighor << " ";
+//			}
+//			std::cout << std::endl;
+//		}
+//	}
+//    void BFS(int startVertex) {
+//        std::vector<bool> visited(adj.size(), false);
+//        std::queue<int> q;
+//
+//        visited[startVertex] = true;
+//        q.push(startVertex);
+//
+//        while (!q.empty()) {
+//            int current = q.front();
+//            q.pop();
+//            std::cout << current << " ";
+//
+//            for (int neighbor : adj[current]) {
+//                if (!visited[neighbor]) {
+//                    visited[neighbor] = true;
+//                    q.push(neighbor);
+//                }
+//            }
+//        }
+//    }
+//	void DFSHelper(int v, std::vector<bool>& visited) {
+//		visited[v] = true;
+//		std::cout << v << std::endl;
+//		for (int neighbor : adj[v]) {
+//			if (!visited[neighbor]) {
+//				DFSHelper(neighbor, visited);
+//			}
+//		}
+//	}
+//	void DFS(int startvertex) {
+//		std::vector<bool> visited(adj.size(), false);
+//		DFSHelper(startvertex, visited);
+//	}
+//};
+//
+//
+//class HEAP {
+//private:
+//	std::vector<int> arr;
+//public:
+//	HEAP() {
+//		arr.reserve(100);
+//	}
+//	void insert(int value) {
+//		arr.push_back(value);
+//		int i = arr.size() - 1;
+//		while (i > 0 && arr[i] > arr[(i - 1) / 2]) {
+//			std::swap(arr[i], arr[(i - 1) / 2]);
+//			i = (i - 1) / 2;
+//		}
+//	}
+//	void display() {
+//		if (arr.empty()) {
+//			std::cout << "Heap empty..." << std::endl;
+//			return;
+//		}
+//		for (int i = 0;i < arr.size();i++) {
+//			std::cout << arr[i] << std::endl;
+//		}
+//	}
+//	void MaxExtract() {
+//		if (arr.empty()) {
+//			std::cout << "Heap empty..." << std::endl;
+//			return;
+//		}
+//		arr[0] = arr[arr.size() - 1];
+//		arr.pop_back();
+//		int i = 0;
+//		while (true) {
+//			int left = 2 * i + 1;
+//			int right = 2 * i + 2;
+//			int largest = i;
+//			if (left < arr.size() && arr[left] >arr[largest]) {
+//				largest = left;
+//			}
+//			if (right < arr.size() && arr[right] >arr[largest]) {
+//				largest = right;
+//			}
+//			if (largest == i) {
+//				break;
+//			}
+//			std::swap(arr[i], arr[largest]);
+//			i = largest;
+//		}
+//	}	
+
+//class Graph {
+//private:
+//	std::vector<std::vector<std::pair<int, int>>> adj;
+//public:
+//	Graph(int vertices) {
+//		adj.resize(vertices);
+//	}
+//	void AddEdges(int u, int v, int w) {
+//		if (u >= adj.size()) {
+//			adj.resize(u + 1);
+//		}
+//		if (v >= adj.size()) {
+//			adj.resize(v + 1);
+//		}
+//		adj[u].push_back({ v,w });
+//		adj[v].push_back({ u,w });
+//	}
+//	void display() { 
+//		for (int i = 0;i < adj.size();i++) {
+//			std::cout << "vertex " << i << std::endl;
+//			for (auto neighbor: adj[i]){
+//				std::cout << "(" << neighbor.first << ", " << neighbor.second << ") "<<std::endl;
+//			}
+//		}
+//	}
+//	void Dijksra(int start) {
+//		
+//		std::vector<int> dist(adj.size(), INT_MAX);
+//		dist[start] = 0;
+//		
+//		std::priority_queue<
+//			std::pair<int, int>,
+//			std::vector<std::pair<int, int>>,
+//			std::greater<std::pair<int, int>>
+//		> pq;
+//
+//		pq.push({ 0,start });
+//		std::cout << "starting at vertex: "<<start << std::endl;
+//		
+//		while (!pq.empty()) {
+//			int cost = pq.top().first;
+//			int current = pq.top().second;
+//			pq.pop();
+//		
+//			if (cost > dist[current]) {
+//				continue;
+//			}
+//			std::cout << "Visiting " << current << " (cost: " << cost << ")" << std::endl;
+//			for (auto neighbor : adj[current]) {
+//				
+//				int next = neighbor.first;
+//				int weight = neighbor.second;
+//				int newcost = dist[current] + weight;
+//				
+//				if (newcost < dist[next]) {
+//					dist[next] = newcost;
+//					pq.push({ newcost,next });
+//				}
+//			}
+//		}	
+//		
+//		for (int i = 0;i < dist.size();i++) {
+//			if (dist[i] == INT_MAX) {
+//				std::cout << "INF!" << std::endl;
+//			}
+//			else {
+//				std::cout <<"costs: " << dist[i] << std::endl;
+//			}
+//		}
+//	}
+//};
+//// A* 4D
+//class Graph {
+//private:
+//	std::vector<std::vector<std::pair<int, int>>> adj;
+//public:
+//	Graph(int vertices) {
+//		adj.resize(vertices);
+//	}
+//	void addEdge(int u, int v, int w) {
+//		if (u >= adj.size()) {
+//			adj.resize(u + 1);
+//		}
+//		if (v >= adj.size()) {
+//			adj.resize(v + 1);
+//		}
+//		adj[u].push_back({ v,w });
+//		adj[v].push_back({ u,w });
+//	}
+//	int huristic(int node, int goal, const std::vector<std::pair<int, int>>& coords) {
+//		int dx = std::abs(coords[node].first - coords[goal].first);
+//		int dy = std::abs(coords[node].second - coords[goal].second);
+//		return dx + dy;
+//	}
+//	void Astar(int start, int goal, const std::vector<std::pair<int, int>>& coords) {
+//		int n = adj.size();
+//		std::vector<int> dist(n, INT_MAX);
+//		std::vector<int> parent(n, -1);
+//		dist[start] = 0;
+//		std::priority_queue<
+//			std::pair<int, int>,
+//			std::vector<std::pair<int, int>>,
+//			std::greater<std::pair<int, int>>
+//		> pq;
+//		pq.push({ huristic(start,goal,coords),start });
+//		while (!pq.empty()) {
+//			int f = pq.top().first;
+//			int current = pq.top().second;
+//			pq.pop();
+//			if (current == goal) {
+//				std::cout << "Goal reached!\n";
+//				break;
+//			}
+//			for (auto neighbor : adj[current]) {
+//				int next = neighbor.first;
+//				int weight = neighbor.second;
+//				int newcost = dist[current] + weight;
+//				
+//				if (newcost < dist[next]) {
+//					dist[next] = newcost;
+//					parent[next] = current;
+//					int h = huristic(next, goal, coords);
+//					int f_new = newcost + h;
+//					pq.push({ f_new,next });
+//				}
+//			}
+//		}
+//		std::cout << "Path: ";
+//		std::vector<int> path;
+//		for (int at = goal; at != -1; at = parent[at]) {
+//			path.push_back(at);
+//		}
+//		for (int i = path.size() - 1; i >= 0; i--) {
+//			std::cout << path[i] << " ";
+//		}
+//		std::cout << "\nCost: " << dist[goal] << std::endl;
+//	}
+//};
+//int main() {
+//	Graph g(6);
+//	g.addEdge(0, 1, 2);
+//	g.addEdge(0, 2, 4);
+//	g.addEdge(1, 3, 3);
+//	g.addEdge(2, 3, 1);
+//	g.addEdge(3, 4, 5);
+//	g.addEdge(4, 5, 2);      
+//	std::vector<std::pair<int, int>> coords = {
+//		{0, 0},  
+//		{1, 0},  
+//		{0, 1},  
+//		{1, 1},   
+//		{2, 1},  
+//		{3, 1}   
+//	};
+//	std::cout << "=== A* from 0 to 5 ===\n";
+//	g.Astar(0, 5, coords);
+//
+//	return 0;
+//}
+
+
+// A* 4D and 8D and waypoint and smooth pathing!
+//struct Point {
+//	float x, y;
+//	Point(float _x = 0.0f,float _y = 0.0f){
+//		 x = _x ;
+//		 y = _y ;
+//	}
+//};
+//class Graph {
+//private:
+//	std::vector<std::vector<std::pair<int, int>>> adj;
+//	int movement_choice = 1;
+//public:
+//	Graph(int vertices) {
+//		adj.resize(vertices);
+//	}
+//	void setmovemet(int choice) {
+//		movement_choice = choice;
+//	}
+//	void addEdge(int u, int v, int w) {
+//		if (u >= adj.size()) {
+//			adj.resize(u + 1);
+//		}
+//		if (v >= adj.size()) {
+//			adj.resize(v + 1);
+//		}
+//		adj[u].push_back({ v,w });
+//		adj[v].push_back({ u,w });
+//	}
+//	float huristic(int node, int goal, const std::vector<std::pair<int, int>>& coords) {
+//		int dx, dy;
+//		if (movement_choice == 1) {
+//			dx = std::abs(coords[node].first - coords[goal].first);
+//			dy = std::abs(coords[node].second - coords[goal].second);
+//			return dx + dy;
+//		}
+//		if (movement_choice == 2 || movement_choice == 3) {
+//			dx = coords[node].first - coords[goal].first;
+//			dy = coords[node].second - coords[goal].second;
+//			return std::sqrtf(static_cast<float>(dx * dx + dy * dy));
+//		}
+//		return 0.0f;
+//	}
+//	void Astar(int start, int goal, const std::vector<std::pair<int, int>>& coords) {
+//		int n = adj.size();
+//		std::vector<int> dist(n, INT_MAX);
+//		std::vector<int> parent(n, -1);
+//		dist[start] = 0;
+//		std::priority_queue<
+//			std::pair<float, int>,
+//			std::vector<std::pair<float, int>>,
+//			std::greater<std::pair<float, int>>
+//		> pq;
+//		pq.push({ huristic(start,goal,coords),start });
+//		while (!pq.empty()) {
+//			float f = pq.top().first;
+//			int current = pq.top().second;
+//			pq.pop();
+//			if (current == goal) {
+//				std::cout << "Goal reached!\n";
+//				break;
+//			}
+//			for (auto neighbor : adj[current]) {
+//				int next = neighbor.first;
+//				int weight = neighbor.second;
+//				int g = dist[current] + weight;
+//
+//				if (g < dist[next]) {
+//					dist[next] = g;
+//					parent[next] = current;
+//					float h = huristic(next, goal, coords);
+//					float f_new = g + h;
+//					pq.push({ f_new,next });
+//				}
+//			}
+//		}
+//		std::cout << "Path: ";
+//		std::vector<int> path;
+//		for (int at = goal; at != -1; at = parent[at]) {
+//			path.push_back(at);
+//		}
+//		for (int i = path.size() - 1; i >= 0; i--) {
+//			std::cout << path[i] << " ";
+//		}
+//		std::cout << "\nCost: " << dist[goal] << std::endl;
+//	}
+//
+//	
+//bool hasLineOfSight(int from, int to, const std::vector<Point>& coords) {
+//    return true;
+//}
+//
+//std::vector<int> smoothPath(const std::vector<int>& path, const std::vector<Point>& coords) {
+//    if (path.size() < 3) {
+//        return path;
+//    }
+//
+//    std::vector<int> smoothed;
+//    smoothed.push_back(path[0]);
+//
+//    int current = 0;
+//    int next = 1;
+//
+//    while (next < path.size()) {
+//        while (next < path.size() - 1 && hasLineOfSight(path[current], path[next + 1], coords)) {
+//            next++;
+//        }
+//
+//        smoothed.push_back(path[next]);
+//        current = next;
+//        next++;
+//    }
+//
+//    if (smoothed.back() != path.back()) {
+//        smoothed.push_back(path.back());
+//    }
+//
+//    return smoothed;
+//}
+//};
+//int main() {
+//	Graph g(8);
+//	int choice ;
+//	std::cout << "enter number according to your choice of way to find:\n1:4D way\n2:8Dway\n3:waypoint way\n4:smooth pathing!" << std::endl;
+//	std::cin >> choice;
+//	switch (choice) {
+//	case 1: {
+//		  std::vector<std::pair<int, int>> coords = {
+//					{0, 0}, // 0
+//					{1, 0}, // 1
+//					{2, 0}, // 2
+//					{0, 1}, // 3
+//				    {1, 1}, // 4
+//					{2, 1}, // 5
+//					{0, 2}, // 6
+//					{1, 2}, // 7
+//					{2, 2}  // 8
+//		  };
+//		  g.addEdge(0, 1, 1);
+//		  g.addEdge(1, 2, 1);
+//		  g.addEdge(2, 5, 1);
+//		  g.addEdge(3, 0, 1);
+//		  g.addEdge(4, 0, 1);
+//		  g.addEdge(5, 8, 1);
+//		  g.addEdge(6, 3, 1);
+//		  g.addEdge(7, 6, 1);
+//		  g.addEdge(8, 7, 1);
+//		  g.setmovemet(choice);
+//		  g.Astar(0, 8, coords);
+//		  break;
+//	}
+//	case 2: {
+//		std::vector<std::pair<int, int>> coords = {
+//				{0, 0}, // 0
+//				{1, 0}, // 1
+//				{2, 0}, // 2
+//				{0, 1}, // 3
+//				{1, 1}, // 4
+//				{2, 1}, // 5
+//				{0, 2}, // 6
+//				{1, 2}, // 7
+//				{2, 2}  // 8
+//		};
+//		g.addEdge(0, 4, 1);  // Diagonal: bottom-left → center
+//		g.addEdge(1, 5, 1);  // Diagonal: bottom-center → right-center
+//		g.addEdge(2, 4, 1);  // Diagonal: bottom-right → center
+//		g.addEdge(3, 7, 1);  // Diagonal: left-center → top-center
+//		g.addEdge(4, 8, 1);  // Diagonal: center → top-right
+//		g.addEdge(5, 7, 1);  // Diagonal: right-center → top-center
+//		g.addEdge(0, 3, 1);  // Already added (vertical)
+//		g.addEdge(1, 4, 1);  // Already added (vertical)
+//		g.addEdge(2, 5, 1);  // Already added (vertical)
+//		g.addEdge(3, 6, 1);  // Already added (vertical)
+//		g.addEdge(4, 7, 1);  // Already added (vertical)
+//		g.addEdge(5, 8, 1);  // Already added (vertical)
+//		g.setmovemet(choice);
+//		//g.Astar(0, 5, coords);
+//		g.Astar(0, 8, coords);
+//		break;
+//	}
+//		case 3 :{
+//			std::vector<std::pair<int, int>> coords = {
+//				 {0, 0},    // Node 0: Castle
+//				 {15, 0},   // Node 1: Bridge
+//				 {5, 5},    // Node 2: Camp (diagonal!)
+//				 {0, 20},   // Node 3: Village
+//				 {40, 10}   // Node 4: Town
+//			};
+//			g.addEdge(0, 1, 10);
+//			g.addEdge(3, 4, 10);
+//			g.addEdge(0, 3, 10);
+//			g.addEdge(1, 4, 10);
+//
+//			// DIAGONAL shortcut
+//			g.addEdge(0, 2, 7);
+//			g.addEdge(2, 4, 7);
+//			g.setmovemet(choice);
+//			g.Astar(0, 4, coords);
+//			break;
+//		}
+//		case 4: {
+//			std::vector<std::pair<int, int>> coords = {
+//				{0, 0},   // Node 0: Start
+//				{2, 0},   // Node 1
+//				{4, 0},   // Node 2 (not used)
+//				{2, 2},   // Node 3
+//				{4, 2}    // Node 4: Goal
+//			};
+//
+//			g.addEdge(0, 1, 10);   // 0 → 1
+//			g.addEdge(1, 3, 10);   // 1 → 3
+//			g.addEdge(3, 4, 10);   // 3 → 4
+//
+//			// Optional: Direct edge from 0 to 4 (to test skipping)
+//			// g.addEdge(0, 4, 100);  // Long path, should be skipped
+//
+//			g.setmovemet(2);  // Euclidean heuristic
+//			g.Astar(0, 4, coords);
+//
+//			// Smooth the path
+//			std::vector<Point> pointCoords = {
+//				{0, 0},   // Node 0
+//				{2, 0},   // Node 1
+//				{4, 0},   // Node 2
+//				{2, 2},   // Node 3
+//				{4, 2}    // Node 4
+//			};
+//			std::vector<int> path = { 0, 1, 3, 4 };
+//			std::vector<int> smoothed = g.smoothPath(path, pointCoords);
+//
+//			std::cout << "Original path: 0 1 3 4\n";
+//			std::cout << "Smoothed path: ";
+//			for (int p : smoothed) std::cout << p << " ";
+//			std::cout << std::endl;
+//
+//			break;
+//		}
+//		default:
+//			std::cout << "choose a valid option!" << std::endl;
+//	}
+//
+//
+//	return 0;
+//}
+
+
+////NavMesh
+//struct polygon {
+//	int id;
+//	float centerX, centerY;
+//	std::vector<int> neighbors;
+//	std::vector<float> costs;
+//};
+//class NavMesh {
+//private:
+//	std::vector<polygon> polygons;
+//	std::unordered_set<int> BlockedPolygons;
+//public:
+//	void addPolygon(int id, float x, float y) {
+//		polygons.push_back({ id,x,y,{}, {} });
+//	}
+//	void addConnection(int from, int to, float cost) {
+//		for (auto& p : polygons) {
+//			if (p.id == from) {
+//				p.neighbors.push_back(to);
+//				p.costs.push_back(cost);
+//			}
+//			if (p.id == to) {
+//				p.neighbors.push_back(from);
+//				p.costs.push_back(cost);
+//			}
+//		}
+//	}
+//	void BlockPolygon(int id) {
+//		BlockedPolygons.insert(id);
+//		std::cout << "Polygon " << id << " is now Blocked!" << std::endl;
+//	}
+//	void UnBlockedPolygon(int id){
+//		BlockedPolygons.erase(id);
+//		std::cout << "Polygon " << id << " is now UnBlocked!" << std::endl;
+//	}
+//	void BlockChunks(std::vector<int> ChunkId) {
+//		for (int id : ChunkId) {
+//			BlockPolygon(id);
+//		}
+//		std::cout << "Chunk of map is now BLOCKED!\n";
+//	}
+//	void UnBlockChunks(std::vector<int> ChunkId) {
+//		for (int id : ChunkId) {
+//			UnBlockedPolygon(id);
+//		}
+//		std::cout << "Chunk of map is now UNBLOCKED!\n";
+//	}
+//	bool isBlocked(int id){
+//		return BlockedPolygons.find(id) != BlockedPolygons.end();
+//	}
+//	float heuristic(int from, int goal) {
+//		int dx = polygons[from].centerX - polygons[goal].centerX;
+//		int dy = polygons[from].centerY - polygons[goal].centerY;
+//		return std::sqrtf(static_cast<float>(dx * dx + dy * dy));
+//	}
+//	void aStar(int start, int goal) {
+//		if (isBlocked(start)){
+//			std::cout << "Start polygon is BLOCKED! Cannot start.\n";
+//			return;
+//		}
+//		if (isBlocked(goal)) {
+//			std::cout << "goal polygon is BLOCKED! Cannot reach.\n";
+//			return;
+//		}
+//		int n = polygons.size();
+//		std::vector<float> dist(n, INT_MAX);
+//		std::vector<int> parent(n, -1);
+//		dist[start] = 0;
+//
+//		std::priority_queue<
+//			std::pair<float, int>,
+//			std::vector<std::pair<float, int>>,
+//			std::greater<std::pair<float, int>>
+//		> pq;
+//
+//		pq.push({ heuristic(start, goal), start });
+//		while (!pq.empty()) {
+//			float f = pq.top().first;
+//			int current = pq.top().second;
+//			pq.pop();
+//
+//			if (current == goal) {
+//				std::cout << "Goal polygon reached!\n";
+//				break;
+//			}
+//
+//			for (int i = 0; i < polygons[current].neighbors.size(); i++) {
+//				int next = polygons[current].neighbors[i];
+//				float weight = polygons[current].costs[i];
+//
+//				if (isBlocked(next)) {
+//					std::cout << "  Polygon " << next << " is BLOCKED! Skipping.\n";
+//					continue;
+//				}
+//
+//				float g = dist[current] + weight;
+//
+//				if (g < dist[next]) {
+//					dist[next] = g;
+//					parent[next] = current;
+//					float h = heuristic(next, goal);
+//					float f_new = g + h;
+//					pq.push({ f_new, next });
+//				}
+//			}
+//		}
+//
+//		// Print path
+//		std::cout << "Path: ";
+//		std::vector<int> path;
+//		for (int at = goal; at != -1; at = parent[at]) {
+//			path.push_back(at);
+//		}
+//		for (int i = path.size() - 1; i >= 0; i--) {
+//			std::cout << path[i] << " ";
+//		}
+//		std::cout << "\nCost: " << dist[goal] << std::endl;
+//	}
+//};
+
+// ========================TESTING AI BEHAVIOUR CODE====================================
+//======================================================================================
+//======================================================================================
+//======================================================================================
+//enum class AIState {
+//    IDLE,
+//    PATROL,
+//    CHASE,
+//    ATTACK,
+//    FLEE,
+//    DEAD
+//};
+//
+//class Enemy {
+//private:
+//    AIState currentState;
+//    float health;
+//    float detectionRange;
+//    float attackRange;
+//    float speed;
+//    std::vector<int> patrolPath;
+//    int patrolIndex;
+//
+//public:
+//    Enemy() : currentState(AIState::IDLE), health(100.0f),
+//        detectionRange(20.0f), attackRange(5.0f), speed(2.0f), patrolIndex(0) {
+//    }
+//
+//    AIState getState() const { return currentState; }
+//    float getHealth() const { return health; }
+//
+//    void setState(AIState newState) { currentState = newState; }
+//
+//    void updateIdle() {
+//        std::cout << "Enemy is IDLE. Looking around...\n";
+//        if (isPlayerDetected()) {
+//            setState(AIState::CHASE);
+//            std::cout << "Player detected! Switching to CHASE.\n";
+//        }
+//    }
+//
+//    void updatePatrol() {
+//        std::cout << "Enemy is PATROLLING...\n";
+//        if (patrolPath.empty()) {
+//            setState(AIState::IDLE);
+//            return;
+//        }
+//        if (isPlayerDetected()) {
+//            setState(AIState::CHASE);
+//            std::cout << "Player detected! Switching to CHASE.\n";
+//        }
+//    }
+//
+//    void updateChase() {
+//        std::cout << "Enemy is CHASING the player!\n";
+//        moveTowardPlayer();
+//        if (isInAttackRange()) {
+//            setState(AIState::ATTACK);
+//            std::cout << "In attack range! Switching to ATTACK.\n";
+//        }
+//        if (!isPlayerDetected()) {
+//            setState(AIState::PATROL);
+//            std::cout << "Lost the player! Switching to PATROL.\n";
+//        }
+//    }
+//
+//    void updateAttack() {
+//        std::cout << "Enemy is ATTACKING the player!\n";
+//        attackPlayer();
+//        if (!isInAttackRange()) {
+//            setState(AIState::CHASE);
+//            std::cout << "Player escaped! Switching to CHASE.\n";
+//        }
+//        if (health < 20.0f) {
+//            setState(AIState::FLEE);
+//            std::cout << "Health low! Switching to FLEE.\n";
+//        }
+//    }
+//
+//    void updateFlee() {
+//        std::cout << "Enemy is FLEEING from danger!\n";
+//        moveAwayFromPlayer();
+//        if (health > 50.0f) {
+//            setState(AIState::PATROL);
+//            std::cout << "Safe! Switching to PATROL.\n";
+//        }
+//    }
+//
+//    void updateDead() {
+//        std::cout << "Enemy is DEAD. Game over.\n";
+//    }
+//
+//    void update() {
+//        switch (currentState) {
+//        case AIState::IDLE:    updateIdle(); break;
+//        case AIState::PATROL:  updatePatrol(); break;
+//        case AIState::CHASE:   updateChase(); break;
+//        case AIState::ATTACK:  updateAttack(); break;
+//        case AIState::FLEE:    updateFlee(); break;
+//        case AIState::DEAD:    updateDead(); break;
+//        }
+//    }
+//    bool isPlayerDetected() {
+//        static int frame = 0;
+//        frame++;
+//        if (frame % 5 == 0) return true;  // Simulate detection
+//        return false;
+//    }
+//
+//    bool isInAttackRange() {
+//        static int frame = 0;
+//        frame++;
+//        if (frame % 7 == 0) return true;
+//        return false;
+//    }
+//
+//    void moveTowardPlayer() {
+//        std::cout << "  Moving toward player...\n";
+//    }
+//
+//    void moveAwayFromPlayer() {
+//        std::cout << "  Moving away from player...\n";
+//    }
+//
+//    void attackPlayer() {
+//        std::cout << "  *ATTACK!* -10 HP to player!\n";
+//    }
+//};
+//======================================================================================
+//======================================================================================
+//======================================================================================
+//navmesh with AI Behaviour!
+struct Polygon {
+    int id;
+    float centerX, centerY;
+    std::vector<int> neighbors;
+    std::vector<float> costs;
+};
+
+class NavMesh {
+private:
+    std::vector<Polygon> polygons;
+    std::unordered_set<int> BlockedPolygons;
+
+public:
+    void addPolygon(int id, float x, float y) {
+        polygons.push_back({ id, x, y, {}, {} });
+    }
+
+    void addConnection(int from, int to, float cost) {
+        for (auto& p : polygons) {
+            if (p.id == from) {
+                p.neighbors.push_back(to);
+                p.costs.push_back(cost);
+            }
+            if (p.id == to) {
+                p.neighbors.push_back(from);
+                p.costs.push_back(cost);
+            }
+        }
+    }
+
+    void BlockPolygon(int id) {
+        BlockedPolygons.insert(id);
+        std::cout << "Polygon " << id << " is now Blocked!" << std::endl;
+    }
+    void UnBlockedPolygon(int id) {
+        BlockedPolygons.erase(id);
+        std::cout << "Polygon " << id << " is now UnBlocked!" << std::endl;
+    }
+    void BlockChunks(std::vector<int> ChunkId) {
+        for (int id : ChunkId) {
+            BlockPolygon(id);
+        }
+        std::cout << "Chunk of map is now BLOCKED!\n";
+    }
+    void UnBlockChunks(std::vector<int> ChunkId) {
+        for (int id : ChunkId) {
+            UnBlockedPolygon(id);
+        }
+        std::cout << "Chunk of map is now UNBLOCKED!\n";
+    }
+    bool isBlocked(int id) {
+        return BlockedPolygons.find(id) != BlockedPolygons.end();
+    }
+
+    float heuristic(int from, int goal) {
+        float dx = polygons[from].centerX - polygons[goal].centerX;
+        float dy = polygons[from].centerY - polygons[goal].centerY;
+        return std::sqrtf(dx * dx + dy * dy);
+    }
+
+    // A* returns the path (list of polygon IDs)
+    std::vector<int> aStar(int start, int goal) {
+        std::vector<int> emptyPath;
+
+        if (isBlocked(start)) {
+            std::cout << "  Start polygon " << start << " is BLOCKED!\n";
+            return emptyPath;
+        }
+        
+        if (isBlocked(goal)) {
+            std::cout << "  Goal polygon " << goal << " is BLOCKED!\n";
+            return emptyPath;
+        }
+
+        int n = polygons.size();
+        std::vector<float> dist(n, INT_MAX);
+        std::vector<int> parent(n, -1);
+        dist[start] = 0;
+
+        std::priority_queue<
+            std::pair<float, int>,
+            std::vector<std::pair<float, int>>,
+            std::greater<std::pair<float, int>>
+        > pq;
+
+        pq.push({ heuristic(start, goal), start });
+
+        while (!pq.empty()) {
+            float f = pq.top().first;
+            int current = pq.top().second;
+            pq.pop();
+
+            if (current == goal) {
+                break;
+            }
+
+            for (int i = 0; i < polygons[current].neighbors.size(); i++) {
+                int next = polygons[current].neighbors[i];
+                float weight = polygons[current].costs[i];
+
+                if (isBlocked(next)) {
+                    continue;
+                }
+
+                float g = dist[current] + weight;
+
+                if (g < dist[next]) {
+                    dist[next] = g;
+                    parent[next] = current;
+                    float h = heuristic(next, goal);
+                    float f_new = g + h;
+                    pq.push({ f_new, next });
+                }
+            }
+        }
+
+        std::vector<int> path;
+        for (int at = goal; at != -1; at = parent[at]) {
+            path.push_back(at);
+        }
+        std::reverse(path.begin(), path.end());
+
+        return path;
+    }
+
+    std::pair<float, float> getPolygonCenter(int id) {
+        for (auto& p : polygons) {
+            if (p.id == id) {
+                return { p.centerX, p.centerY };
+            }
+        }
+        return { 0, 0 };
+    }
+};
+
+enum class AIState {
+    IDLE,
+    PATROL,
+    CHASE,
+    ATTACK,
+    FLEE,
+    DEAD
+};
+
+class Enemy {
+private:
+    AIState currentState;
+    float health;
+    float detectionRange;
+    float attackRange;
+    float speed;
+    float x, y;
+    std::vector<int> patrolPath;
+    int patrolIndex;
+    NavMesh& navMesh;
+    std::vector<int> currentPath;
+    int currentPathIndex;
+    float playerX, playerY;
+    int playerPolygonId;
+
+public:
+    Enemy(NavMesh& nav) : currentState(AIState::IDLE), health(100.0f),
+        detectionRange(20.0f), attackRange(5.0f), speed(2.0f),
+        x(5.0f), y(5.0f), patrolIndex(0), navMesh(nav),
+        currentPathIndex(0), playerX(0.0f), playerY(0.0f), playerPolygonId(3) {
+    }
+
+    void setPatrolPath(const std::vector<int>& path) {
+        patrolPath = path;
+        patrolIndex = 0;
+    }
+
+    void setPlayerPosition(float px, float py, int Playerpolygonid) {
+        playerX = px;
+        playerY = py;
+        playerPolygonId = Playerpolygonid;
+    }
+
+    AIState getState() const { return currentState; }
+    float getHealth() const { return health; }
+
+    void setState(AIState newState) {
+        std::cout << "  Switching to: " << stateToString(newState) << "\n";
+        currentState = newState;
+        currentPath.clear();
+        currentPathIndex = 0;
+    }
+
+    std::string stateToString(AIState state) {
+        switch (state) {
+        case AIState::IDLE:   return "IDLE";
+        case AIState::PATROL: return "PATROL";
+        case AIState::CHASE:  return "CHASE";
+        case AIState::ATTACK: return "ATTACK";
+        case AIState::FLEE:   return "FLEE";
+        case AIState::DEAD:   return "DEAD";
+        }
+        return "UNKNOWN";
+    }
+    bool isPlayerDetected() {
+        float dx = playerX - x;
+        float dy = playerY - y;
+        float distance = std::sqrtf(dx * dx + dy * dy);
+        return distance < detectionRange;
+    }
+
+    bool isInAttackRange() {
+        float dx = playerX - x;
+        float dy = playerY - y;
+        float distance = std::sqrtf(dx * dx + dy * dy);
+        return distance < attackRange;uj
+    }
+
+    void moveToPolygon(int polygonId) {
+        auto center = navMesh.getPolygonCenter(polygonId);
+        float targetX = center.first;
+        float targetY = center.second;
+        float dx = targetX - x;
+        float dy = targetY - y;
+        float distance = std::sqrtf(dx * dx + dy * dy);
+        if (distance > 0.1f) {
+            x += (dx / distance) * speed;
+            y += (dy / distance) * speed;
+            std::cout << "  Moving to polygon " << polygonId
+                << " (" << x << ", " << y << ")\n";
+        }
+        else {
+            std::cout << "  Reached polygon " << polygonId << "\n";
+        }
+    }
+
+    int getCurrentPolygon() {
+        if (!currentPath.empty() && currentPathIndex < currentPath.size()) {
+            return currentPath[currentPathIndex];
+        }
+        return 0;
+    }
+
+    void updateIdle() {
+        std::cout << "Idle...\n";
+        if (isPlayerDetected()) {
+            setState(AIState::CHASE);
+        }
+    }
+
+    void updatePatrol() {
+        if (patrolPath.empty()) {
+            setState(AIState::IDLE);
+            return;
+        }
+
+        if (currentPath.empty() || currentPathIndex >= currentPath.size()) {
+            int start = getCurrentPolygon();
+            int goal = patrolPath[patrolIndex];
+            currentPath = navMesh.aStar(start, goal);
+            currentPathIndex = 0;
+
+            if (currentPath.empty()) {
+                std::cout << "  No path to patrol point " << patrolIndex << "\n";
+                patrolIndex = (patrolIndex + 1) % patrolPath.size();
+                return;
+            }
+
+            std::cout << "  Patrolling to polygon " << goal << "\n";
+        }
+
+        int nextPolygon = currentPath[currentPathIndex];
+        moveToPolygon(nextPolygon);
+
+        auto center = navMesh.getPolygonCenter(nextPolygon);
+        float dx = center.first - x;
+        float dy = center.second - y;
+        if (std::sqrtf(dx * dx + dy * dy) < 0.5f) {
+            currentPathIndex++;
+            if (currentPathIndex >= currentPath.size()) {
+                patrolIndex = (patrolIndex + 1) % patrolPath.size();
+                currentPath.clear();
+            }
+        }
+
+        if (isPlayerDetected()) {
+            setState(AIState::CHASE);
+        }
+    }
+
+    void updateChase() {
+        std::cout << "Chasing player!\n";
+
+        if (currentPath.empty() || currentPathIndex >= currentPath.size()) {
+            int start = getCurrentPolygon();
+            int goal = playerPolygonId;
+            currentPath = navMesh.aStar(start, goal);
+            currentPathIndex = 0;
+
+            if (currentPath.empty()) {
+                std::cout << "  No path to player!\n";
+                return;
+            }
+        }
+
+        int nextPolygon = currentPath[currentPathIndex];
+        moveToPolygon(nextPolygon);
+
+        auto center = navMesh.getPolygonCenter(nextPolygon);
+        float dx = center.first - x;
+        float dy = center.second - y;
+        if (std::sqrtf(dx * dx + dy * dy) < 0.5f) {
+            currentPathIndex++;
+        }
+
+        if (isInAttackRange()) {
+            setState(AIState::ATTACK);
+        }
+
+        if (!isPlayerDetected()) {
+            setState(AIState::PATROL);
+        }
+    }
+
+    void updateAttack() {
+        std::cout << "ATTACK! -10 HP to player!\n";
+        health -= 5.0f;
+
+        if (!isInAttackRange()) {
+            setState(AIState::CHASE);
+        }
+
+        if (health < 20.0f) {
+            setState(AIState::FLEE);
+        }
+    }
+
+    void updateFlee() {
+        std::cout << "Fleeing from player!\n";
+        int start = getCurrentPolygon();
+        int goal = 0;
+        currentPath = navMesh.aStar(start, goal);
+        currentPathIndex = 0;
+
+        if (!currentPath.empty()) {
+            int nextPolygon = currentPath[currentPathIndex];
+            moveToPolygon(nextPolygon);
+        }
+
+        if (health > 50.0f) {
+            setState(AIState::PATROL);
+        }
+    }
+
+    void updateDead() {
+        std::cout << "Enemy is DEAD! Game over.\n";
+    }
+
+    void update() {
+        switch (currentState) {
+        case AIState::IDLE:    updateIdle(); break;
+        case AIState::PATROL:  updatePatrol(); break;
+        case AIState::CHASE:   updateChase(); break;
+        case AIState::ATTACK:  updateAttack(); break;
+        case AIState::FLEE:    updateFlee(); break;
+        case AIState::DEAD:    updateDead(); break;
+        }
+    }
+};
+
+int main() {
+    NavMesh nav;
+
+    nav.addPolygon(0, 5, 5);    // Room A (Start)
+    nav.addPolygon(1, 15, 5);   // Corridor
+    nav.addPolygon(2, 5, 15);   // Room B
+    nav.addPolygon(3, 15, 15);  // Room C (Goal)
+
+    nav.addConnection(0, 1, 10);
+    nav.addConnection(0, 3, 37);
+    nav.addConnection(1, 2, 10);
+    nav.addConnection(1, 3, 10);
+    nav.addConnection(2, 3, 15);
+
+    Enemy enemy(nav);
+    enemy.setPatrolPath({ 0, 1, 2, 3 });
+
+    for (int i = 0; i <= 15; i++) {
+        std::cout << "--- Frame " << i << " ---\n";
+        float simplayerX = 15.0f;
+        float simplayerY = 15.0f;
+        int simplayerpolygon = 3;
+        enemy.setPlayerPosition(simplayerX, simplayerY, simplayerpolygon);
+        enemy.update();
+        std::cout << "\n";
+    }
+
+    return 0;
+}
+
+#include <iostream>
+#include <vector>
+#include <string>
+#include <queue>
+#include <algorithm>
+#include <chrono>
+#include <unordered_set>
+#include <unordered_map>
+#include <climits>
+#include <cmath>
+#include <type_traits>
+#include <variant>
+#include <limits>
+    
+class Enemy;
+
+struct Vector3 {
+    float x, y, z;
+};
+
+struct Portal {
+    Vector3 left;
+    Vector3 right;
+};
+
+struct Polygon {
+    int id;
+    float centerX, centerY, centerZ;
+    std::vector<int> neighbors;
+    std::vector<float> costs;
+    std::vector<Vector3> vertices;
+};
+
+enum class AIState {
+    IDLE,
+    PATROL,
+    CHASE,
+    ATTACK,
+    FLEES, // Renamed to FLEE in logic
+    FLEE = FLEES,
+    DEAD
+};
+
+enum class BTNodeStatus {
+    SUCCESS,
+    FAILURE,
+    RUNNING
+};
+
+enum class BlackboardKey {
+    PLAYER_POSITION,
+    PLAYER_POLYGON,
+    ENEMY_POSITION,
+    ENEMY_HEALTH,
+    ENEMY_AMMO,
+    TARGET_POLYGON,
+    ALLY_HEALTH,
+    IS_DEAD,
+    IS_IN_COMBAT
+};
+
+using BlackboardValue = std::variant<int, float, bool, Vector3, std::string>;
+
+class Blackboard {
+private:
+    std::unordered_map<BlackboardKey, BlackboardValue> data;
+public:
+    template<typename T>
+    void set(BlackboardKey key, T value) {
+        data[key] = value;
+    }
+
+    template<typename T>
+    T get(BlackboardKey key) const {
+        auto it = data.find(key);
+        if (it == data.end()) return T{};
+
+        if (const T* val = std::get_if<T>(&it->second)) {
+            return *val;
+        }
+        return T{};
+    }
+
+    bool has(BlackboardKey key) const {
+        return data.find(key) != data.end();
+    }
+
+    void remove(BlackboardKey key) {
+        data.erase(key);
+    }
+
+    void clear() {
+        data.clear();
+    }
+};
+
+class BTNode {
+public:
+    virtual BTNodeStatus execute(Enemy* enemy) = 0;
+    virtual ~BTNode() {}
+};
+
+class Selector : public BTNode {
+private:
+    std::vector<BTNode*> children;
+public:
+    Selector(const std::vector<BTNode*>& nodes) : children(nodes) {}
+    ~Selector() override {
+        for (auto child : children) {
+            delete child;
+        }
+    }
+    BTNodeStatus execute(Enemy* enemy) override {
+        for (auto child : children) {
+            BTNodeStatus status = child->execute(enemy);
+            if (status == BTNodeStatus::SUCCESS) return BTNodeStatus::SUCCESS;
+            if (status == BTNodeStatus::RUNNING) return BTNodeStatus::RUNNING;
+        }
+        return BTNodeStatus::FAILURE;
+    }
+};
+
+class Sequence : public BTNode {
+private:
+    std::vector<BTNode*> children;
+public:
+    Sequence(const std::vector<BTNode*>& nodes) : children(nodes) {}
+    ~Sequence() override {
+        for (auto child : children) {
+            delete child;
+        }
+    }
+    BTNodeStatus execute(Enemy* enemy) override {
+        for (auto child : children) {
+            BTNodeStatus status = child->execute(enemy);
+            if (status == BTNodeStatus::FAILURE) return BTNodeStatus::FAILURE;
+            if (status == BTNodeStatus::RUNNING) return BTNodeStatus::RUNNING;
+        }
+        return BTNodeStatus::SUCCESS;
+    }
+};
+
+class ConditionNode : public BTNode {
+private:
+    bool (Enemy::* condition)();
+public:
+    ConditionNode(bool (Enemy::* cond)()) : condition(cond) {}
+    BTNodeStatus execute(Enemy* enemy) override;
+};
+
+class ActionNode : public BTNode {
+private:
+    void (Enemy::* action)();
+public:
+    ActionNode(void (Enemy::* act)()) : action(act) {}
+    BTNodeStatus execute(Enemy* enemy) override;
+};
+
+struct Entrance {
+    int id;
+    int polygon1, polygon2;
+    int cluster1, cluster2;
+    Vector3 position;
+    Entrance(int _id, int p1, int p2, int c1, int c2, Vector3 pos) : id(_id),
+        polygon1(p1), polygon2(p2),
+        cluster1(c1), cluster2(c2),
+        position(pos) {
+    }
+};
+
+struct Cluster {
+    int id;
+    float centerx, centery, centerz;
+    std::vector<int> polygonids;
+    std::vector<int> entranceids; // Fixed typo
+
+    std::unordered_map<int, std::unordered_map<int, std::vector<int>>> intrapaths;
+    std::unordered_map<int, std::unordered_map<int, float>> intracosts;
+};
+
+class NavMesh {
+private:
+    std::vector<Polygon> polygons;
+    std::unordered_set<int> BlockedPolygons;
+
+    std::vector<float> dist;
+    std::vector<int> parent;
+    std::vector<bool> inOpenlist;
+    std::vector<bool> inClosedlist;
+    int mapsize;
+
+    std::vector<Cluster> clusters;
+    std::vector<Entrance> entrances; 
+    int clusterSize;
+    bool hpaInitialized; 
+
+    std::unordered_map<int, int> polygonToClusterMap;
+
+public:
+    NavMesh() : mapsize(0), clusterSize(2), hpaInitialized(false) {}
+
+    void finalizeMap() { 
+        mapsize = polygons.size();
+        dist.resize(mapsize);
+        parent.resize(mapsize);
+        inOpenlist.resize(mapsize, false);
+        inClosedlist.resize(mapsize, false);
+    }
+
+    void resetbuffers() {
+        std::fill(dist.begin(), dist.end(), std::numeric_limits<float>::max());
+        std::fill(parent.begin(), parent.end(), -1);
+        std::fill(inOpenlist.begin(), inOpenlist.end(), false);
+        std::fill(inClosedlist.begin(), inClosedlist.end(), false);
+    }
+
+    void addPolygon(int id, float x, float y, float z, const std::vector<Vector3>& verts = {}) {
+        polygons.push_back({ id, x, y, z, {}, {}, verts });
+    }
+
+    void addCluster(int id, const std::vector<int>& polygonids) { 
+        Cluster cluster;
+        cluster.id = id;
+        cluster.polygonids = polygonids;
+
+        float sumx = 0.0f, sumy = 0.0f, sumz = 0.0f;
+        for (int polyid : polygonids) {
+            Vector3 center = getPolygonCenter(polyid);
+            sumx += center.x;
+            sumy += center.y;
+            sumz += center.z;
+            polygonToClusterMap[polyid] = id; 
+        }
+
+        cluster.centerx = sumx / static_cast<float>(polygonids.size());
+        cluster.centery = sumy / static_cast<float>(polygonids.size());
+        cluster.centerz = sumz / static_cast<float>(polygonids.size());
+
+        clusters.push_back(cluster);
+
+        std::cout << "Cluster [" << id << "] created at ("
+            << cluster.centerx << ", " << cluster.centery << ", " << cluster.centerz
+            << ") containing " << polygonids.size() << " polygons: { ";
+        for (int pid : polygonids) {
+            std::cout << pid << " ";
+        }
+        std::cout << "}\n";
+    }
+
+    void findEntrances() { // Fixed typo
+        std::cout << "\n=====================================================\n";
+        std::cout << ">>> FINDING CLUSTER ENTRANCES <<<\n";
+        std::cout << "=====================================================\n";
+
+        entrances.clear();
+        int entranceId = 0;
+
+        for (auto& cluster : clusters) {
+            for (int polyid : cluster.polygonids) {
+                for (size_t i = 0; i < polygons[polyid].neighbors.size(); i++) {
+                    int neighborid = polygons[polyid].neighbors[i];
+
+                    // O(1) Cluster lookup
+                    auto it = polygonToClusterMap.find(neighborid);
+                    if (it == polygonToClusterMap.end()) continue;
+                    int neighborcluster = it->second;
+
+                    // Cross-cluster connection found
+                    if (neighborcluster != cluster.id) {
+                        Vector3 pos1 = getPolygonCenter(polyid);
+                        Vector3 pos2 = getPolygonCenter(neighborid);
+                        Vector3 entrancepos = {
+                            (pos1.x + pos2.x) / 2.0f,
+                            (pos1.y + pos2.y) / 2.0f,
+                            (pos1.z + pos2.z) / 2.0f
+                        };
+
+                        bool exists = false;
+                        for (const auto& e : entrances) {
+                            if ((e.polygon1 == polyid && e.polygon2 == neighborid) ||
+                                (e.polygon1 == neighborid && e.polygon2 == polyid)) {
+                                exists = true;
+                                break;
+                            }
+                        }
+
+                        if (!exists) {
+                            Entrance e(entranceId++, polyid, neighborid, cluster.id, neighborcluster, entrancepos);
+                            entrances.push_back(e);
+
+                            cluster.entranceids.push_back(e.id);
+                            clusters[neighborcluster].entranceids.push_back(e.id);
+
+                            std::cout << "  Entrance [" << e.id << "]: "
+                                << "Polygon " << polyid << " (Cluster " << cluster.id << ") "
+                                << "<-> Polygon " << neighborid << " (Cluster " << neighborcluster << ")\n";
+                            std::cout << "    Position: (" << entrancepos.x << ", "
+                                << entrancepos.y << ", " << entrancepos.z << ")\n";
+                        }
+                    }
+                }
+            }
+        }
+
+        std::cout << "\nTotal Entrances Created: " << entrances.size() << "\n";
+        std::cout << "=====================================================\n\n";
+    }
+
+    void computeIntraPaths() { // Fixed typo
+        std::cout << "\n=====================================================\n";
+        std::cout << ">>> COMPUTING INTRA-CLUSTER PATHS <<<\n";
+        std::cout << "=====================================================\n";
+
+        for (auto& cluster : clusters) {
+            std::cout << "Cluster [" << cluster.id << "]:\n";
+
+            for (size_t i = 0; i < cluster.entranceids.size(); i++) {
+                for (size_t j = i + 1; j < cluster.entranceids.size(); j++) {
+                    int entrance1id = cluster.entranceids[i];
+                    int entrance2id = cluster.entranceids[j];
+
+                    Entrance& e1 = entrances[entrance1id];
+                    Entrance& e2 = entrances[entrance2id];
+
+                    int startpoly = (std::find(cluster.polygonids.begin(), cluster.polygonids.end(), e1.polygon1) != cluster.polygonids.end()) ? e1.polygon1 : e1.polygon2;
+                    int goalpoly = (std::find(cluster.polygonids.begin(), cluster.polygonids.end(), e2.polygon1) != cluster.polygonids.end()) ? e2.polygon1 : e2.polygon2;
+
+                    std::vector<int> path = aStar(startpoly, goalpoly);
+
+                    if (!path.empty()) {
+                        float cost = dist[goalpoly]; // Read immediately before next aStar call!
+
+                        cluster.intrapaths[entrance1id][entrance2id] = path;
+                        cluster.intrapaths[entrance2id][entrance1id] = path;
+                        cluster.intracosts[entrance1id][entrance2id] = cost;
+                        cluster.intracosts[entrance2id][entrance1id] = cost;
+
+                        std::cout << "  Entrance " << entrance1id << " <-> Entrance " << entrance2id
+                            << " | Cost: " << cost << " | Path Length: " << path.size() << "\n";
+                    }
+                }
+            }
+            std::cout << "\n";
+        }
+        std::cout << "=====================================================\n\n";
+    }
+
+    void initializeHPA() { // Fixed typo
+        std::cout << "\n";
+        std::cout << "=====================================================\n";
+        std::cout << "         INITIALIZING HPA* SYSTEM                    \n";
+        std::cout << "=====================================================\n";
+
+        if (clusters.empty()) {
+            std::cout << "ERROR: No clusters defined! Use addCluster() first.\n";
+            return;
+        }
+        findEntrances();
+        computeIntraPaths();
+
+        hpaInitialized = true;
+
+        std::cout << "=====================================================\n";
+        std::cout << "✅ HPA* INITIALIZATION COMPLETE!\n";
+        std::cout << "   - Clusters: " << clusters.size() << "\n";
+        std::cout << "   - Entrances: " << entrances.size() << "\n";
+        std::cout << "   - System Ready for Hierarchical Pathfinding\n";
+        std::cout << "=====================================================\n\n";
+    }
+
+    std::vector<int> hpaStar(int start, int goal) { // Fixed typo & completely rewritten
+        std::cout << "\n=====================================================\n";
+        std::cout << ">>> HPA* PATHFINDING: " << start << " → " << goal << " <<<\n";
+        std::cout << "=====================================================\n";
+
+        if (!hpaInitialized) {
+            std::cout << "ERROR: HPA* not initialized! Falling back to regular A*\n";
+            return aStar(start, goal);
+        }
+
+        if (start == goal) return { start };
+
+        auto startIt = polygonToClusterMap.find(start);
+        auto goalIt = polygonToClusterMap.find(goal);
+
+        if (startIt == polygonToClusterMap.end() || goalIt == polygonToClusterMap.end()) {
+            std::cout << "ERROR: Start or goal polygon not in any cluster!\n";
+            return aStar(start, goal);
+        }
+
+        int startClusterId = startIt->second;
+        int goalClusterId = goalIt->second;
+
+        std::cout << "Start Polygon " << start << " is in Cluster " << startClusterId << "\n";
+        std::cout << "Goal Polygon " << goal << " is in Cluster " << goalClusterId << "\n";
+
+        if (startClusterId == goalClusterId) {
+            std::cout << "Both in same cluster! Using direct A*\n";
+            std::cout << "=====================================================\n\n";
+            return aStar(start, goal);
+        }
+
+        std::vector<int> startEntrances;
+        std::vector<int> goalEntrances;
+
+        for (const auto& e : entrances) {
+            if (e.cluster1 == startClusterId || e.cluster2 == startClusterId) {
+                startEntrances.push_back(e.id);
+            }
+            if (e.cluster1 == goalClusterId || e.cluster2 == goalClusterId) {
+                goalEntrances.push_back(e.id);
+            }
+        }
+
+        std::cout << "Start Cluster Entrances: ";
+        for (int eid : startEntrances) std::cout << eid << " ";
+        std::cout << "\nGoal Cluster Entrances: ";
+        for (int eid : goalEntrances) std::cout << eid << " ";
+        std::cout << "\n\n";
+
+        // --- ABSTRACT GRAPH A* SEARCH ---
+        struct AbstractNode {
+            int entranceId;
+            float gCost;
+            float fCost;
+            bool operator>(const AbstractNode& other) const {
+                return fCost > other.fCost;
+            }
+        };
+
+        std::priority_queue<AbstractNode, std::vector<AbstractNode>, std::greater<AbstractNode>> abstractPQ;
+        std::unordered_map<int, float> abstractG;
+        std::unordered_map<int, int> abstractParent;
+
+        auto heuristicEntrance = [&](int eId, int targetClusterId) {
+            const Entrance& e = entrances[eId];
+            Vector3 eCenter = e.position;
+            Vector3 gCenter = getClusterCenter(targetClusterId);
+            float dx = eCenter.x - gCenter.x;
+            float dy = eCenter.y - gCenter.y;
+            float dz = eCenter.z - gCenter.z;
+            return std::sqrt(dx * dx + dy * dy + dz * dz);
+            };
+
+        // Initialize PQ with start entrances
+        for (int seId : startEntrances) {
+            const Entrance& se = entrances[seId];
+            int poly = (se.cluster1 == startClusterId) ? se.polygon1 : se.polygon2;
+            std::vector<int> p = aStar(start, poly);
+            if (!p.empty()) {
+                float g = dist[poly]; // Read immediately!
+                abstractG[seId] = g;
+                abstractParent[seId] = -1;
+                abstractPQ.push({ seId, g, g + heuristicEntrance(seId, goalClusterId) });
+            }
+        }
+
+        int bestGoalEntranceId = -1;
+        float bestTotalCost = std::numeric_limits<float>::max();
+
+        while (!abstractPQ.empty()) {
+            AbstractNode current = abstractPQ.top();
+            abstractPQ.pop();
+
+            // Lazy deletion check
+            if (current.fCost > abstractG[current.entranceId] + heuristicEntrance(current.entranceId, goalClusterId) + 0.01f) {
+                continue;
+            }
+
+            const Entrance& ce = entrances[current.entranceId];
+            bool isGoalEntrance = (ce.cluster1 == goalClusterId || ce.cluster2 == goalClusterId);
+
+            if (isGoalEntrance) {
+                int goalPoly = (ce.cluster1 == goalClusterId) ? ce.polygon1 : ce.polygon2;
+                std::vector<int> p = aStar(goalPoly, goal);
+                if (!p.empty()) {
+                    float costToGoal = dist[goal]; // Read immediately!
+                    float totalCost = current.gCost + costToGoal;
+                    if (totalCost < bestTotalCost) {
+                        bestTotalCost = totalCost;
+                        bestGoalEntranceId = current.entranceId;
+                    }
+                }
+                // Optimization: If current path cost already exceeds best found, stop searching
+                if (current.gCost >= bestTotalCost) {
+                    break;
+                }
+                continue;
+            }
+
+            // Expand neighbors: other entrances in the SAME cluster(s)
+            auto expandCluster = [&](int clusterId) {
+                const Cluster& cluster = clusters[clusterId];
+                for (int nextEId : cluster.entranceids) {
+                    if (nextEId == current.entranceId) continue;
+
+                    auto it1 = cluster.intrapaths.find(current.entranceId);
+                    if (it1 == cluster.intrapaths.end()) continue;
+                    auto it2 = it1->second.find(nextEId);
+                    if (it2 == it1->second.end()) continue;
+
+                    float edgeCost = cluster.intracosts.at(current.entranceId).at(nextEId);
+                    float nextG = current.gCost + edgeCost;
+
+                    if (abstractG.find(nextEId) == abstractG.end() || nextG < abstractG[nextEId]) {
+                        abstractG[nextEId] = nextG;
+                        abstractParent[nextEId] = current.entranceId;
+                        abstractPQ.push({ nextEId, nextG, nextG + heuristicEntrance(nextEId, goalClusterId) });
+                    }
+                }
+                };
+
+            expandCluster(ce.cluster1);
+            expandCluster(ce.cluster2);
+        }
+
+        if (bestGoalEntranceId == -1) {
+            std::cout << "No valid entrance path found! Falling back to A*\n";
+            std::cout << "=====================================================\n\n";
+            return aStar(start, goal);
+        }
+
+        std::cout << "\nBest abstract path found! Refining...\n";
+
+        // Reconstruct abstract path
+        std::vector<int> abstractPath;
+        int curr = bestGoalEntranceId;
+        while (curr != -1) {
+            abstractPath.push_back(curr);
+            curr = abstractParent[curr];
+        }
+        std::reverse(abstractPath.begin(), abstractPath.end());
+
+        // --- PATH REFINEMENT (STITCHING) ---
+                // --- PATH REFINEMENT (STITCHING) ---
+        std::vector<int> finalPath;
+
+        int firstEId = abstractPath.front();
+        const Entrance& firstE = entrances[firstEId];
+        int startPoly = (firstE.cluster1 == startClusterId) ? firstE.polygon1 : firstE.polygon2;
+
+        std::vector<int> p1 = aStar(start, startPoly);
+        if (!p1.empty()) {
+            finalPath = p1;
+        }
+        else {
+            return aStar(start, goal);
+        }
+
+        if (abstractPath.size() == 1) {
+            // Single entrance bridges both clusters directly
+            int goalPoly = (firstE.cluster1 == goalClusterId) ? firstE.polygon1 : firstE.polygon2;
+
+            std::vector<int> pMid = aStar(startPoly, goalPoly);
+            for (size_t j = 1; j < pMid.size(); j++) {
+                finalPath.push_back(pMid[j]);
+            }
+
+            std::vector<int> p3 = aStar(goalPoly, goal);
+            for (size_t j = 1; j < p3.size(); j++) {
+                finalPath.push_back(p3[j]);
+            }
+        }
+        else {
+            // 2. Between entrances (using precomputed intrapaths)
+            for (size_t i = 0; i < abstractPath.size() - 1; i++) {
+                int e1Id = abstractPath[i];
+                int e2Id = abstractPath[i + 1];
+
+                const Entrance& e1 = entrances[e1Id];
+                const Entrance& e2 = entrances[e2Id];
+                int sharedClusterId = -1;
+                if (e1.cluster1 == e2.cluster1 || e1.cluster1 == e2.cluster2) sharedClusterId = e1.cluster1;
+                else if (e1.cluster2 == e2.cluster1 || e1.cluster2 == e2.cluster2) sharedClusterId = e1.cluster2;
+
+                if (sharedClusterId != -1) {
+                    const Cluster& cluster = clusters[sharedClusterId];
+                    auto it1 = cluster.intrapaths.find(e1Id);
+                    if (it1 != cluster.intrapaths.end()) {
+                        auto it2 = it1->second.find(e2Id);
+                        if (it2 != it1->second.end()) {
+                            for (size_t j = 1; j < it2->second.size(); j++) {
+                                finalPath.push_back(it2->second[j]);
+                            }
+                        }
+                    }
+                }
+            }
+
+            // 3. Last entrance to goal
+            int lastEId = abstractPath.back();
+            const Entrance& lastE = entrances[lastEId];
+            int goalPoly = (lastE.cluster1 == goalClusterId) ? lastE.polygon1 : lastE.polygon2;
+            std::vector<int> p3 = aStar(goalPoly, goal);
+            for (size_t j = 1; j < p3.size(); j++) {
+                finalPath.push_back(p3[j]);
+            }
+        }
+
+        std::cout << "Final HPA* Path: ";
+        for (int p : finalPath) std::cout << p << " → ";
+        std::cout << "Goal\n";
+        std::cout << "=====================================================\n\n";
+
+        return finalPath;
+    }
+
+    Vector3 getClusterCenter(int id) { // Fixed typo
+        for (auto& c : clusters) {
+            if (c.id == id) {
+                return { c.centerx, c.centery, c.centerz };
+            }
+        }
+        return { 0.0f, 0.0f, 0.0f };
+    }
+
+    std::pair<Vector3, Vector3> findSharedEdge(int from, int to) {
+        auto& polyA = polygons[from];
+        auto& polyB = polygons[to];
+        std::vector<Vector3> sharedVerts;
+
+        for (const auto& vA : polyA.vertices) {
+            for (const auto& vB : polyB.vertices) {
+                float dx = vA.x - vB.x;
+                float dy = vA.y - vB.y;
+                float dz = vA.z - vB.z;
+                float dist = sqrtf(dx * dx + dy * dy + dz * dz);
+                if (dist < 0.001f) {
+                    sharedVerts.push_back(vA);
+                    break;
+                }
+            }
+        }
+        if (sharedVerts.size() >= 2) return { sharedVerts[0], sharedVerts[1] };
+
+        Vector3 centerA = { polyA.centerX, polyA.centerY, polyA.centerZ };
+        Vector3 centerB = { polyB.centerX, polyB.centerY, polyB.centerZ };
+        return { centerA, centerB };
+    }
+
+    void addConnection(int from, int to, float cost) {
+        for (auto& p : polygons) {
+            if (p.id == from) { p.neighbors.push_back(to); p.costs.push_back(cost); }
+            if (p.id == to) { p.neighbors.push_back(from); p.costs.push_back(cost); }
+        }
+    }
+
+    void BlockPolygon(int id) {
+        BlockedPolygons.insert(id);
+        std::cout << "Polygon " << id << " is now Blocked!" << std::endl;
+    }
+
+    void UnBlockedPolygon(int id) {
+        BlockedPolygons.erase(id);
+        std::cout << "Polygon " << id << " is now UnBlocked!" << std::endl;
+    }
+
+    void BlockChunks(std::vector<int> ChunkId) {
+        for (int id : ChunkId) {
+            BlockPolygon(id);
+        }
+        std::cout << "Chunk of map is now BLOCKED!\n";
+    }
+
+    void UnBlockChunks(std::vector<int> ChunkId) {
+        for (int id : ChunkId) {
+            UnBlockedPolygon(id);
+        }
+        std::cout << "Chunk of map is now UNBLOCKED!\n";
+    }
+
+    bool isBlocked(int id) {
+        return BlockedPolygons.find(id) != BlockedPolygons.end();
+    }
+
+    float heuristic(int from, int goal) {
+        Vector3 p1 = getPolygonCenter(from);
+        Vector3 p2 = getPolygonCenter(goal);
+        float dx = p1.x - p2.x;
+        float dy = p1.y - p2.y;
+        float dz = p1.z - p2.z;
+        return std::sqrt(dx * dx + dy * dy + dz * dz);
+    }
+
+    std::vector<int> aStar(int start, int goal) {
+        std::vector<int> emptyPath;
+
+        if (isBlocked(start)) {
+            std::cout << "  Start polygon " << start << " is BLOCKED!\n";
+            return emptyPath;
+        }
+        if (isBlocked(goal)) {
+            std::cout << "  Goal polygon " << goal << " is BLOCKED!\n";
+            return emptyPath;
+        }
+
+        resetbuffers();
+
+        std::priority_queue<
+            std::pair<float, int>,
+            std::vector<std::pair<float, int>>,
+            std::greater<std::pair<float, int>>
+        > pq;
+
+        dist[start] = 0;
+        inOpenlist[start] = true;
+        pq.push({ heuristic(start, goal), start });
+
+        while (!pq.empty()) {
+            float f = pq.top().first;
+            int current = pq.top().second;
+            pq.pop();
+
+            if (f != dist[current] + heuristic(current, goal)) {
+                continue;
+            }
+
+            if (inClosedlist[current]) {
+                continue;
+            }
+
+            inClosedlist[current] = true;
+
+            if (current == goal) {
+                break;
+            }
+
+            for (size_t i = 0; i < polygons[current].neighbors.size(); i++) {
+                int next = polygons[current].neighbors[i];
+                float weight = polygons[current].costs[i];
+
+                if (isBlocked(next)) {
+                    continue;
+                }
+
+                if (inClosedlist[next]) {
+                    continue;
+                }
+
+                float g = dist[current] + weight;
+
+                if (g < dist[next]) {
+                    dist[next] = g;
+                    parent[next] = current;
+                    float h = heuristic(next, goal);
+                    float f_new = g + h;
+
+                    if (!inOpenlist[next]) {
+                        pq.push({ f_new, next });
+                        inOpenlist[next] = true;
+                    }
+                }
+            }
+        }
+
+        std::vector<int> path;
+        for (int at = goal; at != -1; at = parent[at]) {
+            path.push_back(at);
+        }
+        std::reverse(path.begin(), path.end());
+
+        return path;
+    }
+
+    Vector3 getPolygonCenter(int id) {
+        for (auto& p : polygons) {
+            if (p.id == id) return { p.centerX, p.centerY, p.centerZ };
+        }
+        return { 0.0f, 0.0f, 0.0f };
+    }
+
+    bool hasLineOfSight(int from, int to) {
+        return !isBlocked(from) && !isBlocked(to);
+    }
+
+    std::vector<int> smoothPath(const std::vector<int>& path) {
+        if (path.size() < 3) return path;
+        std::vector<int> smoothed;
+        smoothed.push_back(path[0]);
+        size_t current = 0;
+        while (current < path.size() - 1) {
+            size_t next = current + 1;
+            while (next < path.size() - 1 && hasLineOfSight(path[current], path[next + 1])) next++;
+            smoothed.push_back(path[next]);
+            if (current == next) break;
+            current = next;
+        }
+        return smoothed;
+    }
+
+    std::vector<Portal> getPortals(const std::vector<int>& path) { // Fixed typo
+        std::vector<Portal> Portals;
+        for (size_t i = 0; i < path.size() - 1; i++) {
+            int from = path[i];
+            int to = path[i + 1];
+            auto [left, right] = findSharedEdge(from, to);
+
+            float dx = right.x - left.x;
+            float dy = right.y - left.y;
+            float dz = right.z - left.z;
+            float portalwidth = sqrtf(dx * dx + dy * dy + dz * dz) / 2.0f;
+
+            Vector3 fromcenter = getPolygonCenter(from);
+            Vector3 tocenter = getPolygonCenter(to);
+            Vector3 mid = {   
+                    (fromcenter.x + tocenter.x) / 2.0f,
+                    (fromcenter.y + tocenter.y) / 2.0f, 
+                    (fromcenter.z + tocenter.z) / 2.0f 
+                };
+            Vector3 dir = { 
+                    tocenter.x - fromcenter.x,
+                    tocenter.y - fromcenter.y,
+                    tocenter.z - fromcenter.z 
+                };
+            float len = sqrtf(dir.x * dir.x + dir.y * dir.y + dir.z * dir.z);
+            if (len > 0.001f) { 
+                    dir.x /= len; 
+                    dir.y /= len; 
+                    dir.z /= len; 
+                }
+
+            Vector3 up = { 0.0f, 0.0f, 1.0f };
+            Vector3 prep = { 
+                    dir.y * up.z - dir.z * up.y,
+                    dir.z * up.x - dir.x * up.z,
+                    dir.x * up.y - dir.y * up.x 
+                };
+            
+            float perplen = sqrtf(prep.x * prep.x + prep.y * prep.y + prep.z * prep.z);
+            if (perplen > 0.001f) { 
+                    prep.x /= perplen;
+                    prep.y /= perplen;
+                    prep.z /= perplen; 
+                }
+
+            Portal portal;
+            portal.left = { 
+                    mid.x - prep.x * portalwidth,
+                    mid.y - prep.y * portalwidth,
+                    mid.z - prep.z * portalwidth 
+                };
+            portal.right = { 
+                    mid.x + prep.x * portalwidth,
+                    mid.y + prep.y * portalwidth,
+                    mid.z + prep.z * portalwidth 
+                };
+            
+            Portals.push_back(portal);
+        }
+        return Portals;
+    }
+
+    float cross2D(Vector3 a, Vector3 b, Vector3 c) {
+        return (b.x - a.x) * (c.y - a.y) - (b.y - a.y) * (c.x - a.x);
+    }
+    bool isLeftOfLine(Vector3 a, Vector3 b, Vector3 point) { return cross2D(a, b, point) > 0.0f; }
+    bool isRightOfLine(Vector3 a, Vector3 b, Vector3 point) { return cross2D(a, b, point) < 0.0f; }
+
+    std::vector<Vector3> funnelAlgorithm(const std::vector<int>& path) {
+        std::vector<Vector3> smoothenPath;
+        if (path.size() < 2) {
+            for (int id : path) smoothenPath.push_back(getPolygonCenter(id));
+            return smoothenPath;
+        }
+
+        std::vector<Portal> portals = getPortals(path);
+        Vector3 start = getPolygonCenter(path[0]);
+        Vector3 goal = getPolygonCenter(path[path.size() - 1]);
+
+        Vector3 apex = start;
+        Vector3 left = start;
+        Vector3 right = start;
+        int leftIndex = 0;
+        int rightIndex = 0;
+        smoothenPath.push_back(start);
+
+        for (int i = 0; i < static_cast<int>(portals.size()); i++) {
+            Vector3 portalleft = portals[i].left;
+            Vector3 portalright = portals[i].right;
+
+            if (isLeftOfLine(apex, right, portalleft)) { left = portalleft; leftIndex = i; }
+            if (isRightOfLine(apex, left, portalright)) { right = portalright; rightIndex = i; }
+
+            if (isLeftOfLine(apex, left, right)) {
+                smoothenPath.push_back(left);
+                apex = left; left = apex; right = apex; i = leftIndex; continue;
+            }
+            if (isRightOfLine(apex, right, left)) {
+                smoothenPath.push_back(right);
+                apex = right; left = apex; right = apex; i = rightIndex; continue;
+            }
+        }
+        smoothenPath.push_back(goal);
+        return smoothenPath;
+    }
+};
+
+class steering {
+public:
+    static Vector3 normalize(const Vector3& v) {
+        float len = sqrtf(v.x * v.x + v.y * v.y + v.z * v.z);
+        if (len > 0.001f) {
+            return { v.x / len, v.y / len, v.z / len };
+        }
+        return { 0.0f,0.0f,0.0f };
+    }
+
+    static float magnitude(const Vector3& v) {
+        return sqrtf(v.x * v.x + v.y * v.y + v.z * v.z);
+    }
+
+    static Vector3 scale(const Vector3& v, float s) {
+        return { v.x * s, v.y * s, v.z * s };
+    }
+
+    static Vector3 subtract(const Vector3& a, const Vector3& b) {
+        return { a.x - b.x, a.y - b.y, a.z - b.z };
+    }
+
+    static Vector3 add(const Vector3& a, const Vector3& b) {
+        return { a.x + b.x, a.y + b.y, a.z + b.z };
+    }
+
+    static Vector3 truncate(const Vector3& v, float max) {
+        float len = magnitude(v);
+        if (len > max) {
+            return scale(v, max / len);
+        }
+        return v;
+    }
+
+    static Vector3 seek(const Vector3& target, const Vector3& position, const Vector3& velocity, float maxspeed) {
+        Vector3 desired = scale(normalize(subtract(target, position)), maxspeed);
+        return subtract(desired, velocity);
+    }
+
+    static Vector3 flee(const Vector3& target, const Vector3& position, const Vector3& velocity, float maxspeed) {
+        Vector3 desired = scale(normalize(subtract(position, target)), maxspeed);
+        return subtract(desired, velocity);
+    }
+
+    static Vector3 arrive(const Vector3& target, const Vector3& position, const Vector3& velocity, float maxspeed, float slowingRadius) {
+        Vector3 desired = subtract(target, position);
+        float distance = magnitude(desired);
+        if (distance > 0.001f) {
+            float speed = maxspeed;
+            if (distance < slowingRadius) {
+                speed = maxspeed * (distance / slowingRadius);
+            }
+            desired = normalize(desired);
+            desired = scale(desired, speed);
+
+            Vector3 steer = subtract(desired, velocity);
+            return steer;
+        }
+        return { 0.0f,0.0f,0.0f };
+    }
+
+    static Vector3 separation(const std::vector<Vector3>& neighbors, const Vector3& position) {
+        Vector3 steer = { 0, 0, 0 };
+        for (const auto& neighbor : neighbors) {
+            Vector3 diff = subtract(position, neighbor);
+            float dist = magnitude(diff);
+
+            if (dist > 0.001f && dist < 10.0f) {
+                steer = add(steer, scale(normalize(diff), 1.0f / dist));
+            }
+        }
+        return steer;
+    }
+
+    static Vector3 alignment(const std::vector<Vector3>& neighbors, const Vector3& velocity) {
+        if (neighbors.empty()) return { 0,0,0 };
+        Vector3 Avgvelocity = { 0,0,0 };
+        for (auto& neighbor : neighbors) {
+            Avgvelocity = add(Avgvelocity, neighbor);
+        }
+        Avgvelocity = scale(Avgvelocity, 1.0f / neighbors.size());
+        return subtract(Avgvelocity, velocity);
+    }
+
+    static Vector3 cohesion(const std::vector<Vector3>& neighbors, const Vector3& position) {
+        if (neighbors.empty()) return { 0.0f, 0.0f, 0.0f };
+        Vector3 center = { 0, 0, 0 };
+        for (const auto& neighbor : neighbors) {
+            center = add(center, neighbor);
+        }
+        center = scale(center, 1.0f / static_cast<float>(neighbors.size()));
+        return subtract(center, position);
+    }
+
+    static Vector3 flocking(const std::vector<Vector3>& neighborPositions, const std::vector<Vector3>& neighborVelocities,
+        const Vector3& position, const Vector3& velocity) {
+        Vector3 sep = separation(neighborPositions, position);
+        Vector3 ali = alignment(neighborVelocities, velocity);
+        Vector3 coh = cohesion(neighborPositions, position);
+
+        Vector3 steer = add(scale(sep, 1.5f), add(scale(ali, 1.0f), scale(coh, 1.0f)));
+        return steer;
+    }
+};
+
+class Enemy {
+private:
+    AIState currentState;
+    float health;
+    float detectionRange;
+    float attackRange;
+    float speed;
+    float x, y, z;
+    std::vector<int> patrolPath;
+    int patrolIndex;
+    NavMesh& navMesh;
+    std::vector<int> currentPath;
+    size_t currentPathIndex;
+    float playerX, playerY, playerZ;
+    int playerPolygonId;
+    float repathCooldown;
+    float timeSinceLastRepath;
+    int lastKnownPlayerPolygon;
+    int lastValidPolygonId;
+    Vector3 velocity;
+    float slowingRadius;
+    std::vector<Enemy*> allEnemies;
+    float neighborRadius;
+    BTNode* root;
+    Blackboard personalBlackboard;
+    Blackboard& sharedBlackboard;
+    int ammo;
+public:
+    Enemy(NavMesh& nav, Blackboard& globalBb) : sharedBlackboard(globalBb),
+        currentState(AIState::IDLE),
+        health(100.0f),
+        detectionRange(20.0f),
+        attackRange(2.5f),
+        speed(2.0f),
+        x(5.0f),
+        y(5.0f),
+        z(0.5f),
+        patrolIndex(0),
+        navMesh(nav),
+        currentPathIndex(0),
+        playerX(0.0f), playerY(0.0f), playerZ(0.0f),
+        playerPolygonId(3),
+        repathCooldown(0.5f),
+        timeSinceLastRepath(0.0f),
+        lastKnownPlayerPolygon(-1),
+        lastValidPolygonId(0),
+        velocity({ 0.0f,0.0f,0.0f }),
+        slowingRadius(5.0f),
+        ammo(30),
+        neighborRadius(15.0f),
+        root(nullptr) {
+        buildBehaviorTree();
+    }
+
+    ~Enemy() {
+        delete root;
+    }
+
+    std::vector<Vector3> getNeighborPositions() {
+        std::vector<Vector3> positions;
+        Vector3 myPos = getPosition();
+        for (Enemy* other : allEnemies) {
+            if (other == this) continue;
+            if (other->getState() == AIState::DEAD) continue;
+
+            if (steering::magnitude(steering::subtract(other->getPosition(), myPos)) < neighborRadius) {
+                positions.push_back(other->getPosition());
+            }
+        }
+        return positions;
+    }
+
+    std::vector<Vector3> getNeighborVelocities() {
+        std::vector<Vector3> velocities;
+        Vector3 myPos = getPosition();
+        for (Enemy* other : allEnemies) {
+            if (other == this) continue;
+            if (other->getState() == AIState::DEAD) continue;
+
+            if (steering::magnitude(steering::subtract(other->getPosition(), myPos)) < neighborRadius) {
+                velocities.push_back(other->velocity);
+            }
+        }
+        return velocities;
+    }
+
+    void buildBehaviorTree() {
+        ConditionNode* isDeadCond = new ConditionNode(&Enemy::isDead);
+        ConditionNode* isLowHpCond = new ConditionNode(&Enemy::isHealthLow);
+        ConditionNode* isPlayerDetectedCond = new ConditionNode(&Enemy::isPlayerDetected);
+        ConditionNode* isInAttackRangeCond = new ConditionNode(&Enemy::isInAttackRange);
+
+        ActionNode* doDead = new ActionNode(&Enemy::doDead);
+        ActionNode* doFlee = new ActionNode(&Enemy::doFlee);
+        ActionNode* doAttack = new ActionNode(&Enemy::doAttack);
+        ActionNode* doChase = new ActionNode(&Enemy::doChase);
+        ActionNode* doPatrol = new ActionNode(&Enemy::doPatrol);
+
+        Sequence* seqDead = new Sequence({ isDeadCond, doDead });
+        Sequence* seqFlee = new Sequence({ isLowHpCond, doFlee });
+
+        Sequence* seqAttack = new Sequence({ isInAttackRangeCond, doAttack });
+        Selector* selCombatAction = new Selector({ seqAttack, doChase });
+        Sequence* seqCombat = new Sequence({ isPlayerDetectedCond, selCombatAction });
+
+        root = new Selector({ seqDead, seqFlee, seqCombat, doPatrol });
+    }
+
+    void runBT() {
+        if (root) root->execute(this);
+    }
+
+    void setPosition(float px, float py, float pz) {
+        x = px;
+        y = py;
+        z = pz;
+    }
+
+    Vector3 getPosition() const {
+        return { x, y, z };
+    }
+
+    void setEnemyList(std::vector<Enemy*>& Enemies) {
+        allEnemies = Enemies;
+    }
+
+    void setPatrolPath(const std::vector<int>& path) {
+        patrolPath = path;
+        patrolIndex = 0;
+    }
+
+    void setPlayerPosition(float px, float py, float pz, int Playerpolygonid) {
+        playerX = px;
+        playerY = py;
+        playerZ = pz;
+        playerPolygonId = Playerpolygonid;
+    }
+
+    void setState(AIState state) { currentState = state; }
+    AIState getState() const { return currentState; }
+    float getHealth() const { return health; }
+
+    std::string stateToString(AIState state) {
+        switch (state) {
+        case AIState::IDLE:   return "IDLE";
+        case AIState::PATROL: return "PATROL";
+        case AIState::CHASE:  return "CHASE";
+        case AIState::ATTACK: return "ATTACK";
+        case AIState::FLEE:   return "FLEE";
+        case AIState::DEAD:   return "DEAD";
+        }
+        return "UNKNOWN";
+    }
+
+    bool isPlayerDetected() {
+        float dx = playerX - x;
+        float dy = playerY - y;
+        float distance = std::sqrtf(dx * dx + dy * dy);
+        return distance < detectionRange;
+    }
+
+    bool isInAttackRange() {
+        float dx = playerX - x;
+        float dy = playerY - y;
+        float distance = std::sqrtf(dx * dx + dy * dy);
+        return distance < attackRange;
+    }
+
+    void moveToPolygon(int polygonId) {
+        Vector3 center = navMesh.getPolygonCenter(polygonId);
+        float targetX = center.x;
+        float targetY = center.y;
+        float targetZ = center.z;
+        float dx = targetX - x;
+        float dy = targetY - y;
+        float dz = targetZ - z;
+        float distance = std::sqrtf(dx * dx + dy * dy + dz * dz);
+        if (distance > 0.1f) {
+            float currentStep = std::min(speed, distance);
+            x += (dx / distance) * currentStep;
+            y += (dy / distance) * currentStep;
+            z += (dz / distance) * currentStep;
+            std::cout << "  Moving to polygon " << polygonId
+                << " (" << x << ", " << y << ", " << z << ")\n";
+        }
+        else {
+            lastValidPolygonId = polygonId;
+            std::cout << "  Reached polygon " << polygonId << "\n";
+        }
+    }
+
+    int getCurrentPolygon() {
+        if (!currentPath.empty() && currentPathIndex < currentPath.size()) {
+            return currentPath[currentPathIndex];
+        }
+        return lastValidPolygonId;
+    }
+
+    void updateIdle() {
+        std::cout << "Idle...\n";
+        if (isPlayerDetected()) {
+            setState(AIState::CHASE);
+        }
+    }
+
+    void updatePatrol() {
+        if (patrolPath.empty()) {
+            setState(AIState::IDLE);
+            return;
+        }
+
+        if (currentPath.empty() || currentPathIndex >= currentPath.size()) {
+            int start = getCurrentPolygon();
+            int goal = patrolPath[patrolIndex];
+
+            std::vector<int> rawPath = navMesh.aStar(start, goal);
+
+            std::vector<int> smoothPolygonpath = navMesh.smoothPath(rawPath);
+            std::vector<Vector3> smoothpoints = navMesh.funnelAlgorithm(smoothPolygonpath);
+            currentPath = smoothPolygonpath;
+            currentPathIndex = 0;
+
+            if (currentPath.empty()) {
+                std::cout << "  No path to patrol point " << patrolIndex << "\n";
+                patrolIndex = (patrolIndex + 1) % patrolPath.size();
+                return;
+            }
+
+            std::cout << "  Patrolling to polygon " << goal << "\n";
+        }
+
+        int nextPolygon = currentPath[currentPathIndex];
+
+        auto center = navMesh.getPolygonCenter(nextPolygon);
+        float dx = center.x - x;
+        float dy = center.y - y;
+        float dz = center.z - z;
+        if (std::sqrtf(dx * dx + dy * dy + dz * dz) < 0.5f) {
+            currentPathIndex++;
+            if (currentPathIndex >= currentPath.size()) {
+                patrolIndex = (patrolIndex + 1) % patrolPath.size();
+                currentPath.clear();
+            }
+        }
+
+        if (isPlayerDetected()) {
+            setState(AIState::CHASE);
+        }
+    }
+
+    void updateChase() {
+        std::cout << "Chasing player!\n";
+
+        bool hasNoPath = currentPath.empty() || currentPathIndex >= currentPath.size();
+        bool timerExpired = (timeSinceLastRepath >= repathCooldown);
+        bool playerMoved = (playerPolygonId != lastKnownPlayerPolygon);
+
+        if (hasNoPath || (timerExpired && playerMoved)) {
+            int start = getCurrentPolygon();
+            int goal = playerPolygonId;
+
+            std::vector<int> rawPath = navMesh.aStar(start, goal);
+
+            if (rawPath.empty()) {
+                std::cout << "  [Pathfinding] No valid path available to target!\n";
+                timeSinceLastRepath = 0.0f;
+                return;
+            }
+
+            currentPath = navMesh.smoothPath(rawPath);
+            currentPathIndex = 0;
+            timeSinceLastRepath = 0.0f;
+            lastKnownPlayerPolygon = playerPolygonId;
+        }
+
+        if (currentPathIndex < currentPath.size()) {
+            int nextPolygon = currentPath[currentPathIndex];
+            auto center = navMesh.getPolygonCenter(nextPolygon);
+
+            float dx = center.x - x;
+            float dy = center.y - y;
+            if (std::sqrtf(dx * dx + dy * dy) < 0.5f) {
+                lastValidPolygonId = nextPolygon;
+                currentPathIndex++;
+            }
+        }
+    }
+
+    float attackCooldown = 1.0f;
+    float timeSinceLastAttack = 1.0f;
+    void updateAttack() {
+        std::cout << "ATTACK! -10 HP to player!\n";
+        health -= 25.0f;
+    }
+
+    void updateFlee() {
+        std::cout << "Fleeing from player!\n";
+        int start = getCurrentPolygon();
+        int goal = 0;
+
+        std::vector<int> rawPath = navMesh.aStar(start, goal);
+        currentPath = navMesh.smoothPath(rawPath);
+
+        if (currentPath.empty()) {
+            Vector3 playerPos = { playerX, playerY, playerZ };
+            Vector3 currentPos = { x, y, z };
+            Vector3 fleeSteer = steering::flee(playerPos, currentPos, velocity, speed);
+            velocity = steering::add(velocity, fleeSteer);
+            return;
+        }
+
+        if (currentPathIndex >= currentPath.size()) {
+            currentPathIndex = 0;
+        }
+
+        int nextPolygon = currentPath[currentPathIndex];
+        auto center = navMesh.getPolygonCenter(nextPolygon);
+        float dx = center.x - x;
+        float dy = center.y - y;
+        float dz = center.z - z;
+
+        if (std::sqrtf(dx * dx + dy * dy + dz * dz) < 0.5f) {
+            currentPathIndex++;
+        }
+
+        if (start == 0 && std::sqrtf(dx * dx + dy * dy + dz * dz) < 0.5f) {
+            health = 100.0f;
+            setState(AIState::PATROL);
+        }
+    }
+
+    bool isDead() {
+        return health <= 0.0f;
+    }
+
+    bool isHealthLow() {
+        return health < 30.0f;
+    }
+
+    void doAttack() {
+        setState(AIState::ATTACK);
+        updateAttack();
+    }
+
+    void doDead() {
+        setState(AIState::DEAD);
+        updateDead();
+    }
+
+    void doFlee() {
+        setState(AIState::FLEE);
+        updateFlee();
+    }
+
+    void doChase() {
+        setState(AIState::CHASE);
+        updateChase();
+    }
+
+    void doPatrol() {
+        setState(AIState::PATROL);
+        updatePatrol();
+    }
+
+    void updateMovement(const Vector3& target, float deltaTime) {
+        if (currentState == AIState::DEAD) {
+            velocity = { 0.0f, 0.0f, 0.0f };
+            std::cout << "  [Steering] Enemy is DEAD at Pos: (" << x << ", " << y << ", " << z << ")\n";
+            return;
+        }
+
+        Vector3 currentPos = { x, y, z };
+        Vector3 steer;
+
+        std::vector<Vector3> neighborPositions = getNeighborPositions();
+        std::vector<Vector3> neighborVelocities = getNeighborVelocities();
+
+        if (currentState == AIState::CHASE) {
+            Vector3 seekForce = steering::seek(target, currentPos, velocity, speed);
+            Vector3 flockForce = steering::flocking(neighborPositions, neighborVelocities, currentPos, velocity);
+            steer = steering::add(seekForce, flockForce);
+        }
+        else if (currentState == AIState::FLEE) {
+            steer = steering::arrive(target, currentPos, velocity, speed, slowingRadius);
+        }
+        else {
+            steer = steering::flocking(neighborPositions, neighborVelocities, currentPos, velocity);
+        }
+
+        velocity = steering::add(velocity, steer);
+        velocity = steering::truncate(velocity, speed);
+
+        x += velocity.x * deltaTime;
+        y += velocity.y * deltaTime;
+        z = 0.5f;
+
+        velocity = steering::scale(velocity, 0.85f);
+
+        std::cout << "  [Steering] Pos: (" << x << ", " << y << ", " << z << ")\n";
+    }
+
+    void updateDead() {
+        std::cout << "Enemy is DEAD! Game over.\n";
+    }
+
+    void update(float deltaTime) {
+        personalBlackboard.set<Vector3>(BlackboardKey::ENEMY_POSITION, { x, y, z });
+        personalBlackboard.set<float>(BlackboardKey::ENEMY_HEALTH, health);
+        personalBlackboard.set<bool>(BlackboardKey::IS_DEAD, isDead());
+        personalBlackboard.set<int>(BlackboardKey::ENEMY_AMMO, ammo);
+
+        if (sharedBlackboard.has(BlackboardKey::PLAYER_POSITION)) {
+            Vector3 playerpos = sharedBlackboard.get<Vector3>(BlackboardKey::PLAYER_POSITION);
+            playerX = playerpos.x;
+            playerY = playerpos.y;
+            playerZ = playerpos.z;
+        }
+
+        if (currentState == AIState::CHASE) {
+            timeSinceLastRepath += deltaTime;
+        }
+        else {
+            timeSinceLastRepath = repathCooldown;
+        }
+
+        runBT();
+    }
+};
+
+BTNodeStatus ConditionNode::execute(Enemy* enemy) {
+    return (enemy->*condition)() ? BTNodeStatus::SUCCESS : BTNodeStatus::FAILURE;
+}
+
+BTNodeStatus ActionNode::execute(Enemy* enemy) {
+    (enemy->*action)();
+    return BTNodeStatus::SUCCESS;
+}
+
+int main() {
+    NavMesh nav;
+    Blackboard globalBlackboard;
+
+    nav.addPolygon(0, 5.0f, 5.0f, 5.0f, {
+        {0.0f, 0.0f, 0.0f},
+        {10.0f, 0.0f, 0.0f},
+        {10.0f, 10.0f, 0.0f},
+        {0.0f, 10.0f, 0.0f}
+        });
+
+    nav.addPolygon(1, 15.0f, 5.0f, 5.0f, {
+        {10.0f, 0.0f, 0.0f},
+        {20.0f, 0.0f, 0.0f},
+        {20.0f, 10.0f, 0.0f},
+        {10.0f, 10.0f, 0.0f}
+        });
+
+    nav.addPolygon(2, 5.0f, 15.0f, 8.0f, {
+        {0.0f, 10.0f, 0.0f},
+        {10.0f, 10.0f, 0.0f},
+        {10.0f, 20.0f, 0.0f},
+        {0.0f, 20.0f, 0.0f}
+        });
+
+    nav.addPolygon(3, 15.0f, 15.0f, 10.0f, {
+        {10.0f, 10.0f, 0.0f},
+        {20.0f, 10.0f, 0.0f},
+        {20.0f, 20.0f, 0.0f},
+        {10.0f, 20.0f, 0.0f}
+        });
+
+    nav.addConnection(0, 1, 10.0f);
+    nav.addConnection(0, 3, 37.0f);
+    nav.addConnection(1, 2, 10.0f);
+    nav.addConnection(1, 3, 10.0f);
+    nav.addConnection(2, 3, 15.0f);
+
+    nav.finalizeMap(); // Fixed typo
+
+    // ==================== DEFINE CLUSTERS ====================
+    std::cout << "\n=====================================================\n";
+    std::cout << ">>> DEFINING HPA* CLUSTERS <<<\n";
+    std::cout << "=====================================================\n";
+
+    nav.addCluster(0, { 0, 1 });  // Bottom row cluster (Fixed typo)
+    nav.addCluster(1, { 2, 3 });  // Top row cluster (Fixed typo)
+
+    std::cout << "=====================================================\n\n";
+
+    // ==================== INITIALIZE HPA* ====================
+    nav.initializeHPA(); // Fixed typo
+
+    // ==================== HPA* PATHFINDING TEST ====================
+    std::cout << "\n=====================================================\n";
+    std::cout << ">>> TESTING HPA* PATHFINDING (Polygon 0 to 3) <<<\n";
+    std::cout << "=====================================================\n";
+
+    int hpaStart = 0;
+    int hpaGoal = 3;
+    std::vector<int> hpaPath = nav.hpaStar(hpaStart, hpaGoal); // Fixed typo
+
+    std::cout << "HPA* Final Polygon Path: ";
+    for (size_t i = 0; i < hpaPath.size(); ++i) {
+        std::cout << hpaPath[i] << (i < hpaPath.size() - 1 ? " -> " : "");
+    }
+    std::cout << "\n=====================================================\n\n";
+
+    // ==================== FUNNEL ALGORITHM TEST ====================
+    std::cout << "=====================================================\n";
+    std::cout << ">>> TESTING FUNNEL ALGORITHM PATH SMOOTHING <<<\n";
+    std::cout << "=====================================================\n";
+
+    int start = 0;
+    int goal = 3;
+
+    std::vector<int> rawPath = nav.aStar(start, goal);
+
+    std::cout << "Raw A* Polygon Path: ";
+    for (int id : rawPath) {
+        std::cout << id << " -> ";
+    }
+    std::cout << "Goal\n";
+
+    std::vector<Vector3> smoothWaypoints = nav.funnelAlgorithm(rawPath);
+
+    std::cout << "Funnel Algorithm Output Waypoints (3D):\n";
+    for (size_t i = 0; i < smoothWaypoints.size(); ++i) {
+        std::cout << "  Waypoint [" << i << "]: ("
+            << smoothWaypoints[i].x << ", "
+            << smoothWaypoints[i].y << ", "
+            << smoothWaypoints[i].z << ")\n";
+    }
+    std::cout << "=====================================================\n\n";
+
+    std::vector<Enemy*> enemyPtrs;
+    enemyPtrs.reserve(4);
+
+    for (int i = 0; i < 4; i++) {
+        Enemy* newEnemy = new Enemy(nav, globalBlackboard);
+        newEnemy->setPatrolPath({ 0, 1, 2, 3 });
+        newEnemy->setState(AIState::PATROL);
+        enemyPtrs.push_back(newEnemy);
+    }
+
+    enemyPtrs[0]->setPosition(5.0f, 5.0f, 0.5f);
+    enemyPtrs[1]->setPosition(8.0f, 6.0f, 0.5f);
+    enemyPtrs[2]->setPosition(4.0f, 9.0f, 0.5f);
+    enemyPtrs[3]->setPosition(9.0f, 4.0f, 0.5f);
+
+    for (auto* e : enemyPtrs) {
+        e->setEnemyList(enemyPtrs);
+    }
+
+    float deltaTime = 0.5f;
+    float playerX = 40.0f, playerY = 40.0f, playerZ = 10.0f;
+    int playerPolygon = 3;
+
+    for (auto* e : enemyPtrs) {
+        e->setPlayerPosition(playerX, playerY, playerZ, playerPolygon);
+    }
+
+    std::cout << "================ STARTING SIMULATION ================\n\n";
+
+    // ==================== PHASE 1: Patrol ====================
+    std::cout << ">>> PHASE 1: Enemies Patrolling safely <<<\n";
+    for (int frame = 1; frame <= 3; frame++) {
+        std::cout << "--- Frame " << frame << " ---\n";
+        for (auto* e : enemyPtrs) {
+            e->update(deltaTime);
+            Vector3 target = nav.getPolygonCenter(e->getCurrentPolygon());
+            e->updateMovement(target, deltaTime);
+        }
+        std::cout << "\n";
+    }
+
+    // ==================== PHASE 2: Player detected ====================
+    std::cout << ">>> PHASE 2: Player moves into Detection Range (Room C) <<<\n";
+    playerX = 15.0f; playerY = 15.0f; playerZ = 10.0f;
+
+    for (auto* e : enemyPtrs) {
+        e->setPlayerPosition(playerX, playerY, playerZ, playerPolygon);
+    }
+
+    for (int frame = 4; frame <= 7; frame++) {
+        std::cout << "--- Frame " << frame << " ---\n";
+        for (auto* e : enemyPtrs) {
+            e->update(deltaTime);
+            Vector3 target = (e->getState() == AIState::CHASE)
+                ? Vector3{ playerX, playerY, playerZ }
+            : nav.getPolygonCenter(e->getCurrentPolygon());
+            e->updateMovement(target, deltaTime);
+        }
+        std::cout << "\n";
+    }
+
+    // ==================== PHASE 3: Block Corridor ====================
+    std::cout << ">>> PHASE 3: Suddenly blocking Corridor (Polygon 1)! <<<\n";
+    nav.BlockChunks({ 1 });
+
+    for (int frame = 8; frame <= 10; frame++) {
+        std::cout << "--- Frame " << frame << " ---\n";
+        for (auto* e : enemyPtrs) {
+            e->update(deltaTime);
+            Vector3 target = (e->getState() == AIState::CHASE)
+                ? Vector3{ playerX, playerY, playerZ }
+            : nav.getPolygonCenter(e->getCurrentPolygon());
+            e->updateMovement(target, deltaTime);
+        }
+        std::cout << "\n";
+    }
+
+    // ==================== PHASE 4: Combat ====================
+    std::cout << ">>> PHASE 4: Enemies engage in Combat and Health drops <<<\n";
+    int combatFrame = 11;
+    bool allFleeing = false;
+
+    while (!allFleeing && combatFrame < 40) {
+        std::cout << "--- Frame " << combatFrame++ << " (Combat/Flee Tick) ---\n";
+        allFleeing = true;
+
+        for (auto* e : enemyPtrs) {
+            std::cout << "Enemy Health: " << e->getHealth() << " HP\n";
+            e->update(deltaTime);
+
+            Vector3 target = (e->getState() == AIState::CHASE)
+                ? Vector3{ playerX, playerY, playerZ }
+            : nav.getPolygonCenter(e->getCurrentPolygon());
+            e->updateMovement(target, deltaTime);
+
+            if (e->getState() != AIState::FLEE && e->getHealth() > 0) {
+                allFleeing = false;
+            }
+        }
+        std::cout << "\n";
+    }
+
+    // ==================== PHASE 5: Escape ====================
+    std::cout << ">>> PHASE 5: Enemies escaping back to Room 0 safely <<<\n";
+    nav.UnBlockChunks({ 1 });
+
+    for (int frame = combatFrame; frame < combatFrame + 5; frame++) {
+        std::cout << "--- Frame " << frame << " ---\n";
+        for (auto* e : enemyPtrs) {
+            e->update(deltaTime);
+            Vector3 target = (e->getState() == AIState::FLEE)
+                ? nav.getPolygonCenter(e->getCurrentPolygon())
+                : Vector3{ playerX, playerY, playerZ };
+            e->updateMovement(target, deltaTime);
+        }
+        std::cout << "\n";
+    }
+
+    for (Enemy* e : enemyPtrs) {
+        delete e;
+    }
+    enemyPtrs.clear();
+
+    std::cout << "================ SIMULATION CONCLUDED ================\n";
+    return 0;
+}   
